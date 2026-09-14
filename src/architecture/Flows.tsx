@@ -57,9 +57,16 @@ export function Flows({ activeFlowIds }: FlowsProps) {
 
   return (
     <>
-      {/* ExecutionFlow: Agents -> Entry gate -> Runtime */}
-      <FlowLine from={layout.agents[0].position} to={layout.entrySurface.position} color={colors.textSecondary} opacity={execution} />
-      <FlowLine from={layout.agents[1].position} to={layout.entrySurface.position} color={colors.textSecondary} opacity={execution} />
+      {/* ExecutionFlow: every Agent -> Entry gate -> Runtime */}
+      {layout.agents.map((agent) => (
+        <FlowLine
+          key={agent.id}
+          from={agent.position}
+          to={layout.entrySurface.position}
+          color={colors.textSecondary}
+          opacity={execution}
+        />
+      ))}
       <FlowLine
         from={layout.entrySurface.position}
         to={layout.runtime.position}
