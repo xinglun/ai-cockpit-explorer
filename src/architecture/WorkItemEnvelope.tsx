@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
+import { Line } from "@react-three/drei";
 import { workItemEnvelopeBounds } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
 import { prefersReducedMotion } from "@/design-system/motion";
 import { nextEnvelopeStep, vec3Reached, type Vec3 } from "@/interaction/envelopeTransition";
+import { cornerBracketSegments } from "@/interaction/boundaryField";
 import { Label } from "./Label";
 import type { WorkItemEnvelopeStage } from "@/data/workItem";
 import type { ArchitectureElementId } from "@/data/architecture";
@@ -18,9 +20,12 @@ interface WorkItemEnvelopeProps {
   onSelect: (id: ArchitectureElementId) => void;
   label: string;
   closedLabel: string;
+  /** True for the RED fail-closed Verification scenario — the boundary flashes red instead of reading as an open glass volume. */
+  blocked?: boolean;
 }
 
 const COLLAPSED_STAGES: WorkItemEnvelopeStage[] = ["archived", "closed"];
+const FLASH_HZ = 2.4;
 
 /**
  * A bounded, evolving envelope around whatever the in-flight Work Item
@@ -33,6 +38,13 @@ const COLLAPSED_STAGES: WorkItemEnvelopeStage[] = ["archived", "closed"];
  * presets is a smooth, bounded lerp (see envelopeTransition.ts), only
  * running while actually in transit, and skipped entirely (an instant
  * snap) under prefers-reduced-motion.
+ *
+ * Rendered as a boundary field — corner brackets implying a volume —
+ * rather than a fully six-sided glass box: the six-sided version read
+ * as a fishbowl and drew attention to itself as an object rather than
+ * a boundary. When `blocked`, the brackets flash red instead of the
+ * usual blue, a distinct visual state for an out-of-scope action;
+ * reduced motion holds solid red instead of flashing.
  */
 export function WorkItemEnvelope({
   stage,
@@ -42,6 +54,7 @@ export function WorkItemEnvelope({
   onSelect,
   label,
   closedLabel,
+  blocked = false,
 }: WorkItemEnvelopeProps) {
   const target = stage === "none" ? null : workItemEnvelopeBounds[stage];
   const collapsed = stage !== "none" && COLLAPSED_STAGES.includes(stage);
@@ -49,6 +62,7 @@ export function WorkItemEnvelope({
   const [center, setCenter] = useState<Vec3>(target?.center ?? [0, 0, 0]);
   const [size, setSize] = useState<Vec3>(target?.size ?? [0.01, 0.01, 0.01]);
   const wasVisible = useRef(stage !== "none");
+  const [flashPhase, setFlashPhase] = useState(1);
 
   useEffect(() => {
     // Nothing to morph from the first time the envelope appears —
@@ -61,63 +75,60 @@ export function WorkItemEnvelope({
     wasVisible.current = stage !== "none";
   }, [stage, target]);
 
-  useFrame((_, delta) => {
-    if (!target) return;
-    const reduced = prefersReducedMotion();
-    const deltaMs = delta * 1000;
-    if (!vec3Reached(center, target.center)) {
-      setCenter((current) => nextEnvelopeStep(current, target.center, deltaMs, reduced));
+  useFrame((state, delta) => {
+    if (target) {
+      const reduced = prefersReducedMotion();
+      const deltaMs = delta * 1000;
+      if (!vec3Reached(center, target.center)) {
+        setCenter((current) => nextEnvelopeStep(current, target.center, deltaMs, reduced));
+      }
+      if (!vec3Reached(size, target.size)) {
+        setSize((current) => nextEnvelopeStep(current, target.size, deltaMs, reduced));
+      }
     }
-    if (!vec3Reached(size, target.size)) {
-      setSize((current) => nextEnvelopeStep(current, target.size, deltaMs, reduced));
+    if (blocked && !prefersReducedMotion()) {
+      setFlashPhase(0.55 + 0.45 * Math.abs(Math.sin(state.clock.elapsedTime * Math.PI * FLASH_HZ)));
+    } else if (flashPhase !== 1) {
+      setFlashPhase(1);
     }
   });
 
   if (!target) return null;
 
+  const boundaryColor = blocked ? colors.stateRed : colors.informationFlow;
+  const baseOpacity = isDimmed ? 0.08 : collapsed ? 0.4 : blocked ? 0.85 : isSelected ? 0.7 : 0.5;
+  const opacity = baseOpacity * (blocked ? flashPhase : 1);
+  const segments = cornerBracketSegments(center, size);
+  const lineWidth = isSelected ? 3 : 2;
+
   return (
     <group
-      position={center}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("workItem");
       }}
     >
-      {/* Clear glass body — the envelope reads as a boundary you can see into, not a fog. */}
-      <mesh>
+      {segments.map((segment, index) => (
+        <Line key={index} points={segment} color={boundaryColor} lineWidth={lineWidth} transparent opacity={opacity} />
+      ))}
+      {/* An almost-invisible fill so the volume is still clickable, not just its edges. */}
+      <mesh position={center}>
         <boxGeometry args={size} />
-        <meshPhysicalMaterial
-          color={colors.informationFlow}
-          emissive={isSelected ? colors.informationFlow : "#000000"}
-          emissiveIntensity={isSelected ? 0.25 : 0.05}
-          opacity={isDimmed ? 0.03 : collapsed ? 0.14 : 0.06}
-          transparent
-          transmission={0.6}
-          roughness={0.15}
-          thickness={0.6}
-          ior={1.4}
-          depthWrite={false}
-        />
-      </mesh>
-      {/* A thin wireframe so the boundary stays legible even at low opacity. */}
-      <mesh>
-        <boxGeometry args={size} />
-        <meshBasicMaterial
-          color={colors.informationFlow}
-          wireframe
-          transparent
-          opacity={isDimmed ? 0.05 : 0.25}
-          depthWrite={false}
-        />
+        <meshBasicMaterial color={boundaryColor} transparent opacity={isDimmed ? 0.01 : 0.03} depthWrite={false} />
       </mesh>
       <Label
-        position={[0, size[1] / 2 + 0.5, 0]}
+        position={[center[0], center[1] + size[1] / 2 + 0.5, center[2]]}
         text={`${label}: ${workItemId}`}
         size={0.18}
         dimmed={isDimmed}
       />
       {stage === "closed" && (
-        <Label position={[0, size[1] / 2 + 0.75, 0]} text={closedLabel} size={0.2} dimmed={isDimmed} />
+        <Label
+          position={[center[0], center[1] + size[1] / 2 + 0.75, center[2]]}
+          text={closedLabel}
+          size={0.2}
+          dimmed={isDimmed}
+        />
       )}
     </group>
   );

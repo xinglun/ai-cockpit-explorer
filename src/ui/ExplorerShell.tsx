@@ -99,6 +99,8 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
 
   const exitTour = () => setTourActive(false);
 
+  const blocked = mode === "verification" && !tourActive && scenarioId === "red-fail-closed";
+
   const { highlightIds, cameraId, activeFlowIds, workItemStage } = useMemo(() => {
     if (tourActive) {
       const step = tourSteps[tourStepIndex];
@@ -147,6 +149,7 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
           workItemStage={workItemStage}
           workItemId={sampleWorkItemId}
           workItemClosedLabel={messages.workItemEnvelope.closedLabel}
+          blocked={blocked}
         />
       </div>
 

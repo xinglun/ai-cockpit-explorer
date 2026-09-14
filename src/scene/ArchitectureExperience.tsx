@@ -19,6 +19,7 @@ interface ArchitectureExperienceProps {
   workItemStage: WorkItemEnvelopeStage;
   workItemId: string;
   workItemClosedLabel: string;
+  blocked: boolean;
 }
 
 /**
@@ -36,6 +37,7 @@ export function ArchitectureExperience({
   workItemStage,
   workItemId,
   workItemClosedLabel,
+  blocked,
 }: ArchitectureExperienceProps) {
   return (
     <Canvas
@@ -53,6 +55,7 @@ export function ArchitectureExperience({
         workItemStage={workItemStage}
         workItemId={workItemId}
         workItemClosedLabel={workItemClosedLabel}
+        blocked={blocked}
       />
     </Canvas>
   );

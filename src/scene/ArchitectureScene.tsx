@@ -33,6 +33,8 @@ interface ArchitectureSceneProps {
   workItemStage: WorkItemEnvelopeStage;
   workItemId: string;
   workItemClosedLabel: string;
+  /** True only for the RED fail-closed Verification scenario — Runtime holds its sequence short of resolving, and the Work Item boundary reads blocked. */
+  blocked: boolean;
 }
 
 export function ArchitectureScene({
@@ -45,6 +47,7 @@ export function ArchitectureScene({
   workItemStage,
   workItemId,
   workItemClosedLabel,
+  blocked,
 }: ArchitectureSceneProps) {
   const nodeProps = (id: ArchitectureElementId) => ({
     isDimmed: !isAmong(highlightIds, id),
@@ -52,11 +55,12 @@ export function ArchitectureScene({
     onSelect,
     label: labels[id],
   });
+  const verifying = activeFlowIds?.includes("evidence") ?? false;
 
   return (
     <>
       <SceneLighting />
-      <CameraRig cameraId={cameraId} />
+      <CameraRig cameraId={cameraId} pushIn={verifying} />
       <Flows activeFlowIds={activeFlowIds} />
       <AgentActors {...nodeProps("agents")} />
       <EntrySurface {...nodeProps("entrySurface")} />
@@ -69,8 +73,9 @@ export function ArchitectureScene({
         onSelect={onSelect}
         label={labels.workItem}
         closedLabel={workItemClosedLabel}
+        blocked={blocked}
       />
-      <Runtime {...nodeProps("runtime")} />
+      <Runtime {...nodeProps("runtime")} verifying={verifying} blocked={blocked} />
       <Repository {...nodeProps("repository")} />
       <RepositoryProtocol {...nodeProps("repositoryProtocol")} />
       <Knowledge {...nodeProps("knowledge")} />
