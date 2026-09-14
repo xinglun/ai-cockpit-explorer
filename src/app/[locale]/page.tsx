@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { ExplorerShell } from "@/ui/ExplorerShell";
 import { getMessages } from "@/i18n/getMessages";
 import { supportedLocales, toSupportedLocale } from "@/i18n/locales";
@@ -23,9 +22,5 @@ export async function generateMetadata({
 
 export default async function LocalePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  return (
-    <Suspense fallback={null}>
-      <ExplorerShell locale={toSupportedLocale(locale)} />
-    </Suspense>
-  );
+  return <ExplorerShell locale={toSupportedLocale(locale)} />;
 }

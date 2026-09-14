@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { ArchitectureExperience } from "@/scene/ArchitectureExperience";
 import { Navigation, type ExplorerMode } from "./Navigation";
 import { ElementPicker } from "./ElementPicker";
@@ -54,13 +54,17 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
 
   const router = useRouter();
   const pathname = usePathname() ?? `/${locale}`;
-  const searchParams = useSearchParams();
 
-  const initial = useMemo(
-    () => parseExplorerUrlState(searchParams, architectureOrder),
-    // Only read the URL once, on mount — after that this component owns state.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+  // Read via window.location rather than next/navigation's useSearchParams()
+  // so this component has no dynamic-hook dependency: it stays fully
+  // static-prerenderable (canvas, copy, and all) instead of being deferred
+  // behind a Suspense fallback until hydration. This is only the *initial*
+  // read, on mount — after that this component owns state itself.
+  const [initial] = useState(() =>
+    parseExplorerUrlState(
+      typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams(),
+      architectureOrder,
+    ),
   );
 
   const [mode, setMode] = useState<ExplorerMode>(initial.mode);
@@ -144,7 +148,9 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
                 {messages.app.subtitle}
               </p>
             </div>
-            <LanguageSwitcher locale={locale} ariaLabel={messages.languageSelector.ariaLabel} />
+            <Suspense fallback={null}>
+              <LanguageSwitcher locale={locale} ariaLabel={messages.languageSelector.ariaLabel} />
+            </Suspense>
           </div>
           <Navigation mode={mode} onChange={changeMode} messages={messages} />
         </header>
