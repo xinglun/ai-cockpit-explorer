@@ -9,7 +9,6 @@ describe("guided tour", () => {
   it("reaches the climax beat where verification is GREEN and the decision is explicitly not automatic", () => {
     const climax = tourSteps.find((step) => step.status === "verified-not-approved");
     expect(climax).toBeDefined();
-    expect(climax?.narration).toMatch(/verified.*approved/i);
   });
 
   it("ends on Human Authority so the boundary is the final beat", () => {

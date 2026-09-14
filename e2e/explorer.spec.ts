@@ -1,9 +1,46 @@
 import { test, expect } from "@playwright/test";
 
+const localeExpectations = [
+  {
+    path: "/en/",
+    subtitle: /evidence-based repository governance/i,
+    workItemHeading: "Work Item lifecycle",
+    verifiedNotApproved: "Verified ≠ Approved.",
+  },
+  {
+    path: "/ja/",
+    subtitle: /証拠に基づくリポジトリガバナンス/,
+    workItemHeading: "Work Item（作業単位）のライフサイクル",
+    verifiedNotApproved: "検証済み ≠ 承認済み。",
+  },
+  {
+    path: "/zh-CN/",
+    subtitle: /基于证据的仓库治理/,
+    workItemHeading: "工作项生命周期",
+    verifiedNotApproved: "已验证 ≠ 已批准。",
+  },
+];
+
+for (const locale of localeExpectations) {
+  test(`${locale.path} shows locale-appropriate copy and the Verified ≠ Approved distinction`, async ({
+    page,
+  }) => {
+    await page.goto(locale.path);
+    await expect(page.getByRole("heading", { name: "AI Cockpit Explorer" })).toBeVisible();
+    await expect(page.getByText(locale.subtitle)).toBeVisible();
+
+    await page.getByRole("tab").nth(1).click();
+    await expect(page.getByText(locale.workItemHeading)).toBeVisible();
+
+    await page.getByRole("tab").nth(2).click();
+    await expect(page.getByText(locale.verifiedNotApproved, { exact: false })).toBeVisible();
+  });
+}
+
 test("loads with a restrained Overview screen and lets a keyboard user explore without WebGL interaction", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/en/");
   await expect(page.getByRole("heading", { name: "AI Cockpit Explorer" })).toBeVisible();
   await expect(page.getByText(/evidence determines what is verified/i)).toBeVisible();
 
@@ -14,7 +51,7 @@ test("loads with a restrained Overview screen and lets a keyboard user explore w
 });
 
 test("exposes exactly three modes and Work Item mode shows the lifecycle as a timeline", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/en/");
 
   await expect(page.getByRole("tab")).toHaveCount(3);
 
@@ -27,7 +64,7 @@ test("exposes exactly three modes and Work Item mode shows the lifecycle as a ti
 test("guided tour runs the 7-scene narrative and reaches the verified-not-approved climax via the keyboard", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/en/");
 
   const startButton = page.getByRole("button", { name: /understand ai cockpit in 30 seconds/i });
   await startButton.focus();
@@ -46,7 +83,7 @@ test("guided tour runs the 7-scene narrative and reaches the verified-not-approv
 });
 
 test("Verification mode never renders GREEN or UNKNOWN evidence as an approved decision", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/en/");
   await page.getByRole("tab", { name: "Verification" }).click();
 
   await expect(page.getByText(/verification: GREEN/i)).toBeVisible();
@@ -56,4 +93,22 @@ test("Verification mode never renders GREEN or UNKNOWN evidence as an approved d
   await page.getByRole("button", { name: "RED" }).click();
   await expect(page.getByText(/verification: RED/i)).toBeVisible();
   await expect(page.getByText(/human decision: PENDING/i)).toBeVisible();
+});
+
+test("language switcher is visible top-right, updates the URL, and preserves the current mode", async ({
+  page,
+}) => {
+  await page.goto("/en/");
+  await page.getByRole("tab", { name: "Work Item" }).click();
+  await expect(page.getByText("Work Item lifecycle")).toBeVisible();
+
+  const jaLink = page.getByRole("link", { name: "日本語" });
+  await expect(jaLink).toHaveAttribute("href", /mode=workitem/);
+  await jaLink.click();
+  await expect(page).toHaveURL(/\/ja\/?(\?.*)?$/);
+  await expect(page.getByText("Work Item（作業単位）のライフサイクル")).toBeVisible();
+
+  await page.getByRole("link", { name: "中文" }).click();
+  await expect(page).toHaveURL(/\/zh-CN\/?(\?.*)?$/);
+  await expect(page.getByText("工作项生命周期")).toBeVisible();
 });

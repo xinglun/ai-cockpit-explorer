@@ -10,7 +10,7 @@ import type { ArchitectureNodeProps } from "./types";
  * governance state: stable geometry, neutral white, restrained
  * animation, and placed above the loop rather than inside it.
  */
-export function HumanAuthority({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+export function HumanAuthority({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.humanAuthority;
   return (
     <group
@@ -32,7 +32,7 @@ export function HumanAuthority({ isDimmed, isSelected, onSelect }: ArchitectureN
           metalness={0}
         />
       </mesh>
-      <Label position={[0, size[1] / 2 + 0.3, 0]} text="Human Authority" dimmed={isDimmed} />
+      <Label position={[0, size[1] / 2 + 0.3, 0]} text={label} dimmed={isDimmed} />
     </group>
   );
 }

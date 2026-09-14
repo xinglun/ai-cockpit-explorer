@@ -6,7 +6,7 @@ import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
 /** A small flat token descending from Human Authority — the bound. */
-export function Contract({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+export function Contract({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.contract;
   return (
     <group
@@ -27,7 +27,7 @@ export function Contract({ isDimmed, isSelected, onSelect }: ArchitectureNodePro
           roughness={0.7}
         />
       </mesh>
-      <Label position={[0, size[1] / 2 + 0.25, 0]} text="Contract" size={0.2} dimmed={isDimmed} />
+      <Label position={[0, size[1] / 2 + 0.25, 0]} text={label} size={0.2} dimmed={isDimmed} />
     </group>
   );
 }

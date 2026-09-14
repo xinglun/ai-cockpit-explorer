@@ -7,6 +7,7 @@ import { ElementPicker } from "./ElementPicker";
 import { DetailPanel } from "./DetailPanel";
 import { GuidedTour } from "./GuidedTour";
 import { StatusLegend } from "./StatusLegend";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { LifecycleFlow } from "@/lifecycle/LifecycleFlow";
 import { VerificationGraph } from "@/verification/VerificationGraph";
 import {
@@ -16,9 +17,12 @@ import {
 } from "@/data/verificationDemo";
 import { stageRelevance, stageCameraId } from "@/interaction/stageFocus";
 import { tourSteps } from "@/interaction/tour";
+import { parseExplorerUrlState } from "@/interaction/explorerUrlState";
 import { colors } from "@/design-system/semanticColors";
-import type { ArchitectureElementId } from "@/data/architecture";
+import { architectureOrder, type ArchitectureElementId } from "@/data/architecture";
 import type { LifecycleStepId } from "@/data/lifecycle";
+import type { Locale } from "@/i18n/locales";
+import { getMessages } from "@/i18n/getMessages";
 
 const VERIFICATION_FOCUS: ArchitectureElementId[] = [
   "runtime",
@@ -28,18 +32,47 @@ const VERIFICATION_FOCUS: ArchitectureElementId[] = [
   "humanAuthority",
 ];
 
+interface ExplorerShellProps {
+  locale: Locale;
+}
+
 /**
  * Owns all Explorer state and composes the 3D scene with the DOM UI.
  * The 3D world is persistent across modes — modes change what's
- * highlighted and where the camera looks, not the page.
+ * highlighted and where the camera looks, not the page. Mode,
+ * selection, and guided-tour step are handed to the LanguageSwitcher
+ * directly (not round-tripped through the URL on every change — that
+ * caused router navigations to race with rapid tour-step keypresses)
+ * so it can carry them into the sibling-locale link it builds; the URL
+ * itself is only touched by an actual navigation (arriving via such a
+ * link, or a reload of a previously-shared URL), which this component
+ * reads once on mount via parseExplorerUrlState.
  */
-export function ExplorerShell() {
-  const [mode, setMode] = useState<ExplorerMode>("overview");
-  const [selectedId, setSelectedId] = useState<ArchitectureElementId | null>(null);
+export function ExplorerShell({ locale }: ExplorerShellProps) {
+  const messages = useMemo(() => getMessages(locale), [locale]);
+  const labels = useMemo(() => {
+    const entries = architectureOrder.map((id) => [id, messages.architecture[id].label] as const);
+    return Object.fromEntries(entries) as Record<ArchitectureElementId, string>;
+  }, [messages]);
+
+  // Read via window.location rather than next/navigation's useSearchParams()
+  // so this component has no dynamic-hook dependency: it stays fully
+  // static-prerenderable (canvas, copy, and all) instead of being deferred
+  // behind a Suspense fallback until hydration. This is only the *initial*
+  // read, on mount — after that this component owns state itself.
+  const [initial] = useState(() =>
+    parseExplorerUrlState(
+      typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams(),
+      architectureOrder,
+    ),
+  );
+
+  const [mode, setMode] = useState<ExplorerMode>(initial.mode);
+  const [selectedId, setSelectedId] = useState<ArchitectureElementId | null>(initial.selectedId);
   const [activeStage, setActiveStage] = useState<LifecycleStepId>("inspect");
   const [scenarioId, setScenarioId] = useState<VerificationScenarioId>("green-pending");
-  const [tourActive, setTourActive] = useState(false);
-  const [tourStepIndex, setTourStepIndex] = useState(0);
+  const [tourActive, setTourActive] = useState(initial.tourStepIndex !== null);
+  const [tourStepIndex, setTourStepIndex] = useState(initial.tourStepIndex ?? 0);
 
   const changeMode = (next: ExplorerMode) => {
     setMode(next);
@@ -81,6 +114,8 @@ export function ExplorerShell() {
           selectedId={selectedId}
           cameraId={cameraId}
           onSelect={setSelectedId}
+          labels={labels}
+          ariaLabel={messages.app.canvasAriaLabel}
         />
       </div>
 
@@ -89,21 +124,32 @@ export function ExplorerShell() {
         style={{ color: colors.textPrimary }}
       >
         <header className="pointer-events-auto flex flex-col gap-3">
-          <div>
-            <h1 className="text-lg font-semibold">AI Cockpit Explorer</h1>
-            <p style={{ color: colors.textSecondary }} className="text-sm">
-              Evidence-based repository governance
-            </p>
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h1 className="text-lg font-semibold">{messages.app.title}</h1>
+              <p style={{ color: colors.textSecondary }} className="text-sm">
+                {messages.app.subtitle}
+              </p>
+            </div>
+            <LanguageSwitcher
+              locale={locale}
+              ariaLabel={messages.languageSelector.ariaLabel}
+              currentState={{ mode, selectedId, tourStepIndex: tourActive ? tourStepIndex : null }}
+            />
           </div>
-          <Navigation mode={mode} onChange={changeMode} />
+          <Navigation mode={mode} onChange={changeMode} messages={messages} />
         </header>
 
         {mode === "overview" && !tourActive && (
           <div className="pointer-events-auto flex flex-col gap-3">
-            {selectedId && <DetailPanel selected={selectedId} onClose={() => setSelectedId(null)} />}
+            {selectedId && (
+              <DetailPanel selected={selectedId} onClose={() => setSelectedId(null)} messages={messages} />
+            )}
             <p className="max-w-md text-sm" style={{ color: colors.textSecondary }}>
-              AI agents can execute. Evidence determines what is verified. Humans determine what is
-              authorized.
+              {messages.app.openingExplanation}
+            </p>
+            <p className="max-w-md text-sm" style={{ color: colors.textSecondary }}>
+              {messages.app.coreDistinction}
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <GuidedTour
@@ -112,12 +158,13 @@ export function ExplorerShell() {
                 onStart={startTour}
                 onStepChange={setTourStepIndex}
                 onExit={exitTour}
+                messages={messages}
               />
               <p style={{ color: colors.textMuted }} className="text-xs">
-                Drag to orbit · Scroll to zoom · Click to explore
+                {messages.app.interactionHint}
               </p>
             </div>
-            <ElementPicker selected={selectedId} onSelect={setSelectedId} />
+            <ElementPicker selected={selectedId} onSelect={setSelectedId} messages={messages} />
           </div>
         )}
 
@@ -129,6 +176,7 @@ export function ExplorerShell() {
               onStart={startTour}
               onStepChange={setTourStepIndex}
               onExit={exitTour}
+              messages={messages}
             />
           </div>
         )}
@@ -138,8 +186,8 @@ export function ExplorerShell() {
             style={{ backgroundColor: colors.surface, borderColor: colors.border }}
             className="pointer-events-auto flex flex-col gap-3 rounded border p-4"
           >
-            <h2 className="text-sm font-semibold">Work Item lifecycle</h2>
-            <LifecycleFlow activeStepId={activeStage} onSelectStep={setActiveStage} />
+            <h2 className="text-sm font-semibold">{messages.lifecycle.heading}</h2>
+            <LifecycleFlow activeStepId={activeStage} onSelectStep={setActiveStage} messages={messages} />
           </div>
         )}
 
@@ -149,7 +197,7 @@ export function ExplorerShell() {
             className="pointer-events-auto flex flex-col gap-3 rounded border p-4 md:max-w-md"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Verification</h2>
+              <h2 className="text-sm font-semibold">{messages.verification.title}</h2>
               <div className="flex gap-1">
                 {verificationScenarioOrder.map((id) => (
                   <button
@@ -162,13 +210,15 @@ export function ExplorerShell() {
                     }}
                     className="rounded border px-2 py-0.5 text-xs"
                   >
-                    {id === "green-pending" ? "GREEN" : "RED"}
+                    {id === "green-pending"
+                      ? messages.verification.scenarioGreenLabel
+                      : messages.verification.scenarioRedLabel}
                   </button>
                 ))}
               </div>
             </div>
-            <VerificationGraph scenario={verificationScenarios[scenarioId]} />
-            <StatusLegend />
+            <VerificationGraph scenario={verificationScenarios[scenarioId]} messages={messages} />
+            <StatusLegend messages={messages} />
           </div>
         )}
       </div>

@@ -6,7 +6,7 @@ import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
 /** A small flat token rising from Runtime toward Human Authority. */
-export function Outcome({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+export function Outcome({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.outcome;
   return (
     <group
@@ -27,7 +27,7 @@ export function Outcome({ isDimmed, isSelected, onSelect }: ArchitectureNodeProp
           roughness={0.5}
         />
       </mesh>
-      <Label position={[0, size[1] / 2 + 0.25, 0]} text="Outcome" size={0.2} dimmed={isDimmed} />
+      <Label position={[0, size[1] / 2 + 0.25, 0]} text={label} size={0.2} dimmed={isDimmed} />
     </group>
   );
 }

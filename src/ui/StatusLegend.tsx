@@ -1,29 +1,32 @@
 import { colors, verificationStatusColor, humanDecisionColor } from "@/design-system/semanticColors";
+import type { VerificationStatus } from "@/design-system/semanticColors";
+import type { ExplorerMessages } from "@/i18n/types";
 
-const verificationEntries: Array<{ label: string; color: string }> = [
-  { label: "GREEN — verification passed", color: verificationStatusColor.GREEN },
-  { label: "YELLOW — partial evidence", color: verificationStatusColor.YELLOW },
-  { label: "RED — verification failed (fail-closed)", color: verificationStatusColor.RED },
-  { label: "UNKNOWN — not evaluated (never approval)", color: verificationStatusColor.UNKNOWN },
-];
+interface StatusLegendProps {
+  messages: ExplorerMessages;
+}
+
+const verificationOrder: VerificationStatus[] = ["GREEN", "YELLOW", "RED", "UNKNOWN"];
 
 /**
  * GREEN verification and an APPROVED human decision are rendered with
  * different shapes (fill vs. outline) so the legend itself teaches the
- * distinction, not just the color.
+ * distinction, not just the color. Status words themselves (GREEN,
+ * PENDING, ...) stay untranslated — only the explanation copy changes.
  */
-export function StatusLegend() {
+export function StatusLegend({ messages }: StatusLegendProps) {
+  const copy = messages.statusLegend;
   return (
     <div className="flex flex-col gap-2 text-xs" style={{ color: colors.textSecondary }}>
       <div className="flex flex-col gap-1">
-        {verificationEntries.map((entry) => (
-          <div key={entry.label} className="flex items-center gap-2">
+        {verificationOrder.map((status) => (
+          <div key={status} className="flex items-center gap-2">
             <span
-              style={{ backgroundColor: entry.color }}
+              style={{ backgroundColor: verificationStatusColor[status] }}
               className="h-2.5 w-2.5 rounded-sm"
               aria-hidden
             />
-            {entry.label}
+            {status} — {copy.explanations[status]}
           </div>
         ))}
       </div>
@@ -33,7 +36,7 @@ export function StatusLegend() {
           className="h-2.5 w-2.5 rounded-sm border-2"
           aria-hidden
         />
-        PENDING / APPROVED — human decision, separate from verification
+        PENDING / APPROVED — {copy.humanDecisionExplanation}
       </div>
     </div>
   );

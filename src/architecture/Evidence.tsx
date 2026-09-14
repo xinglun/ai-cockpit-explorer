@@ -6,7 +6,7 @@ import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
 /** A small bounded packet rising from the repository toward Runtime. */
-export function Evidence({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+export function Evidence({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.evidence;
   return (
     <group
@@ -27,7 +27,7 @@ export function Evidence({ isDimmed, isSelected, onSelect }: ArchitectureNodePro
           roughness={0.4}
         />
       </mesh>
-      <Label position={[0, size + 0.25, 0]} text="Evidence" size={0.2} dimmed={isDimmed} />
+      <Label position={[0, size + 0.25, 0]} text={label} size={0.2} dimmed={isDimmed} />
     </group>
   );
 }
