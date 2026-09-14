@@ -3,19 +3,23 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Navigation } from "@/ui/Navigation";
 
 describe("Navigation", () => {
-  it("lets a keyboard/mouse user select every architecture layer without 3D interaction", () => {
-    const onSelect = vi.fn();
-    render(<Navigation selected={null} onSelect={onSelect} />);
-
-    const runtimeButton = screen.getByRole("button", { name: "AI Cockpit Runtime" });
-    fireEvent.click(runtimeButton);
-
-    expect(onSelect).toHaveBeenCalledWith("runtime");
+  it("exposes exactly three modes", () => {
+    render(<Navigation mode="overview" onChange={() => {}} />);
+    expect(screen.getAllByRole("tab")).toHaveLength(3);
+    expect(screen.getByRole("tab", { name: "Overview" })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "Work Item" })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "Verification" })).toBeInTheDocument();
   });
 
-  it("marks the selected layer as pressed for assistive technology", () => {
-    render(<Navigation selected="humanAuthority" onSelect={() => {}} />);
-    const button = screen.getByRole("button", { name: "Human Authority" });
-    expect(button).toHaveAttribute("aria-pressed", "true");
+  it("lets a keyboard/mouse user switch modes", () => {
+    const onChange = vi.fn();
+    render(<Navigation mode="overview" onChange={onChange} />);
+    fireEvent.click(screen.getByRole("tab", { name: "Work Item" }));
+    expect(onChange).toHaveBeenCalledWith("workitem");
+  });
+
+  it("marks the active mode as selected for assistive technology", () => {
+    render(<Navigation mode="verification" onChange={() => {}} />);
+    expect(screen.getByRole("tab", { name: "Verification" })).toHaveAttribute("aria-selected", "true");
   });
 });

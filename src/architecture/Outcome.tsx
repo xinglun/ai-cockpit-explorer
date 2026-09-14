@@ -5,29 +5,29 @@ import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
-export function Repository({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
-  const { position, size } = layout.repository;
+/** A small flat token rising from Runtime toward Human Authority. */
+export function Outcome({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+  const { position, size } = layout.outcome;
   return (
     <group
       position={position}
       onClick={(event) => {
         event.stopPropagation();
-        onSelect("repository");
+        onSelect("outcome");
       }}
     >
       <mesh>
         <boxGeometry args={size} />
         <meshStandardMaterial
-          color={colors.surfaceRaised}
+          color={colors.informationFlow}
           emissive={isSelected ? colors.informationFlow : "#000000"}
-          emissiveIntensity={isSelected ? 0.25 : 0}
-          opacity={isDimmed ? 0.25 : 1}
+          emissiveIntensity={isSelected ? 0.3 : 0.1}
+          opacity={isDimmed ? 0.15 : 0.95}
           transparent
-          roughness={0.85}
-          metalness={0.1}
+          roughness={0.5}
         />
       </mesh>
-      <Label position={[0, -size[1] / 2 - 0.35, 0]} text="Software Repository" dimmed={isDimmed} />
+      <Label position={[0, size[1] / 2 + 0.25, 0]} text="Outcome" size={0.2} dimmed={isDimmed} />
     </group>
   );
 }

@@ -2,28 +2,32 @@
 
 import { layout } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
+import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
+/** The gate agents must pass through — vertical, blocking, not a floor ring. */
 export function EntrySurface({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
   const { position } = layout.entrySurface;
   return (
-    <mesh
+    <group
       position={position}
-      rotation={[-Math.PI / 2, 0, 0]}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("entrySurface");
       }}
     >
-      <ringGeometry args={[1.1, 1.4, 32]} />
-      <meshStandardMaterial
-        color={colors.textSecondary}
-        emissive={isSelected ? colors.informationFlow : "#000000"}
-        emissiveIntensity={isSelected ? 0.4 : 0}
-        opacity={isDimmed ? 0.15 : 0.7}
-        transparent
-        side={2}
-      />
-    </mesh>
+      <mesh rotation={[0, Math.PI / 2, 0]}>
+        <ringGeometry args={[0.9, 1.15, 32]} />
+        <meshStandardMaterial
+          color={colors.textSecondary}
+          emissive={isSelected ? colors.informationFlow : "#000000"}
+          emissiveIntensity={isSelected ? 0.4 : 0}
+          opacity={isDimmed ? 0.15 : 0.75}
+          transparent
+          side={2}
+        />
+      </mesh>
+      <Label position={[0, 1.3, 0]} text="Entry Gate" size={0.2} dimmed={isDimmed} />
+    </group>
   );
 }

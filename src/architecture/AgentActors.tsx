@@ -2,16 +2,22 @@
 
 import { layout } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
+import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
+const agentShape: Record<string, "box" | "cone"> = {
+  codex: "box",
+  claude: "cone",
+};
+
 /**
- * Agents are external actors, rendered as distinct small meshes outside
- * the repository/runtime cluster, oriented toward the entry surface.
- * Positions are static (no continuous idle animation) — motion should
- * only ever explain a state transition, not decorate an idle scene.
+ * Agents are external actors, placed outside the loop on the left,
+ * facing the entry gate. Positions are static (no continuous idle
+ * animation) — motion should only ever explain a state transition.
  */
 export function AgentActors({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
-  const { radius, count, height } = layout.agents;
+  const opacity = isDimmed ? 0.15 : 0.9;
+  const emissiveIntensity = isSelected ? 0.5 : 0.1;
 
   return (
     <group
@@ -20,24 +26,31 @@ export function AgentActors({ isDimmed, isSelected, onSelect }: ArchitectureNode
         onSelect("agents");
       }}
     >
-      {Array.from({ length: count }).map((_, index) => {
-        const angle = (index / count) * Math.PI * 2;
-        const x = Math.cos(angle) * radius;
-        const z = Math.sin(angle) * radius;
-        return (
-          <mesh key={index} position={[x, height, z]} rotation={[Math.PI, 0, -angle]}>
-            <coneGeometry args={[0.3, 0.7, 4]} />
+      {layout.agents.map((agent) => (
+        <group key={agent.id} position={agent.position} rotation={[0, Math.PI / 2, 0]}>
+          <mesh>
+            {agentShape[agent.id] === "box" ? (
+              <boxGeometry args={[0.55, 0.55, 0.55]} />
+            ) : (
+              <coneGeometry args={[0.32, 0.75, 4]} />
+            )}
             <meshStandardMaterial
               color={colors.textPrimary}
               emissive={isSelected ? colors.informationFlow : "#000000"}
-              emissiveIntensity={isSelected ? 0.5 : 0.1}
-              opacity={isDimmed ? 0.15 : 0.85}
+              emissiveIntensity={emissiveIntensity}
+              opacity={opacity}
               transparent
               roughness={0.5}
             />
           </mesh>
-        );
-      })}
+          <Label
+            position={[0, 0.6, 0]}
+            text={agent.id === "codex" ? "Codex" : "Claude"}
+            size={0.2}
+            dimmed={isDimmed}
+          />
+        </group>
+      ))}
     </group>
   );
 }

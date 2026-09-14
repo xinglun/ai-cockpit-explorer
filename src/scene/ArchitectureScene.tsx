@@ -6,8 +6,11 @@ import { Runtime } from "@/architecture/Runtime";
 import { EntrySurface } from "@/architecture/EntrySurface";
 import { AgentActors } from "@/architecture/AgentActors";
 import { HumanAuthority } from "@/architecture/HumanAuthority";
-import { isIsolated } from "@/interaction/selection";
-import type { SelectionState } from "@/interaction/selection";
+import { Contract } from "@/architecture/Contract";
+import { Evidence } from "@/architecture/Evidence";
+import { Outcome } from "@/architecture/Outcome";
+import { Flows } from "@/architecture/Flows";
+import { isAmong } from "@/interaction/selection";
 import type { ArchitectureElementId } from "@/data/architecture";
 import { ArchitectureCamera } from "./ArchitectureCamera";
 import { ArchitectureControls } from "./ArchitectureControls";
@@ -15,27 +18,35 @@ import { SceneLighting } from "./SceneLighting";
 import { cameraTargetFor } from "@/interaction/cameraTargets";
 
 interface ArchitectureSceneProps {
-  selection: SelectionState;
+  /** Which elements are relevant right now; null/empty means show all. */
+  highlightIds: readonly ArchitectureElementId[] | null;
+  selectedId: ArchitectureElementId | null;
+  cameraId: ArchitectureElementId | null;
   onSelect: (id: ArchitectureElementId) => void;
 }
 
-export function ArchitectureScene({ selection, onSelect }: ArchitectureSceneProps) {
+export function ArchitectureScene({ highlightIds, selectedId, cameraId, onSelect }: ArchitectureSceneProps) {
   const nodeProps = (id: ArchitectureElementId) => ({
-    isDimmed: !isIsolated(selection, id),
-    isSelected: selection.selected === id,
+    isDimmed: !isAmong(highlightIds, id),
+    isSelected: selectedId === id,
     onSelect,
   });
+  const flowsDimmed = highlightIds !== null && highlightIds.length > 0;
 
   return (
     <>
       <SceneLighting />
-      <ArchitectureCamera target={cameraTargetFor(selection.selected)} />
+      <ArchitectureCamera target={cameraTargetFor(cameraId)} />
       <ArchitectureControls />
+      <Flows dimmed={flowsDimmed} />
+      <AgentActors {...nodeProps("agents")} />
+      <EntrySurface {...nodeProps("entrySurface")} />
+      <Contract {...nodeProps("contract")} />
+      <Runtime {...nodeProps("runtime")} />
       <Repository {...nodeProps("repository")} />
       <RepositoryProtocol {...nodeProps("repositoryProtocol")} />
-      <Runtime {...nodeProps("runtime")} />
-      <EntrySurface {...nodeProps("entrySurface")} />
-      <AgentActors {...nodeProps("agents")} />
+      <Evidence {...nodeProps("evidence")} />
+      <Outcome {...nodeProps("outcome")} />
       <HumanAuthority {...nodeProps("humanAuthority")} />
     </>
   );

@@ -11,6 +11,11 @@ interface GuidedTourProps {
   onExit: () => void;
 }
 
+/**
+ * A 7-scene narrative overlay, not a plain camera pan. The climax
+ * (step 6: "Verified ≠ Approved") gets deliberate visual weight —
+ * larger type, no competing UI.
+ */
 export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }: GuidedTourProps) {
   if (!active) {
     return (
@@ -18,27 +23,30 @@ export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }:
         type="button"
         onClick={onStart}
         style={{ backgroundColor: colors.informationFlow, color: colors.background }}
-        className="w-fit rounded px-3 py-1.5 text-sm font-medium"
+        className="w-fit rounded px-4 py-2 text-sm font-semibold"
       >
-        Start guided tour
+        Understand AI Cockpit in 30 seconds
       </button>
     );
   }
 
   const step = tourSteps[stepIndex];
+  const isClimax = step.status === "verified-not-approved";
 
   return (
     <div
-      style={{ borderColor: colors.border, color: colors.textPrimary }}
-      className="flex flex-col gap-2 rounded border p-3"
+      style={{ borderColor: colors.border, color: colors.textPrimary, backgroundColor: colors.surface }}
+      className="flex w-full max-w-xl flex-col gap-3 rounded border p-4 shadow-lg"
       role="region"
       aria-label="Guided architecture tour"
     >
       <p style={{ color: colors.textSecondary }} className="text-xs">
-        Step {stepIndex + 1} of {tourSteps.length}
+        Scene {stepIndex + 1} of {tourSteps.length}
       </p>
-      <h3 className="text-base font-semibold">{step.title}</h3>
-      <p className="text-sm">{step.narration}</p>
+      <h3 className={isClimax ? "text-xl font-bold" : "text-base font-semibold"}>{step.title}</h3>
+      <p className={isClimax ? "text-lg font-semibold" : "text-sm"} style={isClimax ? { color: colors.stateGreen } : undefined}>
+        {step.narration}
+      </p>
       <div className="flex gap-2">
         <button
           type="button"
