@@ -14,7 +14,8 @@ import type { ArchitectureNodeProps } from "./types";
 export function Knowledge({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.knowledge;
   const opacity = isDimmed ? 0.15 : 0.85;
-  const emissiveIntensity = isSelected ? 0.5 : 0.05;
+  /** Luminous by default — a graph of small light sources, not a lit solid. */
+  const emissiveIntensity = isDimmed ? 0.05 : isSelected ? 0.9 : 0.45;
 
   return (
     <group
@@ -39,7 +40,7 @@ export function Knowledge({ isDimmed, isSelected, onSelect, label }: Architectur
           <sphereGeometry args={[size * (index === 0 ? 0.65 : 0.45), 10, 10]} />
           <meshStandardMaterial
             color={colors.textMuted}
-            emissive={isSelected ? colors.informationFlow : "#000000"}
+            emissive={isSelected ? colors.informationFlow : colors.textMuted}
             emissiveIntensity={emissiveIntensity}
             opacity={opacity}
             transparent

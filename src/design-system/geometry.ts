@@ -26,8 +26,10 @@ import type { WorkItemEnvelopeStage } from "@/data/workItem";
  */
 export const layout = {
   agents: [
-    { id: "codex", position: [-6.4, 1.1, 1.3] as [number, number, number] },
-    { id: "claude", position: [-6.4, 1.1, -1.3] as [number, number, number] },
+    { id: "codex", position: [-6.4, 1.1, 1.95] as [number, number, number] },
+    { id: "claude", position: [-6.4, 1.1, 0.65] as [number, number, number] },
+    { id: "gemini", position: [-6.4, 1.1, -0.65] as [number, number, number] },
+    { id: "grok", position: [-6.4, 1.1, -1.95] as [number, number, number] },
   ],
   entrySurface: { position: [-3.4, 1.1, 0] as [number, number, number] },
   runtime: { position: [0, 1.2, 0] as [number, number, number], size: 1.05 },

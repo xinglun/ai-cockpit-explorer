@@ -31,7 +31,7 @@ export const en = {
   architecture: {
     agents: {
       label: "Agents",
-      what: "External actors (e.g. Codex, Claude) that perform AI-assisted execution.",
+      what: "External actors (e.g. Codex, Claude, Gemini, Grok) that perform AI-assisted execution.",
       inputs: ["An active Work Item Contract"],
       outputs: ["Execution requests at the entry gate"],
       boundary: "Cannot execute outside a bounded Work Item, and hold no repository authority.",

@@ -27,7 +27,7 @@ export function Evidence({ isDimmed, isSelected, onSelect, label }: Architecture
           roughness={0.4}
         />
       </mesh>
-      <Label position={[0, size + 0.25, 0]} text={label} size={0.2} dimmed={isDimmed} />
+      <Label position={[0, size + 0.55, 0]} text={label} size={0.2} dimmed={isDimmed} />
     </group>
   );
 }

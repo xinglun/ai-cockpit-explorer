@@ -49,6 +49,8 @@ export function FlowLine({ from, to, color = colors.informationFlow, dashed = fa
   const reducedMotion = useMemo(() => prefersReducedMotion(), []);
   const active = pulse && !reducedMotion;
 
+  const pulseLength = useMemo(() => Math.min(0.5, start.distanceTo(end) * 0.18), [start, end]);
+
   useFrame((_, delta) => {
     if (!active || !pulseRef.current) return;
     elapsed.current = (elapsed.current + delta * (1000 / motionTokens.tour)) % 1;
@@ -72,9 +74,12 @@ export function FlowLine({ from, to, color = colors.informationFlow, dashed = fa
         <meshStandardMaterial color={color} transparent opacity={opacity} />
       </mesh>
       {active && (
-        <mesh ref={pulseRef} position={start.toArray()}>
-          <sphereGeometry args={[0.07, 10, 10]} />
-          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.8} />
+        // A short tapered marker (not a plain sphere) oriented along the
+        // travel direction, so the pulse itself reads as directional —
+        // legible at a glance, not just a dot sliding along a line.
+        <mesh ref={pulseRef} position={start.toArray()} quaternion={arrowQuaternion}>
+          <coneGeometry args={[0.06, pulseLength, 8]} />
+          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.9} />
         </mesh>
       )}
     </>

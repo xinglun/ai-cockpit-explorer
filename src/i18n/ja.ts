@@ -31,7 +31,7 @@ export const ja = {
   architecture: {
     agents: {
       label: "エージェント",
-      what: "Codex や Claude など、AIによる実行を担う外部のアクター。",
+      what: "Codex や Claude、Gemini、Grok など、AIによる実行を担う外部のアクター。",
       inputs: ["有効なWork Item Contract"],
       outputs: ["エントリーゲートへの実行リクエスト"],
       boundary: "境界づけられたWork Itemの外では実行できず、リポジトリへの権限も持ちません。",

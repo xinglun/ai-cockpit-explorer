@@ -28,7 +28,17 @@ export function RepositoryProtocol({ isDimmed, isSelected, onSelect, label }: Ar
           metalness={0.2}
         />
       </mesh>
-      <Label position={[0, size[1] / 2 + 0.25, 0]} text={label} size={0.2} dimmed={isDimmed} />
+      {/*
+        Offset toward -Z (away from Evidence, which sits at +Z ahead of
+        this plate) so the two labels don't visually collide from the
+        default Overview camera angle.
+      */}
+      <Label
+        position={[0, size[1] / 2 + 0.3, -size[2] / 2 - 0.35]}
+        text={label}
+        size={0.2}
+        dimmed={isDimmed}
+      />
     </group>
   );
 }

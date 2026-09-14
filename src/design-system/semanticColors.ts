@@ -4,6 +4,9 @@
  */
 export const colors = {
   background: "#0B0D10",
+  /** Vertical backdrop gradient stops — subtle, dark, never a spotlight. */
+  backgroundGradientTop: "#050608",
+  backgroundGradientBottom: "#171C24",
   surface: "#15191F",
   surfaceRaised: "#1C222A",
   border: "#303843",

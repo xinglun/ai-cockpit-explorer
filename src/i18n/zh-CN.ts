@@ -29,7 +29,7 @@ export const zhCN = {
   architecture: {
     agents: {
       label: "智能体",
-      what: "执行 AI 辅助任务的外部主体（例如 Codex、Claude）。",
+      what: "执行 AI 辅助任务的外部主体（例如 Codex、Claude、Gemini、Grok）。",
       inputs: ["有效的工作项契约"],
       outputs: ["在入口网关发起的执行请求"],
       boundary: "不能在受限工作项之外执行，也不拥有任何仓库权限。",

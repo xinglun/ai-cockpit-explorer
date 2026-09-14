@@ -23,8 +23,8 @@ export function Repository({ isDimmed, isSelected, onSelect, label }: Architectu
           emissiveIntensity={isSelected ? 0.25 : 0}
           opacity={isDimmed ? 0.25 : 1}
           transparent
-          roughness={0.85}
-          metalness={0.1}
+          roughness={0.95}
+          metalness={0}
         />
       </mesh>
       <Label position={[0, -size[1] / 2 - 0.35, 0]} text={label} dimmed={isDimmed} />
