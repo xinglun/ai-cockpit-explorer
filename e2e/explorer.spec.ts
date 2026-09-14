@@ -129,15 +129,16 @@ test("Work Item mode shows a Trace timeline with the finalize/close cleanup coll
   await expect(page.getByText(/Work Item closed; record made immutable/i)).toBeVisible();
 });
 
-test("Knowledge and the Human-Computer Interaction are selectable as their own distinct elements", async ({ page }) => {
+test("Knowledge and Human Control are selectable as their own distinct elements", async ({ page }) => {
   await page.goto("/en/");
 
   await page.getByRole("button", { name: "Knowledge" }).click();
   await expect(page.getByRole("heading", { name: "Knowledge" })).toBeVisible();
   await expect(page.getByText(/not a source of authority/i)).toBeVisible();
 
-  await page.getByRole("button", { name: "Human-Computer Interaction" }).click();
-  await expect(page.getByRole("heading", { name: "Human-Computer Interaction" })).toBeVisible();
+  await page.getByRole("button", { name: "Human Control", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Human Control", exact: true })).toBeVisible();
+  await expect(page.getByText(/Human-Computer Interaction/i)).toBeVisible();
   await expect(page.getByText(/not a literal Runtime service/i)).toBeVisible();
 
   await page.getByRole("button", { name: "Work Item", exact: true }).click();

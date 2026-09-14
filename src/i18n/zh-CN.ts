@@ -98,8 +98,8 @@ export const zhCN = {
       boundary: "不能自我授权——GREEN 的结论并不是一个已批准（APPROVED）的决定。",
     },
     humanControlInterface: {
-      label: "人机交互",
-      what: "Explorer 对“人如何操作并接收 AI Cockpit 状态”的呈现，包含三条通道：Define（意图、范围、验收标准、Authority）、Understand（Outcome、证据摘要、未知项、风险/状态、下一步行动）、Decide（批准、拒绝、恢复、继续）。",
+      label: "人工控制",
+      what: "Explorer 对人机交互（Human-Computer Interaction）的呈现——人如何操作并接收 AI Cockpit 状态，包含三条通道：Define（意图、范围、验收标准、Authority）、Understand（Outcome、证据摘要、未知项、风险/状态、下一步行动）、Decide（批准、拒绝、恢复、继续）。",
       inputs: ["意图、范围、验收标准、Authority（Define）", "Outcome、证据摘要、未知项、风险/状态、下一步行动（Understand）"],
       outputs: ["批准 / 拒绝 / 恢复 / 继续（Decide）"],
       boundary: "这是 Explorer 用来呈现人与 Runtime 交互方式的概念，并不是 Runtime 本身具备的服务。",
@@ -191,7 +191,7 @@ export const zhCN = {
       },
       {
         title: "HCI / 人的决定",
-        narration: "Outcome 通过人机交互层上升至人的授权环节，由人决定：批准或拒绝。在人做出决定之前，任何事都不会被授权。",
+        narration: "Outcome 通过人工控制层上升至人的授权环节，由人决定：批准或拒绝。在人做出决定之前，任何事都不会被授权。",
       },
       {
         title: "Archive → Trace → Knowledge",
