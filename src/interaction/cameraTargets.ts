@@ -61,3 +61,26 @@ export function cameraTargetFor(id: ArchitectureElementId | null): CameraTarget 
 }
 
 export { overview as overviewCameraTarget };
+
+/**
+ * Args for CameraControls#setLookAt, derived from a single id. Pure and
+ * testable independently of any R3F/WebGL context — the camera rig just
+ * spreads this into the controls ref.
+ */
+export type SetLookAtArgs = [
+  number,
+  number,
+  number,
+  number,
+  number,
+  number,
+  boolean,
+];
+
+export function buildSetLookAtArgs(
+  id: ArchitectureElementId | null,
+  reducedMotion: boolean,
+): SetLookAtArgs {
+  const target = cameraTargetFor(id);
+  return [...target.position, ...target.lookAt, !reducedMotion];
+}

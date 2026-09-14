@@ -12,10 +12,8 @@ import { Outcome } from "@/architecture/Outcome";
 import { Flows } from "@/architecture/Flows";
 import { isAmong } from "@/interaction/selection";
 import type { ArchitectureElementId } from "@/data/architecture";
-import { ArchitectureCamera } from "./ArchitectureCamera";
-import { ArchitectureControls } from "./ArchitectureControls";
+import { CameraRig } from "./CameraRig";
 import { SceneLighting } from "./SceneLighting";
-import { cameraTargetFor } from "@/interaction/cameraTargets";
 
 interface ArchitectureSceneProps {
   /** Which elements are relevant right now; null/empty means show all. */
@@ -45,8 +43,7 @@ export function ArchitectureScene({
   return (
     <>
       <SceneLighting />
-      <ArchitectureCamera target={cameraTargetFor(cameraId)} />
-      <ArchitectureControls />
+      <CameraRig cameraId={cameraId} />
       <Flows dimmed={flowsDimmed} />
       <AgentActors {...nodeProps("agents")} />
       <EntrySurface {...nodeProps("entrySurface")} />
