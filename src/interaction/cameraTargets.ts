@@ -8,32 +8,50 @@ export interface CameraTarget {
 
 const overview: CameraTarget = {
   position: cameraDefaults.position,
-  lookAt: [0, 0.5, 0],
+  lookAt: [0, 1.4, 0],
 };
 
+const agentsCenter: [number, number, number] = [
+  (layout.agents[0].position[0] + layout.agents[1].position[0]) / 2,
+  layout.agents[0].position[1],
+  0,
+];
+
 export const cameraTargets: Record<ArchitectureElementId, CameraTarget> = {
+  agents: {
+    position: [agentsCenter[0] - 2.5, agentsCenter[1] + 2, agentsCenter[2] + 4],
+    lookAt: agentsCenter,
+  },
+  entrySurface: {
+    position: [-3.4, 2.6, 4],
+    lookAt: layout.entrySurface.position,
+  },
+  contract: {
+    position: [-1, 4, 4.5],
+    lookAt: layout.contract.position,
+  },
+  runtime: {
+    position: [3, 3, 5.5],
+    lookAt: layout.runtime.position,
+  },
   repository: {
-    position: [4, 1.5, 6],
+    position: [4, 0.5, 6.5],
     lookAt: layout.repository.position,
   },
   repositoryProtocol: {
-    position: [3.5, 1.2, 5],
+    position: [3.5, 0.4, 5],
     lookAt: layout.repositoryProtocol.position,
   },
-  runtime: {
-    position: [3, 3, 5],
-    lookAt: layout.runtime.position,
+  evidence: {
+    position: [1.5, 1, 5.5],
+    lookAt: layout.evidence.position,
   },
-  entrySurface: {
-    position: [2, 5, 5],
-    lookAt: layout.entrySurface.position,
-  },
-  agents: {
-    position: [8, 3, 8],
-    lookAt: [layout.agents.radius, layout.agents.height, 0],
+  outcome: {
+    position: [1, 4, 4.5],
+    lookAt: layout.outcome.position,
   },
   humanAuthority: {
-    position: [7, 2.4, -1],
+    position: [3, 6, 6],
     lookAt: layout.humanAuthority.position,
   },
 };

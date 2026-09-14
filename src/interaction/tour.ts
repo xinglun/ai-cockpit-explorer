@@ -1,43 +1,77 @@
-import { architectureElements, type ArchitectureElementId } from "@/data/architecture";
+import type { ArchitectureElementId } from "@/data/architecture";
+
+export type TourStatusBeat = "none" | "green" | "pending" | "verified-not-approved";
 
 export interface TourStep {
-  id: ArchitectureElementId;
   title: string;
   narration: string;
+  /** Elements visible/highlighted at this beat; everything else dims. */
+  focus: ArchitectureElementId[];
+  /** Which camera target to move toward. */
+  cameraId: ArchitectureElementId;
+  status: TourStatusBeat;
 }
 
 /**
- * Guided tour sequence. Designed so a first-time visitor can understand
- * the core architecture in ~30 seconds without reading the README:
- * within 5s the repository/runtime relationship, within 15s the
- * governance surfaces, within 30s the verification/authority boundary.
+ * "Understand AI Cockpit in 30 seconds" — a 7-scene narrative, not a
+ * camera pan across objects. Each scene explains a causal step in the
+ * Governance Loop, ending on the single most important beat: verified
+ * is not the same as approved.
  */
 export const tourSteps: TourStep[] = [
   {
-    id: "repository",
-    title: architectureElements.repository.label,
-    narration: architectureElements.repository.summary,
-  },
-  {
-    id: "repositoryProtocol",
-    title: architectureElements.repositoryProtocol.label,
-    narration: architectureElements.repositoryProtocol.summary,
-  },
-  {
-    id: "runtime",
-    title: architectureElements.runtime.label,
-    narration: architectureElements.runtime.summary,
-  },
-  {
-    id: "agents",
-    title: architectureElements.agents.label,
-    narration: architectureElements.agents.summary,
-  },
-  {
-    id: "humanAuthority",
-    title: architectureElements.humanAuthority.label,
+    title: "Autonomous execution",
     narration:
-      "Verification is not approval. Human Authority is the explicit, separate boundary that decides what is permitted.",
+      "AI agents can execute work. They do not automatically own repository authority — execution stops at the AI Cockpit gate.",
+    focus: ["agents", "entrySurface"],
+    cameraId: "entrySurface",
+    status: "none",
+  },
+  {
+    title: "Contract",
+    narration:
+      "Before anything runs, a human defines what's allowed: intent, scope, and acceptance criteria.",
+    focus: ["humanAuthority", "contract", "runtime"],
+    cameraId: "contract",
+    status: "none",
+  },
+  {
+    title: "Repository facts",
+    narration:
+      "The repository feeds Runtime with Git HEAD, changed paths, snapshot, and digests — observed, not assumed.",
+    focus: ["repository", "repositoryProtocol", "runtime"],
+    cameraId: "repository",
+    status: "none",
+  },
+  {
+    title: "Execution",
+    narration: "Execution is bounded by the active Work Item — checkpoints, not silent writes.",
+    focus: ["agents", "entrySurface", "runtime", "repository"],
+    cameraId: "runtime",
+    status: "none",
+  },
+  {
+    title: "Evidence",
+    narration:
+      "Tests, git state, digests, and artifacts converge into an Evidence packet that flows back to Runtime.",
+    focus: ["repository", "evidence", "runtime"],
+    cameraId: "evidence",
+    status: "green",
+  },
+  {
+    title: "Verification",
+    narration: "Verification is GREEN. Human decision: PENDING. Verified ≠ Approved.",
+    focus: ["evidence", "runtime", "contract", "outcome", "humanAuthority"],
+    cameraId: "runtime",
+    status: "verified-not-approved",
+  },
+  {
+    title: "Human Authority",
+    narration:
+      "The Outcome rises to Human Authority, who decides: approve or reject. Autonomous execution, bounded by evidence, governed by explicit authority.",
+    focus: ["outcome", "humanAuthority"],
+    cameraId: "humanAuthority",
+    status: "pending",
   },
 ];
 

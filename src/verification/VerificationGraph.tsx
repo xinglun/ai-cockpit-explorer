@@ -18,14 +18,22 @@ export function VerificationGraph({ scenario }: VerificationGraphProps) {
           <EvidenceNode key={item.id} evidence={item} />
         ))}
       </div>
-      <div className="flex items-center gap-3">
-        <span
-          style={{ backgroundColor: verificationStatusColor[scenario.verificationStatus] }}
-          className="rounded px-2 py-1 text-xs font-semibold text-black/80"
-        >
-          Verification: {scenario.verificationStatus}
-        </span>
+      <span
+        style={{ backgroundColor: verificationStatusColor[scenario.verificationStatus] }}
+        className="w-fit rounded px-2 py-1 text-xs font-semibold text-black/80"
+      >
+        Verification: {scenario.verificationStatus}
+      </span>
+
+      {/* Deliberate gap, not a connecting line: verification does not
+          automatically produce a human decision. */}
+      <div style={{ borderColor: colors.border }} className="border-t border-dashed pt-3">
         <DecisionState decision={scenario.humanDecision} />
+        {scenario.verificationStatus === "GREEN" && scenario.humanDecision === "PENDING" && (
+          <p style={{ color: colors.stateGreen }} className="mt-1 text-sm font-semibold">
+            Verified ≠ Approved.
+          </p>
+        )}
       </div>
     </div>
   );

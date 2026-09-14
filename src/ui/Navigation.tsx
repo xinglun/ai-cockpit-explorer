@@ -1,27 +1,34 @@
-import { architectureElements, architectureOrder, type ArchitectureElementId } from "@/data/architecture";
 import { colors } from "@/design-system/semanticColors";
 
+export type ExplorerMode = "overview" | "workitem" | "verification";
+
+const modes: Array<{ id: ExplorerMode; label: string }> = [
+  { id: "overview", label: "Overview" },
+  { id: "workitem", label: "Work Item" },
+  { id: "verification", label: "Verification" },
+];
+
 interface NavigationProps {
-  selected: ArchitectureElementId | null;
-  onSelect: (id: ArchitectureElementId) => void;
+  mode: ExplorerMode;
+  onChange: (mode: ExplorerMode) => void;
 }
 
 /**
- * Keyboard/DOM-accessible navigation into the same selection state the
- * 3D scene uses, so 3D interaction is never required to explore the
- * architecture.
+ * Exactly three modes — no per-element button row. Keyboard/DOM
+ * accessible so 3D interaction is never required to use the Explorer.
  */
-export function Navigation({ selected, onSelect }: NavigationProps) {
+export function Navigation({ mode, onChange }: NavigationProps) {
   return (
-    <nav aria-label="Architecture layers" className="flex flex-wrap gap-2">
-      {architectureOrder.map((id) => {
-        const isActive = selected === id;
+    <div role="tablist" aria-label="Explorer mode" className="flex gap-1">
+      {modes.map((entry) => {
+        const isActive = mode === entry.id;
         return (
           <button
-            key={id}
+            key={entry.id}
             type="button"
-            onClick={() => onSelect(id)}
-            aria-pressed={isActive}
+            role="tab"
+            aria-selected={isActive}
+            onClick={() => onChange(entry.id)}
             style={{
               borderColor: isActive ? colors.informationFlow : colors.border,
               color: colors.textPrimary,
@@ -29,10 +36,10 @@ export function Navigation({ selected, onSelect }: NavigationProps) {
             }}
             className="rounded border px-3 py-1.5 text-sm transition-colors"
           >
-            {architectureElements[id].label}
+            {entry.label}
           </button>
         );
       })}
-    </nav>
+    </div>
   );
 }
