@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     "Explore AI Cockpit's architecture, governance lifecycle, evidence model, and human-authority boundary interactively.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
