@@ -50,6 +50,13 @@ export const en = {
       outputs: ["The bounds Runtime evaluates every action against"],
       boundary: "Cannot be satisfied by inference — only by evidence checked against its own text.",
     },
+    workItem: {
+      label: "Work Item",
+      what: "The bounded, evolving envelope everything above happens inside: one Contract, its execution, its evidence, and its Outcome, tracked as a single governed unit from start to close.",
+      inputs: ["A Contract (intent, scope, acceptance criteria)", "Repository facts", "Evidence collected during execution"],
+      outputs: ["An Outcome for Human Authority to decide on", "A durable trace once archived"],
+      boundary: "Does not exist before start, and cannot outlive its own Contract's scope.",
+    },
     runtime: {
       label: "AI Cockpit Runtime",
       what: "The engine that evaluates the Contract against repository facts and evidence.",
@@ -66,10 +73,17 @@ export const en = {
     },
     repositoryProtocol: {
       label: "Repository Protocol",
-      what: "A persistent, repository-owned layer (.ai/) storing Contracts, evidence, and decisions.",
+      what: "A persistent, repository-owned layer (.ai/) storing Contracts, evidence, decisions, and derived Knowledge.",
       inputs: ["Lifecycle events"],
       outputs: ["Durable governance history versioned with the code"],
       boundary: "Cannot be evaluated as evidence by itself — it stores state, Runtime evaluates it.",
+    },
+    knowledge: {
+      label: "Knowledge",
+      what: "A projection of completed repository facts, made available for later lookup once a Work Item is done.",
+      inputs: ["Completed, archived Work Item facts"],
+      outputs: ["Lookups a future Work Item's Runtime can consult"],
+      boundary: "Derived from completed repository facts — it is not a source of authority.",
     },
     evidence: {
       label: "Evidence",
@@ -84,6 +98,13 @@ export const en = {
       inputs: ["Verification result", "Unresolved unknowns"],
       outputs: ["A record Human Authority can decide on"],
       boundary: "Cannot authorize itself — GREEN outcome is not an APPROVED decision.",
+    },
+    humanControlInterface: {
+      label: "Human Control Interface",
+      what: "The Explorer's presentation of how a human directs and receives status from AI Cockpit, in three channels: Define (Intent, Scope, Acceptance Criteria, Authority), Understand (Outcome, Evidence Summary, Unknowns, Risk/Status, Next Action), and Decide (Approve, Reject, Recover, Continue).",
+      inputs: ["Intent, Scope, Acceptance Criteria, Authority (Define)", "Outcome, Evidence Summary, Unknowns, Risk/Status, Next Action (Understand)"],
+      outputs: ["Approve / Reject / Recover / Continue (Decide)"],
+      boundary: "Is a concept the Explorer uses to present human/Runtime interaction — not a literal Runtime service.",
     },
     humanAuthority: {
       label: "Human Authority",
@@ -146,37 +167,43 @@ export const en = {
     sceneOfTotal: "Scene {current} of {total}",
     steps: [
       {
-        title: "Autonomous execution",
+        title: "Request",
         narration:
           "AI agents can execute work. They do not automatically own repository authority — execution stops at the AI Cockpit gate.",
       },
       {
+        title: "Work Item",
+        narration:
+          "That request becomes a Work Item: a bounded envelope that will hold this change's Contract, execution, evidence, and Outcome from here until it closes.",
+      },
+      {
         title: "Contract",
         narration:
-          "Before anything runs, a human defines what's allowed: intent, scope, and acceptance criteria.",
+          "Before anything runs, a human defines what's allowed inside that envelope: intent, scope, and acceptance criteria.",
       },
       {
-        title: "Repository facts",
+        title: "Governed Execution",
         narration:
-          "The repository feeds Runtime with Git HEAD, changed paths, snapshot, and digests — observed, not assumed.",
-      },
-      {
-        title: "Execution",
-        narration: "Execution is bounded by the active Work Item — checkpoints, not silent writes.",
+          "The repository feeds Runtime with Git HEAD, changed paths, snapshot, and digests — observed, not assumed — and execution proceeds bounded by that Work Item, through checkpoints rather than silent writes.",
       },
       {
         title: "Evidence",
         narration:
-          "Tests, git state, digests, and artifacts converge into an Evidence packet that flows back to Runtime.",
+          "Tests, git state, digests, and artifacts converge into an Evidence packet that flows back to Runtime, still inside the same Work Item.",
       },
       {
         title: "Verification",
         narration: "Verification is GREEN. Human decision: PENDING. Verified ≠ Approved.",
       },
       {
-        title: "Human Authority",
+        title: "HCI / Human Decision",
         narration:
-          "The Outcome rises to Human Authority, who decides: approve or reject. Autonomous execution, bounded by evidence, governed by explicit authority.",
+          "The Outcome rises to Human Authority through the Human Control Interface, who decides: approve or reject. Nothing is authorized until they do.",
+      },
+      {
+        title: "Archive → Trace → Knowledge",
+        narration:
+          "Once decided, the Work Item archives into the Repository Protocol, its full trace stays reviewable, and its completed facts become Knowledge for the next Work Item to consult.",
       },
     ],
   },
@@ -223,5 +250,29 @@ export const en = {
       UNKNOWN: "not evaluated (never approval)",
     },
     humanDecisionExplanation: "human decision, separate from verification",
+  },
+  workItemEnvelope: {
+    label: "Work Item",
+    closedLabel: "CLOSED",
+  },
+  trace: {
+    heading: "Trace / Audit",
+    ariaLabel: "Work Item trace timeline",
+    advancedToggleShow: "Show advanced (finalize / close cleanup)",
+    advancedToggleHide: "Hide advanced",
+    events: {
+      intent: "Intent recorded",
+      contract: "Contract bound",
+      snapshot: "Repository snapshot digest recorded",
+      checkpoint: "Checkpoint receipt recorded",
+      verificationReceipt: "Verification receipt recorded",
+      outcome: "Outcome recorded",
+      humanDecision: "Human decision recorded",
+      archive: "Archived into Repository Protocol",
+      finalizePlan: "Finalize plan bound (branch / worktree / provider)",
+      finalize: "Provider finalization receipt recorded",
+      finalizeVerify: "Finalization receipt revalidated",
+      close: "Work Item closed; record made immutable",
+    },
   },
 } satisfies ExplorerMessages;

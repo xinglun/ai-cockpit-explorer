@@ -58,10 +58,10 @@ test("exposes exactly three modes and Work Item mode shows the lifecycle as a ti
   await page.getByRole("tab", { name: "Work Item" }).click();
   await expect(page.getByText("Work Item lifecycle")).toBeVisible();
   await expect(page.getByRole("button", { name: /inspect/i })).toBeVisible();
-  await expect(page.getByRole("button", { name: /close/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Close", exact: true })).toBeVisible();
 });
 
-test("guided tour runs the 7-scene narrative and reaches the verified-not-approved climax via the keyboard", async ({
+test("guided tour runs the 8-scene narrative and reaches the verified-not-approved climax via the keyboard", async ({
   page,
 }) => {
   await page.goto("/en/");
@@ -70,16 +70,34 @@ test("guided tour runs the 7-scene narrative and reaches the verified-not-approv
   await startButton.focus();
   await page.keyboard.press("Enter");
 
-  await expect(page.getByText(/scene 1 of 7/i)).toBeVisible();
+  await expect(page.getByText(/scene 1 of 8/i)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Request" })).toBeVisible();
 
-  for (let i = 0; i < 5; i += 1) {
+  for (let i = 0; i < 1; i += 1) {
+    const nextButton = page.getByRole("button", { name: "Next" });
+    await nextButton.focus();
+    await page.keyboard.press("Enter");
+  }
+  await expect(page.getByText(/scene 2 of 8/i)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Work Item" })).toBeVisible();
+
+  for (let i = 0; i < 4; i += 1) {
     const nextButton = page.getByRole("button", { name: "Next" });
     await nextButton.focus();
     await page.keyboard.press("Enter");
   }
 
-  await expect(page.getByText(/scene 6 of 7/i)).toBeVisible();
+  await expect(page.getByText(/scene 6 of 8/i)).toBeVisible();
   await expect(page.getByText(/verified.*approved/i)).toBeVisible();
+
+  await page.getByRole("button", { name: "Next" }).click();
+  await expect(page.getByText(/scene 7 of 8/i)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "HCI / Human Decision" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Next" }).click();
+  await expect(page.getByText(/scene 8 of 8/i)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Archive → Trace → Knowledge" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Done" })).toBeVisible();
 });
 
 test("Verification mode never renders GREEN or UNKNOWN evidence as an approved decision", async ({ page }) => {
@@ -93,6 +111,38 @@ test("Verification mode never renders GREEN or UNKNOWN evidence as an approved d
   await page.getByRole("button", { name: "RED" }).click();
   await expect(page.getByText(/verification: RED/i)).toBeVisible();
   await expect(page.getByText(/human decision: PENDING/i)).toBeVisible();
+});
+
+test("Work Item mode shows a Trace timeline with the finalize/close cleanup collapsed by default", async ({
+  page,
+}) => {
+  await page.goto("/en/");
+  await page.getByRole("tab", { name: "Work Item" }).click();
+
+  await expect(page.getByText(/Trace \/ Audit/i)).toBeVisible();
+  await expect(page.getByText(/Intent recorded/i)).toBeVisible();
+  await expect(page.getByText(/Archived into Repository Protocol/i)).toBeVisible();
+  await expect(page.getByText(/Provider finalization receipt recorded/i)).not.toBeVisible();
+
+  await page.getByRole("button", { name: /show advanced/i }).click();
+  await expect(page.getByText(/Provider finalization receipt recorded/i)).toBeVisible();
+  await expect(page.getByText(/Work Item closed; record made immutable/i)).toBeVisible();
+});
+
+test("Knowledge and the Human Control Interface are selectable as their own distinct elements", async ({ page }) => {
+  await page.goto("/en/");
+
+  await page.getByRole("button", { name: "Knowledge" }).click();
+  await expect(page.getByRole("heading", { name: "Knowledge" })).toBeVisible();
+  await expect(page.getByText(/not a source of authority/i)).toBeVisible();
+
+  await page.getByRole("button", { name: "Human Control Interface" }).click();
+  await expect(page.getByRole("heading", { name: "Human Control Interface" })).toBeVisible();
+  await expect(page.getByText(/not a literal Runtime service/i)).toBeVisible();
+
+  await page.getByRole("button", { name: "Work Item", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Work Item", exact: true })).toBeVisible();
+  await expect(page.getByText(/bounded, evolving envelope/i)).toBeVisible();
 });
 
 test("language switcher is visible top-right, updates the URL, and preserves the current mode", async ({

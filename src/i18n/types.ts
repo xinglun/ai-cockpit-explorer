@@ -1,6 +1,7 @@
 import type { ArchitectureElementId } from "@/data/architecture";
 import type { LifecycleStepId } from "@/data/lifecycle";
 import type { VerificationScenarioId } from "@/data/verificationDemo";
+import type { TraceEventId } from "@/data/workItem";
 
 export interface ArchitectureCopy {
   label: string;
@@ -102,5 +103,18 @@ export interface ExplorerMessages {
   statusLegend: {
     explanations: Record<"GREEN" | "YELLOW" | "RED" | "UNKNOWN", string>;
     humanDecisionExplanation: string;
+  };
+  workItemEnvelope: {
+    /** Rendered as `"{label}: WI-123"` above the envelope. */
+    label: string;
+    /** Shown above the collapsed envelope once the sample Work Item is closed. */
+    closedLabel: string;
+  };
+  trace: {
+    heading: string;
+    ariaLabel: string;
+    advancedToggleShow: string;
+    advancedToggleHide: string;
+    events: Record<TraceEventId, string>;
   };
 }

@@ -5,6 +5,8 @@ import { colors } from "@/design-system/semanticColors";
 import { cameraDefaults } from "@/design-system/geometry";
 import { ArchitectureScene } from "./ArchitectureScene";
 import type { ArchitectureElementId } from "@/data/architecture";
+import type { WorkItemEnvelopeStage } from "@/data/workItem";
+import type { FlowId } from "@/architecture/types";
 
 interface ArchitectureExperienceProps {
   highlightIds: readonly ArchitectureElementId[] | null;
@@ -13,6 +15,10 @@ interface ArchitectureExperienceProps {
   onSelect: (id: ArchitectureElementId) => void;
   labels: Record<ArchitectureElementId, string>;
   ariaLabel: string;
+  activeFlowIds: readonly FlowId[] | null;
+  workItemStage: WorkItemEnvelopeStage;
+  workItemId: string;
+  workItemClosedLabel: string;
 }
 
 /**
@@ -26,6 +32,10 @@ export function ArchitectureExperience({
   onSelect,
   labels,
   ariaLabel,
+  activeFlowIds,
+  workItemStage,
+  workItemId,
+  workItemClosedLabel,
 }: ArchitectureExperienceProps) {
   return (
     <Canvas
@@ -39,6 +49,10 @@ export function ArchitectureExperience({
         cameraId={cameraId}
         onSelect={onSelect}
         labels={labels}
+        activeFlowIds={activeFlowIds}
+        workItemStage={workItemStage}
+        workItemId={workItemId}
+        workItemClosedLabel={workItemClosedLabel}
       />
     </Canvas>
   );

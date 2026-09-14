@@ -1,0 +1,56 @@
+{
+  "acceptanceCriteria": [
+    "A Work Item Envelope exists as a spatial bounding container in the 3D scene (not a UI-only highlight) that visibly does not exist before start, appears at start, expands through checkpoint/verify, gains a visible Outcome at finish, shrinks into Repository Protocol at archive, and shows a CLOSED/human-decision stamp at close.",
+    "Knowledge exists as a distinct visual form (a small node/graph, not another cube) nested under Repository Protocol alongside Archive/Decisions/Evidence, with copy in all locales explicitly stating it is derived from completed repository facts and is not a source of authority.",
+    "A Traceability/Audit trail is explorable as a single timeline through one Work Item's lifecycle events (intent, contract, snapshot, checkpoint, verification receipt, outcome, human decision, archive), not represented as a new independent architecture component, and the resource-finalize/finalize/close cleanup sub-steps appear only inside this expanded trace view, not in the primary 30-second flow.",
+    "A Human Control Interface (CHI) concept layer is visible between Human Authority and Runtime, explicitly presenting Define/Understand/Decide channels with concrete example content (Intent/Scope/Acceptance/Authority going to the cockpit; Outcome/Evidence Summary/Unknowns/Risk/Next Action coming back; Approve/Reject/Recover/Continue as human responses), and is documented in-app as an Explorer presentation concept rather than an implied Runtime service.",
+    "Active semantic flows are scoped per highlighted stage (e.g. Verify highlights only the evidence/verification flow) with visible directional data-pulse motion along the active flow, rather than the previous all-or-nothing dim/undim of every flow at once.",
+    "The guided tour is rebuilt to 8 scenes (Request, Work Item, Contract, Governed Execution, Evidence, Verification, CHI/Human Decision, Archive->Trace->Knowledge) and fully localized in en/ja/zh-CN with no mixed-language content.",
+    "GREEN verification is never shown as equivalent to human approval anywhere in the new Work Item / CHI / Trace surfaces (the existing Verified != Approved distinction from WI-002/WI-003 is preserved and extended, not weakened, by the new envelope/CHI copy).",
+    "npm ci, lint, typecheck, unit tests, Playwright e2e (extended for the Work Item envelope lifecycle states, Knowledge, Trace timeline, and CHI panel), and the static export build all succeed; existing v0.2/v0.2.1/WI-004 behavior (Governance Loop scene, three modes, i18n, camera stability) is not regressed."
+  ],
+  "authority": "authorized",
+  "baseRevision": "4e7bfeb83acab07bc11d43dfa95c6ac95f86dd68",
+  "createdAt": "2026-09-14T03:59:50Z",
+  "goal": "Add: (1) a Work Item Envelope as a first-class spatial/visual bounding container that changes shape across the lifecycle (created at start, expands through checkpoint/verify, gains Outcome at finish, shrinks into Repository Protocol at archive, gets a CLOSED stamp at close); (2) Knowledge as a visually distinct node/graph form under Repository Protocol, explicitly labeled as a derived projection and not a source of authority; (3) Traceability/Audit as a single line through the Work Item's lifecycle events (intent/contract/snapshot/checkpoint/verification/outcome/human-decision/archive), explorable as a timeline, not a new architecture object; (4) a Human Control Interface (CHI) concept layer between Human Authority and Runtime, explicit about Define/Understand/Decide channels (human->cockpit: intent/scope/acceptance/authority; cockpit->human: outcome/evidence-summary/unknowns/risk/next-action; human->cockpit: approve/reject/recover/continue) -- explicitly a presentation-layer concept of the Explorer, not a claim that AI Cockpit Runtime has a literal CHI service; (5) semantic-scoped active flows (only the flows relevant to the current highlighted stage light up, not all-or-nothing dimming) with directional data-pulse motion; (6) a rebuilt 8-scene guided tour (Request, Work Item, Contract, Governed Execution, Evidence, Verification, CHI/Human Decision, Archive->Trace->Knowledge) satisfying a 30-second comprehension bar: a non-programmer who knows what Git/CI/PR/AI-coding are should be able to answer at least 5 of 6 questions (What is a Work Item? Why doesn't AI's own completion count as approval? Where does Evidence go? Where does the Human control things? Where is the record kept afterward? Where does Knowledge come from?) after 30 seconds. All three locales (en/ja/zh-CN) must cover 100% of new copy; the resource-finalize/finalize/close cleanup sub-lifecycle stays out of the primary 30-second flow and only surfaces in an expanded Trace view for advanced users.",
+  "intent": "Complete the Explorer's semantic model. It currently only shows Agents/Entry/Contract/Runtime/Repository/RepositoryProtocol/Evidence/Outcome/HumanAuthority, but the canonical AI Cockpit architecture and lifecycle center on the Work Item as a bounded, evolving governed envelope, plus Knowledge as a derived-facts projection, Traceability/Audit as an evidence trail, and a Human Control Interface (CHI) as the actual human-system interaction surface -- none of which currently exist spatially.",
+  "mode": "implementation",
+  "outOfScope": [
+    "3D visual/material/lighting polish beyond what is needed to make the new elements legible (full polish is WI-006)",
+    "Camera controller changes beyond adding new camera targets for the new elements (WI-004 already fixed the core camera bug)",
+    "Any claim that AI Cockpit Runtime itself has a literal CHI service",
+    " or any new Runtime capability beyond what is already documented"
+  ],
+  "projectProfileDigest": "sha256:ad2985721bc9a417f9bf9b683d3e6478e7ad901bd480b28ba9ceebe15b625270",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "repositorySnapshotDigest": "sha256:0262fd78f3709735bac71c3a711a3b7a3f8d09b23926d7b82055964251698b98",
+  "requiredEvidenceClasses": [
+    "verification"
+  ],
+  "resourceContext": {
+    "baseBranch": "unknown",
+    "baseRemote": "unknown",
+    "branch": "codex/wi-005-semantic-completeness",
+    "provider": "unknown",
+    "pullRequest": "unknown",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-005-semantic-completeness"
+  },
+  "risk": "normal",
+  "scope": [
+    "src/architecture/",
+    "src/lifecycle/",
+    "src/verification/",
+    "src/ui/",
+    "src/data/",
+    "src/i18n/",
+    "src/interaction/",
+    "src/design-system/",
+    "tests/",
+    "e2e/"
+  ],
+  "sources": [],
+  "state": "implementation_active",
+  "verification": [],
+  "workItemId": "WI-005-semantic-completeness"
+}

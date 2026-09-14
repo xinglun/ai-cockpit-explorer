@@ -50,6 +50,13 @@ export const ja = {
       outputs: ["RuntimeがすべてのActionを評価する際の基準"],
       boundary: "推測では満たされません——自身のテキストと照合された証拠によってのみ満たされます。",
     },
+    workItem: {
+      label: "Work Item",
+      what: "この上にあるすべてが起こる、境界づけられ変化していく器（envelope）。ひとつのContract、その実行、証拠、そしてOutcomeを、startからcloseまでひとつの統治された単位として追跡します。",
+      inputs: ["Contract（intent・scope・受け入れ基準）", "リポジトリのファクト", "実行中に収集された証拠"],
+      outputs: ["Human Authorityが判断するためのOutcome", "アーカイブ後に残る追跡記録（Trace）"],
+      boundary: "startより前には存在せず、自身のContractのscopeを超えて存続することもありません。",
+    },
     runtime: {
       label: "AI Cockpit Runtime",
       what: "ContractをRepositoryのファクトと証拠に照らして評価するエンジン。",
@@ -66,10 +73,17 @@ export const ja = {
     },
     repositoryProtocol: {
       label: "Repository Protocol",
-      what: "Contract・証拠・決定を保存する、リポジトリが所有する永続的なレイヤー（.ai/）。",
+      what: "Contract・証拠・決定、そして派生的なKnowledgeを保存する、リポジトリが所有する永続的なレイヤー（.ai/）。",
       inputs: ["ライフサイクルのイベント"],
       outputs: ["コードと共にバージョン管理される、恒久的なガバナンス履歴"],
       boundary: "それ自体は証拠として評価されません——状態を保存するだけで、評価するのはRuntimeです。",
+    },
+    knowledge: {
+      label: "Knowledge",
+      what: "Work Itemが完了した後、以後の参照のために利用可能になる、完了したリポジトリのファクトの投影。",
+      inputs: ["完了しアーカイブされたWork Itemのファクト"],
+      outputs: ["将来のWork ItemのRuntimeが参照できる検索結果"],
+      boundary: "完了したリポジトリのファクトから導出されたものであり、権限の源ではありません。",
     },
     evidence: {
       label: "証拠",
@@ -84,6 +98,13 @@ export const ja = {
       inputs: ["検証結果", "未解決の不明点"],
       outputs: ["Human Authorityが判断できる記録"],
       boundary: "自ら認可することはできません——GREENのOutcomeはAPPROVEDという決定ではありません。",
+    },
+    humanControlInterface: {
+      label: "Human Control Interface",
+      what: "人間がAI Cockpitを操作し、状況を受け取る方法についてのExplorerの提示。Define（Intent・Scope・受け入れ基準・Authority）、Understand（Outcome・証拠の要約・不明点・リスク/状況・次のアクション）、Decide（Approve・Reject・Recover・Continue）という3つのチャネルで構成されます。",
+      inputs: ["Intent・Scope・受け入れ基準・Authority（Define）", "Outcome・証拠の要約・不明点・リスク/状況・次のアクション（Understand）"],
+      outputs: ["Approve / Reject / Recover / Continue（Decide）"],
+      boundary: "Explorerが人間とRuntimeのやり取りを提示するための概念であり、Runtime自体が持つサービスではありません。",
     },
     humanAuthority: {
       label: "Human Authority",
@@ -146,35 +167,41 @@ export const ja = {
     sceneOfTotal: "シーン {current} / {total}",
     steps: [
       {
-        title: "自律的な実行",
+        title: "リクエスト",
         narration:
           "AIエージェントは作業を実行できます。しかしリポジトリへの権限を自動的に持つわけではありません——実行はAI Cockpitのゲートで一旦止まります。",
       },
       {
-        title: "Contract",
-        narration: "何かが動き出す前に、人間が許可される内容を定義します：intent・scope・受け入れ基準。",
-      },
-      {
-        title: "リポジトリのファクト",
+        title: "Work Item",
         narration:
-          "リポジトリはGit HEAD・変更されたパス・スナップショット・ダイジェストをRuntimeに供給します——推測ではなく観測された事実です。",
+          "そのリクエストはWork Itemになります——このあとのContract・実行・証拠・Outcomeを、closeされるまで保持する境界づけられた器です。",
       },
       {
-        title: "実行",
-        narration: "実行は有効なWork Itemによって境界づけられます——静かな書き込みではなく、checkpointを伴います。",
+        title: "Contract",
+        narration: "何かが動き出す前に、人間がその器の中で許可される内容を定義します：intent・scope・受け入れ基準。",
+      },
+      {
+        title: "統治された実行",
+        narration:
+          "リポジトリはGit HEAD・変更されたパス・スナップショット・ダイジェストをRuntimeに供給します——推測ではなく観測された事実です。実行はそのWork Itemによって境界づけられ、静かな書き込みではなくcheckpointを伴って進みます。",
       },
       {
         title: "証拠",
-        narration: "テスト・Gitの状態・ダイジェスト・成果物が集約され、Runtimeへ戻る証拠パケットになります。",
+        narration: "テスト・Gitの状態・ダイジェスト・成果物が集約され、同じWork Itemの中でRuntimeへ戻る証拠パケットになります。",
       },
       {
         title: "検証",
         narration: "検証はGREENです。人間の決定：PENDING（保留）。検証済み ≠ 承認済み。",
       },
       {
-        title: "Human Authority",
+        title: "HCI / 人間の決定",
         narration:
-          "OutcomeはHuman Authorityへ上がり、そこで承認か却下かが決定されます。自律的な実行は、証拠によって境界づけられ、明示的な権限によって統治されます。",
+          "OutcomeはHuman Control Interfaceを通じてHuman Authorityへ上がり、そこで承認か却下かが決定されます。人間が決定するまで、何も認可されません。",
+      },
+      {
+        title: "Archive → Trace → Knowledge",
+        narration:
+          "決定されたWork ItemはRepository Protocolへアーカイブされ、その追跡記録（Trace）は引き続き参照可能なまま残り、完了したファクトは次のWork Itemが参照できるKnowledgeになります。",
       },
     ],
   },
@@ -221,5 +248,29 @@ export const ja = {
       UNKNOWN: "未評価（承認では決してない）",
     },
     humanDecisionExplanation: "人間の決定であり、検証とは別のもの",
+  },
+  workItemEnvelope: {
+    label: "Work Item",
+    closedLabel: "CLOSED",
+  },
+  trace: {
+    heading: "Trace / Audit",
+    ariaLabel: "Work Itemの追跡タイムライン",
+    advancedToggleShow: "高度な項目を表示（finalize / close のクリーンアップ）",
+    advancedToggleHide: "高度な項目を隠す",
+    events: {
+      intent: "Intentを記録",
+      contract: "Contractを紐づけ",
+      snapshot: "リポジトリのスナップショットダイジェストを記録",
+      checkpoint: "Checkpointの受領記録を記録",
+      verificationReceipt: "検証の受領記録を記録",
+      outcome: "Outcomeを記録",
+      humanDecision: "人間の決定を記録",
+      archive: "Repository Protocolへアーカイブ",
+      finalizePlan: "Finalize planを紐づけ（ブランチ / worktree / provider）",
+      finalize: "Providerによるfinalization受領記録を記録",
+      finalizeVerify: "Finalization受領記録を再検証",
+      close: "Work Itemをclose、記録は不変に",
+    },
   },
 } satisfies ExplorerMessages;

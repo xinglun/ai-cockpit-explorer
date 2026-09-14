@@ -48,6 +48,13 @@ export const zhCN = {
       outputs: ["Runtime 用于评估每个操作的依据"],
       boundary: "不能通过推断满足——只能通过对照其文本核实的证据来满足。",
     },
+    workItem: {
+      label: "工作项",
+      what: "一个受边界约束、会随生命周期演变的容器（envelope），上面的一切都发生在其中：一份契约、其执行过程、产生的证据，以及最终的 Outcome，从 start 到 close 作为同一个受治理单元被追踪。",
+      inputs: ["契约（意图、范围、验收标准）", "仓库事实", "执行过程中收集的证据"],
+      outputs: ["供 Human Authority 决策的 Outcome", "归档后仍保留的追溯记录（Trace）"],
+      boundary: "在 start 之前并不存在，其存续范围也不会超出自身契约的 scope。",
+    },
     runtime: {
       label: "AI Cockpit Runtime",
       what: "依据仓库事实与证据评估契约的引擎。",
@@ -64,10 +71,17 @@ export const zhCN = {
     },
     repositoryProtocol: {
       label: "仓库协议",
-      what: "持久化、由仓库自身拥有的层（.ai/），保存契约、证据与决策。",
+      what: "持久化、由仓库自身拥有的层（.ai/），保存契约、证据、决策，以及派生的 Knowledge。",
       inputs: ["生命周期事件"],
       outputs: ["与代码一同版本化的持久治理历史"],
       boundary: "本身不能作为证据被评估——它只是存储状态，由 Runtime 评估。",
+    },
+    knowledge: {
+      label: "Knowledge",
+      what: "工作项完成之后，已完成的仓库事实被投影出来、供后续查询使用的结果。",
+      inputs: ["已完成并归档的工作项事实"],
+      outputs: ["未来工作项的 Runtime 可查询的检索结果"],
+      boundary: "派生自已完成的仓库事实，本身并不是权限的来源。",
     },
     evidence: {
       label: "证据",
@@ -82,6 +96,13 @@ export const zhCN = {
       inputs: ["验证结果", "尚未解决的未知项"],
       outputs: ["供 Human Authority 决策的记录"],
       boundary: "不能自我授权——GREEN 的结论并不是一个已批准（APPROVED）的决定。",
+    },
+    humanControlInterface: {
+      label: "Human Control Interface",
+      what: "Explorer 对“人如何操作并接收 AI Cockpit 状态”的呈现，包含三条通道：Define（意图、范围、验收标准、Authority）、Understand（Outcome、证据摘要、未知项、风险/状态、下一步行动）、Decide（批准、拒绝、恢复、继续）。",
+      inputs: ["意图、范围、验收标准、Authority（Define）", "Outcome、证据摘要、未知项、风险/状态、下一步行动（Understand）"],
+      outputs: ["批准 / 拒绝 / 恢复 / 继续（Decide）"],
+      boundary: "这是 Explorer 用来呈现人与 Runtime 交互方式的概念，并不是 Runtime 本身具备的服务。",
     },
     humanAuthority: {
       label: "人的授权",
@@ -144,32 +165,37 @@ export const zhCN = {
     sceneOfTotal: "第 {current} / {total} 幕",
     steps: [
       {
-        title: "自主执行",
+        title: "请求",
         narration: "AI 智能体可以执行工作，但并不自动拥有仓库权限——执行会在 AI Cockpit 的网关处停下。",
       },
       {
+        title: "工作项",
+        narration: "这个请求会成为一个工作项——一个受边界约束的容器，保存接下来的契约、执行、证据与 Outcome，直到它被关闭。",
+      },
+      {
         title: "契约",
-        narration: "在任何操作开始之前，人先定义允许做什么：意图、范围与验收标准。",
+        narration: "在任何操作开始之前，人先在这个容器内定义允许做什么：意图、范围与验收标准。",
       },
       {
-        title: "仓库事实",
-        narration: "仓库向 Runtime 提供 Git HEAD、变更路径、快照与摘要——这些是被观察到的事实，而非假设。",
-      },
-      {
-        title: "执行",
-        narration: "执行受当前生效的工作项约束——依靠 checkpoint，而不是静默写入。",
+        title: "受治理的执行",
+        narration:
+          "仓库向 Runtime 提供 Git HEAD、变更路径、快照与摘要——这些是被观察到的事实，而非假设；执行受该工作项约束，依靠 checkpoint 推进，而不是静默写入。",
       },
       {
         title: "证据",
-        narration: "测试、Git 状态、摘要与构建产物汇聚成一个证据包，回传给 Runtime。",
+        narration: "测试、Git 状态、摘要与构建产物汇聚成一个证据包，在同一个工作项中回传给 Runtime。",
       },
       {
         title: "验证",
         narration: "验证结果为 GREEN。人的决定：PENDING（待定）。已验证 ≠ 已批准。",
       },
       {
-        title: "人的授权",
-        narration: "Outcome 上升至人的授权环节，由人决定：批准或拒绝。自主执行，受证据约束，由明确的授权治理。",
+        title: "HCI / 人的决定",
+        narration: "Outcome 通过 Human Control Interface 上升至人的授权环节，由人决定：批准或拒绝。在人做出决定之前，任何事都不会被授权。",
+      },
+      {
+        title: "Archive → Trace → Knowledge",
+        narration: "决定之后，工作项会归档进仓库协议，其完整的追溯记录（Trace）仍可查阅，已完成的事实会成为下一个工作项可以查询的 Knowledge。",
       },
     ],
   },
@@ -216,5 +242,29 @@ export const zhCN = {
       UNKNOWN: "尚未评估（绝不等于批准）",
     },
     humanDecisionExplanation: "人的决定，独立于验证结果",
+  },
+  workItemEnvelope: {
+    label: "工作项",
+    closedLabel: "CLOSED",
+  },
+  trace: {
+    heading: "Trace / Audit（追溯）",
+    ariaLabel: "工作项追溯时间线",
+    advancedToggleShow: "显示高级项（finalize / close 清理）",
+    advancedToggleHide: "隐藏高级项",
+    events: {
+      intent: "记录 Intent",
+      contract: "绑定契约",
+      snapshot: "记录仓库快照摘要",
+      checkpoint: "记录 Checkpoint 收据",
+      verificationReceipt: "记录验证收据",
+      outcome: "记录 Outcome",
+      humanDecision: "记录人的决定",
+      archive: "归档进仓库协议",
+      finalizePlan: "绑定 finalize plan（分支 / worktree / provider）",
+      finalize: "记录 provider 的 finalization 收据",
+      finalizeVerify: "重新验证 finalization 收据",
+      close: "关闭工作项，记录不可再更改",
+    },
   },
 } satisfies ExplorerMessages;
