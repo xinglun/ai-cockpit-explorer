@@ -2,17 +2,15 @@ import { modelMetadata, type ExplorerModelMetadata } from "./provenance";
 import type { VerificationStatus, HumanDecisionStatus } from "@/design-system/semanticColors";
 
 export type VerificationScenarioId = "green-pending" | "red-fail-closed";
+export type EvidenceItemId = "build" | "tests" | "scope";
 
 export interface EvidenceItem {
-  id: string;
-  label: string;
+  id: EvidenceItemId;
   status: VerificationStatus;
 }
 
 export interface VerificationScenario {
   id: VerificationScenarioId;
-  label: string;
-  narrative: string;
   evidence: EvidenceItem[];
   verificationStatus: VerificationStatus;
   humanDecision: HumanDecisionStatus;
@@ -22,18 +20,17 @@ export interface VerificationScenario {
 /**
  * Two demonstration scenarios only. UNKNOWN must never be presented as
  * approval, and GREEN verification must never be conflated with an
- * APPROVED human decision — they remain visually and semantically distinct.
+ * APPROVED human decision — they remain visually and semantically
+ * distinct. Display copy (label/narrative/evidence labels) lives in
+ * src/i18n/*, keyed by these same ids.
  */
 export const verificationScenarios: Record<VerificationScenarioId, VerificationScenario> = {
   "green-pending": {
     id: "green-pending",
-    label: "Verification passed, decision pending",
-    narrative:
-      "All required evidence is present and consistent with the Contract. Verification is GREEN. This is not approval — a human still holds the decision.",
     evidence: [
-      { id: "build", label: "Build evidence", status: "GREEN" },
-      { id: "tests", label: "Test evidence", status: "GREEN" },
-      { id: "scope", label: "Scope conformance", status: "GREEN" },
+      { id: "build", status: "GREEN" },
+      { id: "tests", status: "GREEN" },
+      { id: "scope", status: "GREEN" },
     ],
     verificationStatus: "GREEN",
     humanDecision: "PENDING",
@@ -41,13 +38,10 @@ export const verificationScenarios: Record<VerificationScenarioId, VerificationS
   },
   "red-fail-closed": {
     id: "red-fail-closed",
-    label: "Verification failed, fail-closed",
-    narrative:
-      "Required evidence is missing or contradicts the Contract. Verification is RED and the lifecycle gate blocks progression by default — execution fails closed rather than proceeding on assumption.",
     evidence: [
-      { id: "build", label: "Build evidence", status: "GREEN" },
-      { id: "tests", label: "Test evidence", status: "RED" },
-      { id: "scope", label: "Scope conformance", status: "UNKNOWN" },
+      { id: "build", status: "GREEN" },
+      { id: "tests", status: "RED" },
+      { id: "scope", status: "UNKNOWN" },
     ],
     verificationStatus: "RED",
     humanDecision: "PENDING",
@@ -55,7 +49,4 @@ export const verificationScenarios: Record<VerificationScenarioId, VerificationS
   },
 };
 
-export const verificationScenarioOrder: VerificationScenarioId[] = [
-  "green-pending",
-  "red-fail-closed",
-];
+export const verificationScenarioOrder: VerificationScenarioId[] = ["green-pending", "red-fail-closed"];

@@ -5,7 +5,7 @@ import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
-export function Repository({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+export function Repository({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.repository;
   return (
     <group
@@ -27,7 +27,7 @@ export function Repository({ isDimmed, isSelected, onSelect }: ArchitectureNodeP
           metalness={0.1}
         />
       </mesh>
-      <Label position={[0, -size[1] / 2 - 0.35, 0]} text="Software Repository" dimmed={isDimmed} />
+      <Label position={[0, -size[1] / 2 - 0.35, 0]} text={label} dimmed={isDimmed} />
     </group>
   );
 }

@@ -23,13 +23,22 @@ interface ArchitectureSceneProps {
   selectedId: ArchitectureElementId | null;
   cameraId: ArchitectureElementId | null;
   onSelect: (id: ArchitectureElementId) => void;
+  /** Localized 3D labels, keyed by element id (see src/i18n/*). */
+  labels: Record<ArchitectureElementId, string>;
 }
 
-export function ArchitectureScene({ highlightIds, selectedId, cameraId, onSelect }: ArchitectureSceneProps) {
+export function ArchitectureScene({
+  highlightIds,
+  selectedId,
+  cameraId,
+  onSelect,
+  labels,
+}: ArchitectureSceneProps) {
   const nodeProps = (id: ArchitectureElementId) => ({
     isDimmed: !isAmong(highlightIds, id),
     isSelected: selectedId === id,
     onSelect,
+    label: labels[id],
   });
   const flowsDimmed = highlightIds !== null && highlightIds.length > 0;
 

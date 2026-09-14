@@ -11,6 +11,8 @@ interface ArchitectureExperienceProps {
   selectedId: ArchitectureElementId | null;
   cameraId: ArchitectureElementId | null;
   onSelect: (id: ArchitectureElementId) => void;
+  labels: Record<ArchitectureElementId, string>;
+  ariaLabel: string;
 }
 
 /**
@@ -22,18 +24,21 @@ export function ArchitectureExperience({
   selectedId,
   cameraId,
   onSelect,
+  labels,
+  ariaLabel,
 }: ArchitectureExperienceProps) {
   return (
     <Canvas
       camera={{ position: cameraDefaults.position, fov: cameraDefaults.fov, near: cameraDefaults.near, far: cameraDefaults.far }}
       style={{ background: colors.background }}
-      aria-label="Interactive 3D AI Cockpit governance loop"
+      aria-label={ariaLabel}
     >
       <ArchitectureScene
         highlightIds={highlightIds}
         selectedId={selectedId}
         cameraId={cameraId}
         onSelect={onSelect}
+        labels={labels}
       />
     </Canvas>
   );

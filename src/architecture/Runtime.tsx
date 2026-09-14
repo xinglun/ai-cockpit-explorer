@@ -9,7 +9,7 @@ import type { ArchitectureNodeProps } from "./types";
  * Runtime reads as a gate/engine (ring + core), not a generic solid —
  * it is the thing execution must pass through and be evaluated by.
  */
-export function Runtime({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+export function Runtime({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.runtime;
   const emissiveIntensity = isSelected ? 0.5 : 0.15;
   const opacity = isDimmed ? 0.2 : 1;
@@ -46,7 +46,7 @@ export function Runtime({ isDimmed, isSelected, onSelect }: ArchitectureNodeProp
           metalness={0.3}
         />
       </mesh>
-      <Label position={[0, size + 0.35, 0]} text="AI Cockpit Runtime" dimmed={isDimmed} />
+      <Label position={[0, size + 0.35, 0]} text={label} dimmed={isDimmed} />
     </group>
   );
 }

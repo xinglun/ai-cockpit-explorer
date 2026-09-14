@@ -2,6 +2,7 @@
 
 import { tourSteps, nextStepIndex, previousStepIndex, isLastStep } from "@/interaction/tour";
 import { colors } from "@/design-system/semanticColors";
+import type { ExplorerMessages } from "@/i18n/types";
 
 interface GuidedTourProps {
   stepIndex: number;
@@ -9,6 +10,7 @@ interface GuidedTourProps {
   onStart: () => void;
   onStepChange: (index: number) => void;
   onExit: () => void;
+  messages: ExplorerMessages;
 }
 
 /**
@@ -16,7 +18,9 @@ interface GuidedTourProps {
  * (step 6: "Verified ≠ Approved") gets deliberate visual weight —
  * larger type, no competing UI.
  */
-export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }: GuidedTourProps) {
+export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit, messages }: GuidedTourProps) {
+  const copy = messages.tour;
+
   if (!active) {
     return (
       <button
@@ -25,27 +29,34 @@ export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }:
         style={{ backgroundColor: colors.informationFlow, color: colors.background }}
         className="w-fit rounded px-4 py-2 text-sm font-semibold"
       >
-        Understand AI Cockpit in 30 seconds
+        {copy.start}
       </button>
     );
   }
 
   const step = tourSteps[stepIndex];
+  const stepCopy = copy.steps[stepIndex];
   const isClimax = step.status === "verified-not-approved";
+  const sceneLabel = copy.sceneOfTotal
+    .replace("{current}", String(stepIndex + 1))
+    .replace("{total}", String(tourSteps.length));
 
   return (
     <div
       style={{ borderColor: colors.border, color: colors.textPrimary, backgroundColor: colors.surface }}
       className="flex w-full max-w-xl flex-col gap-3 rounded border p-4 shadow-lg"
       role="region"
-      aria-label="Guided architecture tour"
+      aria-label={copy.ariaLabel}
     >
       <p style={{ color: colors.textSecondary }} className="text-xs">
-        Scene {stepIndex + 1} of {tourSteps.length}
+        {sceneLabel}
       </p>
-      <h3 className={isClimax ? "text-xl font-bold" : "text-base font-semibold"}>{step.title}</h3>
-      <p className={isClimax ? "text-lg font-semibold" : "text-sm"} style={isClimax ? { color: colors.stateGreen } : undefined}>
-        {step.narration}
+      <h3 className={isClimax ? "text-xl font-bold" : "text-base font-semibold"}>{stepCopy.title}</h3>
+      <p
+        className={isClimax ? "text-lg font-semibold" : "text-sm"}
+        style={isClimax ? { color: colors.stateGreen } : undefined}
+      >
+        {stepCopy.narration}
       </p>
       <div className="flex gap-2">
         <button
@@ -55,7 +66,7 @@ export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }:
           className="rounded border px-2 py-1 text-xs disabled:opacity-40"
           style={{ borderColor: colors.border }}
         >
-          Back
+          {copy.previous}
         </button>
         {isLastStep(stepIndex) ? (
           <button
@@ -64,7 +75,7 @@ export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }:
             className="rounded border px-2 py-1 text-xs"
             style={{ borderColor: colors.border }}
           >
-            Done
+            {copy.done}
           </button>
         ) : (
           <button
@@ -73,7 +84,7 @@ export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }:
             className="rounded border px-2 py-1 text-xs"
             style={{ borderColor: colors.border }}
           >
-            Next
+            {copy.next}
           </button>
         )}
         <button
@@ -82,7 +93,7 @@ export function GuidedTour({ stepIndex, active, onStart, onStepChange, onExit }:
           style={{ color: colors.textMuted }}
           className="text-xs underline"
         >
-          Exit tour
+          {copy.exit}
         </button>
       </div>
     </div>

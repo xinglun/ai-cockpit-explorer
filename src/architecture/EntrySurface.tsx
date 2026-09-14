@@ -6,7 +6,7 @@ import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
 /** The gate agents must pass through — vertical, blocking, not a floor ring. */
-export function EntrySurface({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
+export function EntrySurface({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position } = layout.entrySurface;
   return (
     <group
@@ -27,7 +27,7 @@ export function EntrySurface({ isDimmed, isSelected, onSelect }: ArchitectureNod
           side={2}
         />
       </mesh>
-      <Label position={[0, 1.3, 0]} text="Entry Gate" size={0.2} dimmed={isDimmed} />
+      <Label position={[0, 1.3, 0]} text={label} size={0.2} dimmed={isDimmed} />
     </group>
   );
 }

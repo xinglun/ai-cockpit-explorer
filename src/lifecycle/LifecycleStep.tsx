@@ -10,10 +10,11 @@ const stateColor: Record<LifecycleStepView["state"], string> = {
 interface LifecycleStepProps {
   step: LifecycleStepView;
   onSelect: (id: LifecycleStepView["id"]) => void;
+  currentLabel: string;
 }
 
 /** One dot in the horizontal timeline: `● inspect ─ ● attach ─ ...`. */
-export function LifecycleStep({ step, onSelect }: LifecycleStepProps) {
+export function LifecycleStep({ step, onSelect, currentLabel }: LifecycleStepProps) {
   return (
     <button
       type="button"
@@ -31,7 +32,7 @@ export function LifecycleStep({ step, onSelect }: LifecycleStepProps) {
       </span>
       {step.state === "active" && (
         <span style={{ color: colors.informationFlow }} className="text-[0.65rem] font-semibold uppercase tracking-wide">
-          Current
+          {currentLabel}
         </span>
       )}
     </button>
