@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-6-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "f87c0ea534970fa3e98ee84956cd093be57f1bff",
+    "name": "codex/wi-006-visual-polish",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:bf5ccca787d543f2e73329afdc889dee5ecff792ce38f43c88af429b6ece4fbc",
+  "operationId": "operation-WI-006-visual-polish-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "08487e6bab7acdcd63ec4f71bb83d60afce66be8",
+    "headRevision": "f87c0ea534970fa3e98ee84956cd093be57f1bff",
+    "mergeCommit": "018d2780a6c42b8fcd724d135cae8231afbb2a89",
+    "number": 6,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/6"
+  },
+  "reason": "PR #6 passed lint/typecheck/vitest/build/playwright checks, merged at 018d278 via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-006-visual-polish-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-006-visual-polish",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/6",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-006-visual-polish"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T06:25:49Z",
+  "workItemId": "WI-006-visual-polish",
+  "worktree": {
+    "branch": "codex/wi-006-visual-polish",
+    "headRevision": "f87c0ea534970fa3e98ee84956cd093be57f1bff",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-006-visual-polish",
+    "worktreeId": "WI-006-visual-polish"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "acceptanceResults": [
+    "Scene lighting and environment are upgraded (dark gradient background, subtle fog, a soft ground/grid plane, environment lighting, and a contact shadow) without introducing decorative idle animation or expensive continuous per-frame effects.",
+    "Each element category has a materially distinct, semantically-motivated material treatment as specified (Work Item envelope translucent/glass, Runtime metal with a controlled emissive edge, Human-Computer Interaction neutral translucent surface, Knowledge a small luminous node graph, Repository heavy matte) rather than uniform boxes with only color differences.",
+    "The Work Item envelope's stage-to-stage change (start/checkpoint/finish/archive/close) is a smooth, bounded transition rather than an instant swap, and this transition respects prefers-reduced-motion by falling back to an instant change.",
+    "Active-flow data-pulse motion (introduced in WI-005) is visually refined (clear directionality, readable at a glance) without becoming a particle effect or bloom-heavy spectacle.",
+    "No Blender/GLB dependency or custom shader material is introduced; only Three.js/React Three Fiber/drei primitives and standard materials are used.",
+    "All previously-established acceptance behavior remains green -- camera stability (single focus settle, rapid multi-click, 5s idle stability), three navigation modes, full en/ja/zh-CN i18n coverage including 'Verified != Approved', the restrained default Overview screen, and the Work Item envelope / Knowledge / Traceability / HCI features from WI-005.",
+    "npm ci, lint, typecheck, unit tests, Playwright e2e, and the static export build all succeed, and no continuous unnecessary re-renders are introduced (idle scene stays visually still except for the deliberate active-flow pulse and any in-flight transition)."
+  ],
+  "createdAt": "2026-09-14T06:25:23Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:c1bac70aa988c2322224661956bae15357fe8d5a6fb66944cfef6aea07452e21",
+  "evidenceRefs": [
+    ".ai/evidence/WI-006-visual-polish.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-006-visual-polish.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-006-visual-polish.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:63363b04c013fe23bb00dead9ff45efe246056a08f89f245425c88f1b67a3658",
+      "workItemId": "WI-006-visual-polish"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-006-visual-polish.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-006-visual-polish.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-006-visual-polish.summary.json"
+          ],
+          "inference": false,
+          "text": "No repository paths were observed as changed by the current Summary."
+        }
+      ],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-006-visual-polish.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-006-visual-polish.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-006-visual-polish.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-006-visual-polish.contract.json"
+          ],
+          "inference": false,
+          "text": "Ship v0.2.2: improved scene lighting/environment (dark gradient background, faint fog, soft ground/grid, environment lighting, contact shadow), semantically-differentiated materials per element (Work Item envelope: translucent/glass; Runtime: metal + controlled emissive edge; Human-Computer Interaction: neutral translucent surface; Knowledge: small luminous graph; Repository: heavy matte), a smooth (not instant) Work Item envelope stage transition, and refined active-flow data-pulse motion -- all while staying greybox (no Blender, no custom shaders, no particle systems) and not regressing any established acceptance behavior from WI-001 through WI-005 (camera stability, three modes, i18n, Verified != Approved, restrained default screen)."
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-006-visual-polish.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-006-visual-polish"
+  },
+  "taskReportDigest": "sha256:15a679db4adebb4738c951ee7ab07dc2d8357a1ee32b3bf6ad6477dc4f6f0db7",
+  "taskReportMarkdownDigest": "sha256:7cf79bac593e35ac3c30c44a3fc125af603d62905a6aa98cfd4dad6844419835",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-006-visual-polish.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-006-visual-polish"
+}

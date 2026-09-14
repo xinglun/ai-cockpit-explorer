@@ -1,0 +1,61 @@
+{
+  "changedPaths": [],
+  "checkpointAt": "2026-09-14T05:00:26Z",
+  "checkpointContractDigest": "sha256:a3213035aefdeb34fa23d83548278e837303a80f2539a277335f903ae0cdfb9b",
+  "checkpointCount": 1,
+  "checkpointEvidence": [
+    {
+      "acceptanceCount": 7,
+      "contractHash": "sha256:75a35369b7a7d435e75561f22963bc341af3c6b3d82f001faeac9d9cc5272b64",
+      "recorded": true,
+      "recordedAt": "2026-09-14T05:00:26Z",
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:63363b04c013fe23bb00dead9ff45efe246056a08f89f245425c88f1b67a3658",
+      "requiredChecks": 0,
+      "requiredChecksPassed": 0,
+      "schemaVersion": 1,
+      "stage": "before_edit",
+      "unknownCount": 0,
+      "workItemId": "WI-006-visual-polish"
+    },
+    {
+      "acceptanceCount": 7,
+      "contractHash": "sha256:a3213035aefdeb34fa23d83548278e837303a80f2539a277335f903ae0cdfb9b",
+      "invalidatedRequiredChecks": [],
+      "originalBeforeEditContractHash": "sha256:75a35369b7a7d435e75561f22963bc341af3c6b3d82f001faeac9d9cc5272b64",
+      "previousContractHash": "sha256:75a35369b7a7d435e75561f22963bc341af3c6b3d82f001faeac9d9cc5272b64",
+      "reason": "Removed a stray colon in acceptance criterion 6 (\"...remains green:\" -> \"...remains green --\") that the governance parser was misreading as a numbered-acceptance-id prefix, requiring per-criterion acceptanceEvidence unnecessarily. No change to the criterion's substantive meaning.",
+      "recorded": true,
+      "recordedAt": "2026-09-14T06:25:16Z",
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:63363b04c013fe23bb00dead9ff45efe246056a08f89f245425c88f1b67a3658",
+      "requiredChecks": 0,
+      "requiredChecksPassed": 0,
+      "requiredChecksPassedAtAmendment": null,
+      "schemaVersion": 1,
+      "stage": "contract_amendment_revalidation",
+      "unknownCount": 0,
+      "verificationStarted": false,
+      "workItemId": "WI-006-visual-polish"
+    }
+  ],
+  "checkpointRepositorySnapshotDigest": "sha256:63363b04c013fe23bb00dead9ff45efe246056a08f89f245425c88f1b67a3658",
+  "createdAt": "2026-09-14T04:43:01Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-14T06:25:23Z",
+  "preflightContractDigest": "sha256:a3213035aefdeb34fa23d83548278e837303a80f2539a277335f903ae0cdfb9b",
+  "preflightDecisionDigest": "sha256:87984c0a1a26d0916db4f2c1b13f031eb89189e9b24d41497391ad35de9cf55e",
+  "preflightRepositorySnapshotDigest": "sha256:63363b04c013fe23bb00dead9ff45efe246056a08f89f245425c88f1b67a3658",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-14T06:25:23Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-006-visual-polish"
+}

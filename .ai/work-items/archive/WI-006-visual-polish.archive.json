@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-14T06:25:23Z",
+  "files": {
+    "contractDigest": "sha256:bf5ccca787d543f2e73329afdc889dee5ecff792ce38f43c88af429b6ece4fbc",
+    "contractPath": ".ai/work-items/archive/WI-006-visual-polish.contract.json",
+    "eventsDigest": "sha256:c9a37dfdfec55d4c4c6383ef79f6e03bb58a291e1f87f3659140f2cf1aaea20e",
+    "eventsPath": ".ai/work-items/archive/WI-006-visual-polish.events.jsonl",
+    "outcomeDigest": "sha256:fd96b29936d24ebc819cbfca3bcf2e35a05028656d7c3788cc68b2b6c5878785",
+    "outcomePath": ".ai/work-items/archive/WI-006-visual-polish.outcome.json",
+    "summaryDigest": "sha256:ea31c5693003d866a55296fc942759fdb493ab8d3fcd19922167bb163e62d3de",
+    "summaryPath": ".ai/work-items/archive/WI-006-visual-polish.summary.json",
+    "taskReportDigest": "sha256:15a679db4adebb4738c951ee7ab07dc2d8357a1ee32b3bf6ad6477dc4f6f0db7",
+    "taskReportMarkdownDigest": "sha256:7cf79bac593e35ac3c30c44a3fc125af603d62905a6aa98cfd4dad6844419835",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-006-visual-polish.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-006-visual-polish.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-006-visual-polish"
+}
