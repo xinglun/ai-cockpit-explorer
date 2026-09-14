@@ -15,7 +15,10 @@ export function Knowledge({ isDimmed, isSelected, onSelect, label }: Architectur
   const { position, size } = layout.knowledge;
   const opacity = isDimmed ? 0.15 : 0.85;
   /** Luminous by default — a graph of small light sources, not a lit solid. */
-  const emissiveIntensity = isDimmed ? 0.05 : isSelected ? 0.9 : 0.45;
+  // Kept well clear of the selective-bloom threshold (see
+  // ArchitectureExperience.tsx) except when selected: a visible-but-
+  // unselected node should read as a quiet light source, not glow.
+  const emissiveIntensity = isDimmed ? 0.05 : isSelected ? 0.9 : 0.3;
 
   return (
     <group

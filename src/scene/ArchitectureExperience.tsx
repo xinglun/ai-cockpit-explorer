@@ -1,6 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { colors } from "@/design-system/semanticColors";
 import { cameraDefaults } from "@/design-system/geometry";
 import { ArchitectureScene } from "./ArchitectureScene";
@@ -57,6 +58,22 @@ export function ArchitectureExperience({
         workItemClosedLabel={workItemClosedLabel}
         blocked={blocked}
       />
+      {/*
+        Selective by luminance, not a full-scene glow: every "at rest"
+        material in this scene keeps its emissiveIntensity clearly below
+        ~0.35 (see Runtime/Knowledge/FlowLine), while active/selected
+        states climb to ~0.85-0.95 — luminanceThreshold sits between the
+        two so only active evidence, Runtime's active ring, active flow
+        packets, a blocked boundary, and a selected Knowledge node cross
+        it. mipmapBlur is left off: it produced a "GPU stall due to
+        ReadPixels" warning under this environment's software GL
+        renderer during rapid interaction; a plain (non-mipmap) blur is
+        cheaper and still reads as a soft, restrained halo at this
+        radius/intensity.
+      */}
+      <EffectComposer multisampling={0}>
+        <Bloom luminanceThreshold={0.82} luminanceSmoothing={0.2} intensity={0.7} radius={0.5} />
+      </EffectComposer>
     </Canvas>
   );
 }
