@@ -92,7 +92,7 @@ test("guided tour runs the 8-scene narrative and reaches the verified-not-approv
 
   await page.getByRole("button", { name: "Next" }).click();
   await expect(page.getByText(/scene 7 of 8/i)).toBeVisible();
-  await expect(page.getByRole("heading", { name: "CHI / Human Decision" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "HCI / Human Decision" })).toBeVisible();
 
   await page.getByRole("button", { name: "Next" }).click();
   await expect(page.getByText(/scene 8 of 8/i)).toBeVisible();

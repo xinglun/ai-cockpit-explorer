@@ -6,11 +6,11 @@ import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
 /**
- * CHI is the Explorer's own conceptual framing of how a human directs
+ * HCI is the Explorer's own conceptual framing of how a human directs
  * and receives status from AI Cockpit — Define / Understand / Decide
  * (see the WHAT/INPUTS/OUTPUTS/BOUNDARY copy in src/i18n/*). It is a
  * presentation layer, not a claim that AI Cockpit Runtime exposes a
- * literal "CHI" service. A flat hex plate between Human Authority and
+ * literal "HCI" service. A flat hex plate between Human Authority and
  * Runtime reads as an interaction layer, not a new governed object.
  */
 export function HumanControlInterface({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {

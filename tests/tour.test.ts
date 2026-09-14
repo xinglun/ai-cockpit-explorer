@@ -11,7 +11,7 @@ describe("guided tour", () => {
     expect(climax).toBeDefined();
   });
 
-  it("shows the CHI/Human Decision beat as PENDING after the climax, still before the final scene", () => {
+  it("shows the HCI/Human Decision beat as PENDING after the climax, still before the final scene", () => {
     const climaxIndex = tourSteps.findIndex((step) => step.status === "verified-not-approved");
     const pendingIndex = tourSteps.findIndex((step) => step.status === "pending");
     expect(pendingIndex).toBe(climaxIndex + 1);

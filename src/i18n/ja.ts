@@ -194,7 +194,7 @@ export const ja = {
         narration: "検証はGREENです。人間の決定：PENDING（保留）。検証済み ≠ 承認済み。",
       },
       {
-        title: "CHI / 人間の決定",
+        title: "HCI / 人間の決定",
         narration:
           "OutcomeはHuman Control Interfaceを通じてHuman Authorityへ上がり、そこで承認か却下かが決定されます。人間が決定するまで、何も認可されません。",
       },

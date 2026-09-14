@@ -19,7 +19,7 @@ export interface TourStep {
 /**
  * "Understand AI Cockpit in 30 seconds" — an 8-scene narrative, not a
  * camera pan across objects: Request, Work Item, Contract, Governed
- * Execution, Evidence, Verification, CHI/Human Decision, and finally
+ * Execution, Evidence, Verification, HCI/Human Decision, and finally
  * Archive -> Trace -> Knowledge. The tour no longer ends on Human
  * Authority alone — it ends on what happens to the record afterward,
  * so a first-time visitor leaves knowing not just that verification

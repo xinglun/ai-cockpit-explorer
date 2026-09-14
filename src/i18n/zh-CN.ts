@@ -190,7 +190,7 @@ export const zhCN = {
         narration: "验证结果为 GREEN。人的决定：PENDING（待定）。已验证 ≠ 已批准。",
       },
       {
-        title: "CHI / 人的决定",
+        title: "HCI / 人的决定",
         narration: "Outcome 通过 Human Control Interface 上升至人的授权环节，由人决定：批准或拒绝。在人做出决定之前，任何事都不会被授权。",
       },
       {

@@ -196,7 +196,7 @@ export const en = {
         narration: "Verification is GREEN. Human decision: PENDING. Verified ≠ Approved.",
       },
       {
-        title: "CHI / Human Decision",
+        title: "HCI / Human Decision",
         narration:
           "The Outcome rises to Human Authority through the Human Control Interface, who decides: approve or reject. Nothing is authorized until they do.",
       },
