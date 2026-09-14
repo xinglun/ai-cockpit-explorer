@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-14T03:23:18Z",
+  "files": {
+    "contractDigest": "sha256:d614c800a491c570a3a3d2ccd85321cf80a5b3caa84bbd6af9ab90f23f1a0fe7",
+    "contractPath": ".ai/work-items/archive/WI-003-i18n-and-blender-removal.contract.json",
+    "eventsDigest": "sha256:366faa439e68c258e36e5fe10a6ce97d185e8b63044c93a44d97debe26411d25",
+    "eventsPath": ".ai/work-items/archive/WI-003-i18n-and-blender-removal.events.jsonl",
+    "outcomeDigest": "sha256:028b45c8c61a8349ed7a2afe68e23505a4fdfb9db4c96ac154f7e32b5b21fb46",
+    "outcomePath": ".ai/work-items/archive/WI-003-i18n-and-blender-removal.outcome.json",
+    "summaryDigest": "sha256:f36a92f09ced3e05ab2b53f49efdd3205119daf4fdba0876522663bddfd6945a",
+    "summaryPath": ".ai/work-items/archive/WI-003-i18n-and-blender-removal.summary.json",
+    "taskReportDigest": "sha256:4cbb2035cc343d968f352493e38877e3ac5fbf9bf7ec87630c17a19f07782f57",
+    "taskReportMarkdownDigest": "sha256:0be20e5c73818b0f976362fa793cecdaab412ab0a2ec79fa2a0515a487891ef2",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-003-i18n-and-blender-removal.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-003-i18n-and-blender-removal.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-003-i18n-and-blender-removal"
+}

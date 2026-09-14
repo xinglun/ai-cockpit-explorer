@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-3-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "00005aea5ffe31c233159581d0bc00d0744bf0d2",
+    "name": "codex/wi-003-i18n-and-blender-removal",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:d614c800a491c570a3a3d2ccd85321cf80a5b3caa84bbd6af9ab90f23f1a0fe7",
+  "operationId": "operation-WI-003-i18n-and-blender-removal-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "71941d68a684a94ee9feb97dddf113fc1f1665c5",
+    "headRevision": "00005aea5ffe31c233159581d0bc00d0744bf0d2",
+    "mergeCommit": "d55ebed6a1039c40155ec340c2a31fb67325def7",
+    "number": 3,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/3"
+  },
+  "reason": "PR #3 passed lint/typecheck/vitest/build/playwright checks, merged at d55ebed via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-003-i18n-and-blender-removal-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-003-i18n-and-blender-removal",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/3",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-003-i18n"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T03:24:03Z",
+  "workItemId": "WI-003-i18n-and-blender-removal",
+  "worktree": {
+    "branch": "codex/wi-003-i18n-and-blender-removal",
+    "headRevision": "00005aea5ffe31c233159581d0bc00d0744bf0d2",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-003-i18n",
+    "worktreeId": "WI-003-i18n-and-blender-removal"
+  }
+}

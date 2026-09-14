@@ -1,0 +1,123 @@
+{
+  "decisionState": "confirmed",
+  "finalReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-003-i18n-and-blender-removal.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:3899e3d01010b67f077f49d2f41ae3b1a2f639bde4290b7d1b8dd1d7ca53c06f",
+      "workItemId": "WI-003-i18n-and-blender-removal"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-003-i18n-and-blender-removal.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-003-i18n-and-blender-removal.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [
+        {
+          "evidenceRefs": [],
+          "inference": true,
+          "text": "Human decision 'accepted' by human:sei-rinn via user-confirmed-in-chat at 2026-09-14T03:25:15Z."
+        }
+      ],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-003-i18n-and-blender-removal.summary.json"
+          ],
+          "inference": false,
+          "text": "No repository paths were observed as changed by the current Summary."
+        }
+      ],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-003-i18n-and-blender-removal.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-003-i18n-and-blender-removal.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-003-i18n-and-blender-removal.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-003-i18n-and-blender-removal.contract.json"
+          ],
+          "inference": false,
+          "text": "Ship v0.2.1: /ai-cockpit-explorer/{en,ja,zh-CN}/ static routes via generateStaticParams, a typed src/i18n/ message architecture (no heavy i18n framework), full translation of the entire comprehension experience (title/subtitle/architecture labels+explanations/guided tour/lifecycle/verification incl. 'Verified != Approved'/detail panel/hints/a11y labels), a visible top-right language selector that preserves mode/selection/tour-step and updates the URL, correct html lang + localized metadata per locale, and locale-completeness + per-locale e2e tests. Confirm (do not rewrite) that Blender/GLB is absent from README/docs/design-system/UI copy/comments; historical .ai/work-items/archive contracts remain untouched."
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-003-i18n-and-blender-removal.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-003-i18n-and-blender-removal"
+  },
+  "finalReportDigest": "sha256:13412957d19f905dcfaec4110eae79e28664133907766b29d24866ba866f69ff",
+  "humanDecision": "accepted",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceFinalizationHeadDigest": "sha256:cfdb19fb45434abaea21623bb81d23d628df9d23f61d7b8683044184532e0a88",
+  "resourceFinalizationHeadPath": ".ai/decisions/WI-003-i18n-and-blender-removal.finalize.json",
+  "resourceFinalizationSequence": 0,
+  "state": "closed",
+  "structuredDecision": {
+    "actor": "human:sei-rinn",
+    "authoritySource": "user-confirmed-in-chat",
+    "decidedAt": "2026-09-14T03:25:15Z",
+    "decision": "accepted",
+    "evidenceRefs": [],
+    "policyRefs": [],
+    "reason": "v0.2.1 i18n (en/ja/zh-CN) + Blender-free confirmation merged via PR #3; user reviewed and accepted the outcome",
+    "resumeCondition": null
+  },
+  "timestamp": "2026-09-14T03:25:15Z",
+  "workItemId": "WI-003-i18n-and-blender-removal"
+}
