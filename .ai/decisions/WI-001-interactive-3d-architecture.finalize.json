@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-1-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "b731d972be80c7075a3caacbfe12470beb2ba7f0",
+    "name": "codex/wi-001-interactive-3d-architecture",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:77d2c9846a91299a91d622e35ddfd1bb12ff9be5092423a1c1a2194f9af5f40e",
+  "operationId": "operation-WI-001-interactive-3d-architecture-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "2bf36f222b9c467ceffab167145670ccc2265660",
+    "headRevision": "b731d972be80c7075a3caacbfe12470beb2ba7f0",
+    "mergeCommit": "34a868eec6c22a97f9fd885bf58d89c63fe5f11a",
+    "number": 1,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/1"
+  },
+  "reason": "PR #1 passed lint/typecheck/vitest/build/playwright checks, merged at 34a868e via squash by owner (xinglun); the feature branch and worktree were removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-001-interactive-3d-architecture-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-001-interactive-3d-architecture",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/1",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-001-redo"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T01:42:36Z",
+  "workItemId": "WI-001-interactive-3d-architecture",
+  "worktree": {
+    "branch": "codex/wi-001-interactive-3d-architecture",
+    "headRevision": "b731d972be80c7075a3caacbfe12470beb2ba7f0",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-001-redo",
+    "worktreeId": "WI-001-interactive-3d-architecture"
+  }
+}

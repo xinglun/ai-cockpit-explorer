@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-14T01:46:15Z",
+  "files": {
+    "contractDigest": "sha256:77d2c9846a91299a91d622e35ddfd1bb12ff9be5092423a1c1a2194f9af5f40e",
+    "contractPath": ".ai/work-items/archive/WI-001-interactive-3d-architecture.contract.json",
+    "eventsDigest": "sha256:8a5445bb9ca8f3ca68d9656d2f9c9a5c612e158d73a8b2556a774de56bee69c4",
+    "eventsPath": ".ai/work-items/archive/WI-001-interactive-3d-architecture.events.jsonl",
+    "outcomeDigest": "sha256:ffb974ba1b5a20d643f9a3834303a8a505217f1e42e814a8a8f98a468b19302d",
+    "outcomePath": ".ai/work-items/archive/WI-001-interactive-3d-architecture.outcome.json",
+    "summaryDigest": "sha256:f48512ab41d757c7773b9a9fed6617cc1454f9d1be526d5f6c6e00b8f23632ef",
+    "summaryPath": ".ai/work-items/archive/WI-001-interactive-3d-architecture.summary.json",
+    "taskReportDigest": "sha256:01565e2d597850aa36c3b8da69daf42f5ba4e7fa5db43d6983366ad70e086402",
+    "taskReportMarkdownDigest": "sha256:5212c9a69d5e61d302db739a465b5db68239bf2b4e5cbc1d4d656f8beefe82ac",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-001-interactive-3d-architecture.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-001-interactive-3d-architecture.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-001-interactive-3d-architecture"
+}

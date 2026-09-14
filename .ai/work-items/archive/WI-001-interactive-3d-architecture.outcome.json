@@ -1,0 +1,138 @@
+{
+  "acceptanceResults": [
+    "Repository, Repository Protocol, Runtime, Agents, and Human Authority are visually and conceptually distinct in the 3D scene.",
+    "The lifecycle inspect -> attach -> start -> preflight -> checkpoint -> verify -> finish -> archive -> close is represented and explorable without reading the README.",
+    "GREEN verification with PENDING human decision and RED fail-closed behavior are both demonstrated; UNKNOWN never appears as approval.",
+    "A guided tour exists and a new user can understand the core architecture in approximately 30 seconds.",
+    "npm ci, lint, typecheck, unit tests, Playwright tests, and production build all succeed.",
+    "The site deploys to GitHub Pages at https://xinglun.github.io/ai-cockpit-explorer/ and the README links to it."
+  ],
+  "createdAt": "2026-09-14T01:46:15Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:5704b76d36e31c98d59f1a514b4cc3a56717d91fafcc4f61d8600eaa1d11b502",
+  "evidenceRefs": [
+    ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:2a5513aa78e188253ad4fb601602b225bbf12d7fefc735fbce9b892b9aa9cefb",
+      "workItemId": "WI-001-interactive-3d-architecture"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-001-interactive-3d-architecture.summary.json"
+          ],
+          "inference": false,
+          "text": "No repository paths were observed as changed by the current Summary."
+        }
+      ],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-001-interactive-3d-architecture.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-001-interactive-3d-architecture.contract.json"
+          ],
+          "inference": false,
+          "text": "Ship a v0.1 greybox MVP interactive 3D architecture explorer (Next.js App Router + React Three Fiber, static export) deployed to GitHub Pages, so a first-time visitor understands AI Cockpit's architecture, lifecycle, and governance boundaries in about 30 seconds."
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-001-interactive-3d-architecture.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-001-interactive-3d-architecture"
+  },
+  "taskReportDigest": "sha256:01565e2d597850aa36c3b8da69daf42f5ba4e7fa5db43d6983366ad70e086402",
+  "taskReportMarkdownDigest": "sha256:5212c9a69d5e61d302db739a465b5db68239bf2b4e5cbc1d4d656f8beefe82ac",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-001-interactive-3d-architecture.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-001-interactive-3d-architecture"
+}

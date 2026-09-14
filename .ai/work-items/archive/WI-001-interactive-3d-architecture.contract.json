@@ -31,12 +31,12 @@
     "verification"
   ],
   "resourceContext": {
-    "baseBranch": "unknown",
-    "baseRemote": "unknown",
+    "baseBranch": "main",
+    "baseRemote": "origin",
     "branch": "codex/wi-001-interactive-3d-architecture",
-    "provider": "unknown",
-    "pullRequest": "unknown",
-    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-001-interactive-3d-architecture"
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/1",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-001-redo"
   },
   "risk": "normal",
   "scope": [
