@@ -1,7 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
 import { ArchitectureExperience } from "@/scene/ArchitectureExperience";
 import { Navigation, type ExplorerMode } from "./Navigation";
 import { ElementPicker } from "./ElementPicker";
@@ -18,7 +17,7 @@ import {
 } from "@/data/verificationDemo";
 import { stageRelevance, stageCameraId } from "@/interaction/stageFocus";
 import { tourSteps } from "@/interaction/tour";
-import { parseExplorerUrlState, explorerStateToSearchParams } from "@/interaction/explorerUrlState";
+import { parseExplorerUrlState } from "@/interaction/explorerUrlState";
 import { colors } from "@/design-system/semanticColors";
 import { architectureOrder, type ArchitectureElementId } from "@/data/architecture";
 import type { LifecycleStepId } from "@/data/lifecycle";
@@ -41,9 +40,13 @@ interface ExplorerShellProps {
  * Owns all Explorer state and composes the 3D scene with the DOM UI.
  * The 3D world is persistent across modes — modes change what's
  * highlighted and where the camera looks, not the page. Mode,
- * selection, and guided-tour step are mirrored to the URL so switching
- * language (a route change to a sibling /{locale}/ path) can restore
- * them instead of resetting the experience.
+ * selection, and guided-tour step are handed to the LanguageSwitcher
+ * directly (not round-tripped through the URL on every change — that
+ * caused router navigations to race with rapid tour-step keypresses)
+ * so it can carry them into the sibling-locale link it builds; the URL
+ * itself is only touched by an actual navigation (arriving via such a
+ * link, or a reload of a previously-shared URL), which this component
+ * reads once on mount via parseExplorerUrlState.
  */
 export function ExplorerShell({ locale }: ExplorerShellProps) {
   const messages = useMemo(() => getMessages(locale), [locale]);
@@ -51,9 +54,6 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
     const entries = architectureOrder.map((id) => [id, messages.architecture[id].label] as const);
     return Object.fromEntries(entries) as Record<ArchitectureElementId, string>;
   }, [messages]);
-
-  const router = useRouter();
-  const pathname = usePathname() ?? `/${locale}`;
 
   // Read via window.location rather than next/navigation's useSearchParams()
   // so this component has no dynamic-hook dependency: it stays fully
@@ -73,23 +73,6 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
   const [scenarioId, setScenarioId] = useState<VerificationScenarioId>("green-pending");
   const [tourActive, setTourActive] = useState(initial.tourStepIndex !== null);
   const [tourStepIndex, setTourStepIndex] = useState(initial.tourStepIndex ?? 0);
-
-  // Keep the URL in sync so the language switcher can carry state along,
-  // and so a reload/share preserves what the visitor was looking at.
-  const isFirstRun = useRef(true);
-  useEffect(() => {
-    if (isFirstRun.current) {
-      isFirstRun.current = false;
-      return;
-    }
-    const params = explorerStateToSearchParams({
-      mode,
-      selectedId,
-      tourStepIndex: tourActive ? tourStepIndex : null,
-    });
-    const query = params.toString();
-    router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
-  }, [mode, selectedId, tourActive, tourStepIndex, pathname, router]);
 
   const changeMode = (next: ExplorerMode) => {
     setMode(next);
@@ -148,9 +131,11 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
                 {messages.app.subtitle}
               </p>
             </div>
-            <Suspense fallback={null}>
-              <LanguageSwitcher locale={locale} ariaLabel={messages.languageSelector.ariaLabel} />
-            </Suspense>
+            <LanguageSwitcher
+              locale={locale}
+              ariaLabel={messages.languageSelector.ariaLabel}
+              currentState={{ mode, selectedId, tourStepIndex: tourActive ? tourStepIndex : null }}
+            />
           </div>
           <Navigation mode={mode} onChange={changeMode} messages={messages} />
         </header>
