@@ -8,7 +8,7 @@ import type { WorkItemEnvelopeStage } from "@/data/workItem";
  *   Agents (far left, outside) -> Entry gate -> Runtime (center)
  *   Runtime <-> Repository (below, Protocol nested inside) via Evidence
  *   Runtime <-> Human Authority (top) via Contract (down) / Outcome (up)
- *   Human Authority <-> Runtime via a Human Control Interface layer
+ *   Human Authority <-> Runtime via a Human-Computer Interaction layer
  *   Repository Protocol -> Knowledge (a derived-facts projection)
  *
  * - repository: solid, heavy foundation -> durable governed asset
@@ -26,8 +26,10 @@ import type { WorkItemEnvelopeStage } from "@/data/workItem";
  */
 export const layout = {
   agents: [
-    { id: "codex", position: [-6.4, 1.1, 1.3] as [number, number, number] },
-    { id: "claude", position: [-6.4, 1.1, -1.3] as [number, number, number] },
+    { id: "codex", position: [-6.4, 1.1, 1.95] as [number, number, number] },
+    { id: "claude", position: [-6.4, 1.1, 0.65] as [number, number, number] },
+    { id: "gemini", position: [-6.4, 1.1, -0.65] as [number, number, number] },
+    { id: "grok", position: [-6.4, 1.1, -1.95] as [number, number, number] },
   ],
   entrySurface: { position: [-3.4, 1.1, 0] as [number, number, number] },
   runtime: { position: [0, 1.2, 0] as [number, number, number], size: 1.05 },

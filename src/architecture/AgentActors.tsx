@@ -5,9 +5,18 @@ import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
-const agentShape: Record<string, "box" | "cone"> = {
+const agentShape: Record<string, "box" | "cone" | "sphere" | "octahedron"> = {
   codex: "box",
   claude: "cone",
+  gemini: "sphere",
+  grok: "octahedron",
+};
+
+const agentLabel: Record<string, string> = {
+  codex: "Codex",
+  claude: "Claude",
+  gemini: "Gemini",
+  grok: "Grok",
 };
 
 /**
@@ -29,11 +38,10 @@ export function AgentActors({ isDimmed, isSelected, onSelect }: ArchitectureNode
       {layout.agents.map((agent) => (
         <group key={agent.id} position={agent.position} rotation={[0, Math.PI / 2, 0]}>
           <mesh>
-            {agentShape[agent.id] === "box" ? (
-              <boxGeometry args={[0.55, 0.55, 0.55]} />
-            ) : (
-              <coneGeometry args={[0.32, 0.75, 4]} />
-            )}
+            {agentShape[agent.id] === "box" && <boxGeometry args={[0.55, 0.55, 0.55]} />}
+            {agentShape[agent.id] === "cone" && <coneGeometry args={[0.32, 0.75, 4]} />}
+            {agentShape[agent.id] === "sphere" && <sphereGeometry args={[0.36, 16, 16]} />}
+            {agentShape[agent.id] === "octahedron" && <octahedronGeometry args={[0.42, 0]} />}
             <meshStandardMaterial
               color={colors.textPrimary}
               emissive={isSelected ? colors.informationFlow : "#000000"}
@@ -45,7 +53,7 @@ export function AgentActors({ isDimmed, isSelected, onSelect }: ArchitectureNode
           </mesh>
           <Label
             position={[0, 0.6, 0]}
-            text={agent.id === "codex" ? "Codex" : "Claude"}
+            text={agentLabel[agent.id] ?? agent.id}
             size={0.2}
             dimmed={isDimmed}
           />

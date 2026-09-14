@@ -31,7 +31,7 @@ export const ja = {
   architecture: {
     agents: {
       label: "エージェント",
-      what: "Codex や Claude など、AIによる実行を担う外部のアクター。",
+      what: "Codex や Claude、Gemini、Grok など、AIによる実行を担う外部のアクター。",
       inputs: ["有効なWork Item Contract"],
       outputs: ["エントリーゲートへの実行リクエスト"],
       boundary: "境界づけられたWork Itemの外では実行できず、リポジトリへの権限も持ちません。",
@@ -100,7 +100,7 @@ export const ja = {
       boundary: "自ら認可することはできません——GREENのOutcomeはAPPROVEDという決定ではありません。",
     },
     humanControlInterface: {
-      label: "Human Control Interface",
+      label: "Human-Computer Interaction",
       what: "人間がAI Cockpitを操作し、状況を受け取る方法についてのExplorerの提示。Define（Intent・Scope・受け入れ基準・Authority）、Understand（Outcome・証拠の要約・不明点・リスク/状況・次のアクション）、Decide（Approve・Reject・Recover・Continue）という3つのチャネルで構成されます。",
       inputs: ["Intent・Scope・受け入れ基準・Authority（Define）", "Outcome・証拠の要約・不明点・リスク/状況・次のアクション（Understand）"],
       outputs: ["Approve / Reject / Recover / Continue（Decide）"],
@@ -196,7 +196,7 @@ export const ja = {
       {
         title: "HCI / 人間の決定",
         narration:
-          "OutcomeはHuman Control Interfaceを通じてHuman Authorityへ上がり、そこで承認か却下かが決定されます。人間が決定するまで、何も認可されません。",
+          "OutcomeはHuman-Computer Interactionを通じてHuman Authorityへ上がり、そこで承認か却下かが決定されます。人間が決定するまで、何も認可されません。",
       },
       {
         title: "Archive → Trace → Knowledge",
