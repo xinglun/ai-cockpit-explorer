@@ -1,0 +1,139 @@
+{
+  "acceptanceResults": [
+    "Camera position and orbit target are owned by exactly one controller (no component calls camera.lookAt() independently of the orbit/controls system).",
+    "Clicking any single object completes its focus transition and then remains stable: after the transition finishes and 5 seconds elapse with no further input, the camera does not jump, snap, or reorient again.",
+    "Rapidly clicking 10 different objects in quick succession results in the camera settling stably on the last-clicked object, with no oscillation between targets.",
+    "User-initiated orbit/drag interaction during or after a focus transition is respected (does not fight with or get overridden by an in-flight programmatic transition in a jarring way) and does not leave the camera in a broken/unreachable state.",
+    "The guided tour's camera movement between scenes continues to work using the same single controller, and prefers-reduced-motion still results in an instant (non-animated) camera cut rather than a lerp.",
+    "Automated regression tests exist covering single-click focus settles and stays settled, rapid multi-click settles on the final target, and reduced-motion produces an immediate camera position without an animated transition.",
+    "npm ci, lint, typecheck, unit tests, Playwright e2e (including the new camera regression coverage), and the static export build all succeed; existing v0.2/v0.2.1 behavior (Governance Loop scene, three modes, i18n) is not regressed."
+  ],
+  "createdAt": "2026-09-14T03:53:17Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:d1bf41e717a0fb227c6c0dc9af4678c196935823bd43cc8015d53baf58e41b74",
+  "evidenceRefs": [
+    ".ai/evidence/WI-004-camera-stability.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-004-camera-stability.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-004-camera-stability.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:0262fd78f3709735bac71c3a711a3b7a3f8d09b23926d7b82055964251698b98",
+      "workItemId": "WI-004-camera-stability"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-004-camera-stability.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-004-camera-stability.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-004-camera-stability.summary.json"
+          ],
+          "inference": false,
+          "text": "No repository paths were observed as changed by the current Summary."
+        }
+      ],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-004-camera-stability.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-004-camera-stability.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-004-camera-stability.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-004-camera-stability.contract.json"
+          ],
+          "inference": false,
+          "text": "Replace the split ArchitectureCamera + OrbitControls ownership with a single camera controller (drei CameraControls, using setLookAt for focus transitions) so camera position and target are always owned by exactly one system. No regression in existing focus-on-select, tour camera movement, or reduced-motion behavior."
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-004-camera-stability.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-004-camera-stability"
+  },
+  "taskReportDigest": "sha256:78c1c2d7628e5d925c643290357305379d88b1d4e7d2b3038b64c32bb90ac9d5",
+  "taskReportMarkdownDigest": "sha256:1aebb43931ff685d20c749138d63dfaf2014336b73b1d5dec1a60cdd5fb7d637",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-004-camera-stability.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-004-camera-stability"
+}

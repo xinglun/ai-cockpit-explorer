@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-4-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "9120805ef82e396228c3fcb52ecbf734aa145c59",
+    "name": "codex/wi-004-camera-stability",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:2ca36a4221d45f4ad05737ea51b096619fc4210e7375de4597a8d384c0208ea9",
+  "operationId": "operation-WI-004-camera-stability-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "93982a853307a8d222ad02912e348f0fe87b65f3",
+    "headRevision": "9120805ef82e396228c3fcb52ecbf734aa145c59",
+    "mergeCommit": "826c4a62b8da8e96e87d6c9d9665cd3fbbc990bd",
+    "number": 4,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/4"
+  },
+  "reason": "PR #4 passed lint/typecheck/vitest/build/playwright checks, merged at 826c4a6 via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-004-camera-stability-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-004-camera-stability",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/4",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-004-camera-stability"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T03:53:45Z",
+  "workItemId": "WI-004-camera-stability",
+  "worktree": {
+    "branch": "codex/wi-004-camera-stability",
+    "headRevision": "9120805ef82e396228c3fcb52ecbf734aa145c59",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-004-camera-stability",
+    "worktreeId": "WI-004-camera-stability"
+  }
+}

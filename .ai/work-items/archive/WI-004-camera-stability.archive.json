@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-14T03:53:20Z",
+  "files": {
+    "contractDigest": "sha256:2ca36a4221d45f4ad05737ea51b096619fc4210e7375de4597a8d384c0208ea9",
+    "contractPath": ".ai/work-items/archive/WI-004-camera-stability.contract.json",
+    "eventsDigest": "sha256:b42c3f4ab09c6badeb555b021040e5692cd8c68b62122c73b50b117d799eb292",
+    "eventsPath": ".ai/work-items/archive/WI-004-camera-stability.events.jsonl",
+    "outcomeDigest": "sha256:510f8eb4f948744b14dca1720d5271f2bc1397d8d964d6d0ee1edd5f5b311270",
+    "outcomePath": ".ai/work-items/archive/WI-004-camera-stability.outcome.json",
+    "summaryDigest": "sha256:1b5579b210a8c987b3abd84e425b7839ed2578c7295c245421d1ce4d0efd0a53",
+    "summaryPath": ".ai/work-items/archive/WI-004-camera-stability.summary.json",
+    "taskReportDigest": "sha256:78c1c2d7628e5d925c643290357305379d88b1d4e7d2b3038b64c32bb90ac9d5",
+    "taskReportMarkdownDigest": "sha256:1aebb43931ff685d20c749138d63dfaf2014336b73b1d5dec1a60cdd5fb7d637",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-004-camera-stability.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-004-camera-stability.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-004-camera-stability"
+}

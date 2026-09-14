@@ -5,7 +5,7 @@
     "Rapidly clicking 10 different objects in quick succession results in the camera settling stably on the last-clicked object, with no oscillation between targets.",
     "User-initiated orbit/drag interaction during or after a focus transition is respected (does not fight with or get overridden by an in-flight programmatic transition in a jarring way) and does not leave the camera in a broken/unreachable state.",
     "The guided tour's camera movement between scenes continues to work using the same single controller, and prefers-reduced-motion still results in an instant (non-animated) camera cut rather than a lerp.",
-    "Automated regression tests exist for: single-click focus settles and stays settled, rapid multi-click settles on the final target, and reduced-motion produces an immediate camera position without an animated transition.",
+    "Automated regression tests exist covering single-click focus settles and stays settled, rapid multi-click settles on the final target, and reduced-motion produces an immediate camera position without an animated transition.",
     "npm ci, lint, typecheck, unit tests, Playwright e2e (including the new camera regression coverage), and the static export build all succeed; existing v0.2/v0.2.1 behavior (Governance Loop scene, three modes, i18n) is not regressed."
   ],
   "authority": "authorized",
@@ -30,11 +30,11 @@
     "verification"
   ],
   "resourceContext": {
-    "baseBranch": "unknown",
-    "baseRemote": "unknown",
+    "baseBranch": "main",
+    "baseRemote": "origin",
     "branch": "codex/wi-004-camera-stability",
-    "provider": "unknown",
-    "pullRequest": "unknown",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/4",
     "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-004-camera-stability"
   },
   "risk": "normal",

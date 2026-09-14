@@ -1,0 +1,219 @@
+{
+  "acceptanceEvidence": [
+    {
+      "acceptanceId": "A1",
+      "evidence": [
+        {
+          "locator": "CameraRig sole owner",
+          "path": "src/scene/CameraRig.tsx",
+          "type": "code",
+          "verification": "ArchitectureCamera.tsx/ArchitectureControls.tsx deleted; only CameraRig holds the CameraControls ref."
+        }
+      ]
+    },
+    {
+      "acceptanceId": "A2",
+      "evidence": [
+        {
+          "locator": "5s idle stability",
+          "path": "e2e/explorer.spec.ts",
+          "type": "e2e-regression",
+          "verification": "Playwright test clicks an object, waits 5000ms, asserts no further movement."
+        }
+      ]
+    },
+    {
+      "acceptanceId": "A3",
+      "evidence": [
+        {
+          "locator": "rapid 10-click",
+          "path": "e2e/explorer.spec.ts",
+          "type": "e2e-regression",
+          "verification": "Playwright test rapidly clicks through all objects and asserts stable landing on the last one."
+        }
+      ]
+    },
+    {
+      "acceptanceId": "A4",
+      "evidence": [
+        {
+          "locator": "single setLookAt trigger",
+          "path": "tests/CameraRig.test.tsx",
+          "type": "unit-regression",
+          "verification": "setLookAt only fires on cameraId change, not on unrelated re-renders, so user orbit is never overridden."
+        }
+      ]
+    },
+    {
+      "acceptanceId": "A5",
+      "evidence": [
+        {
+          "locator": "guided tour e2e",
+          "path": "e2e/explorer.spec.ts",
+          "type": "e2e-regression",
+          "verification": "7-scene guided tour e2e coverage passes against CameraRig-driven movement."
+        }
+      ]
+    },
+    {
+      "acceptanceId": "A6",
+      "evidence": [
+        {
+          "locator": "camera regression tests",
+          "path": "tests/CameraRig.test.tsx",
+          "type": "unit-regression",
+          "verification": "New unit and e2e tests cover single-click settle, rapid multi-click, and reduced-motion instant cut."
+        }
+      ]
+    },
+    {
+      "acceptanceId": "A7",
+      "evidence": [
+        {
+          "locator": "full verification suite",
+          "path": ".ai/evidence/WI-004-camera-stability.verification.json",
+          "type": "runtime-verification",
+          "verification": "lint/typecheck/vitest/build/e2e all pass with no regression to prior WI-002/WI-003 behavior."
+        }
+      ]
+    }
+  ],
+  "changedPaths": [],
+  "checkpointAt": "2026-09-14T03:49:13Z",
+  "checkpointContractDigest": "sha256:09195c6f4104df825f4b39d3a5893eba2700d26d02c07e89c12f9e22260064be",
+  "checkpointCount": 1,
+  "checkpointEvidence": [
+    {
+      "acceptanceCount": 7,
+      "contractHash": "sha256:5ee9115acf2baf0000cc92f58660e8aa222558e5cff6ff4940a541fae66325a8",
+      "recorded": true,
+      "recordedAt": "2026-09-14T03:49:13Z",
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:0262fd78f3709735bac71c3a711a3b7a3f8d09b23926d7b82055964251698b98",
+      "requiredChecks": 0,
+      "requiredChecksPassed": 0,
+      "schemaVersion": 1,
+      "stage": "before_edit",
+      "unknownCount": 0,
+      "workItemId": "WI-004-camera-stability"
+    },
+    {
+      "acceptanceCount": 7,
+      "contractHash": "sha256:09195c6f4104df825f4b39d3a5893eba2700d26d02c07e89c12f9e22260064be",
+      "invalidatedRequiredChecks": [],
+      "originalBeforeEditContractHash": "sha256:5ee9115acf2baf0000cc92f58660e8aa222558e5cff6ff4940a541fae66325a8",
+      "previousContractHash": "sha256:5ee9115acf2baf0000cc92f58660e8aa222558e5cff6ff4940a541fae66325a8",
+      "reason": "Removed a stray colon in acceptance criterion 6 (\"Automated regression tests exist for:\" -> \"Automated regression tests exist covering\") that the governance parser was misreading as an explicit numbered-acceptance-id prefix, which incorrectly required per-criterion acceptanceEvidence IDs. No change to the criterion's substantive meaning.",
+      "recorded": true,
+      "recordedAt": "2026-09-14T03:53:10Z",
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:0262fd78f3709735bac71c3a711a3b7a3f8d09b23926d7b82055964251698b98",
+      "requiredChecks": 0,
+      "requiredChecksPassed": 0,
+      "requiredChecksPassedAtAmendment": null,
+      "schemaVersion": 1,
+      "stage": "contract_amendment_revalidation",
+      "unknownCount": 0,
+      "verificationStarted": false,
+      "workItemId": "WI-004-camera-stability"
+    }
+  ],
+  "checkpointRepositorySnapshotDigest": "sha256:0262fd78f3709735bac71c3a711a3b7a3f8d09b23926d7b82055964251698b98",
+  "createdAt": "2026-09-14T03:42:04Z",
+  "intentAlignment": {
+    "evidence": [
+      "src/scene/CameraRig.tsx",
+      "src/interaction/cameraTargets.ts",
+      "tests/CameraRig.test.tsx",
+      "tests/cameraTargets.test.ts",
+      "e2e/explorer.spec.ts"
+    ],
+    "reason": "The seven scenarios map directly to the Contract's seven acceptance criteria for the P0 camera-stability fix; no visual polish, semantic model changes (Work Item envelope/Knowledge/Traceability/CHI), or i18n content changes were made, matching the declared out-of-scope boundary.",
+    "state": "resolved"
+  },
+  "mode": "implementation",
+  "preflightAt": "2026-09-14T03:53:17Z",
+  "preflightContractDigest": "sha256:09195c6f4104df825f4b39d3a5893eba2700d26d02c07e89c12f9e22260064be",
+  "preflightDecisionDigest": "sha256:87984c0a1a26d0916db4f2c1b13f031eb89189e9b24d41497391ad35de9cf55e",
+  "preflightRepositorySnapshotDigest": "sha256:0262fd78f3709735bac71c3a711a3b7a3f8d09b23926d7b82055964251698b98",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "scenarioCoverage": [
+    {
+      "evidence": [
+        "src/scene/CameraRig.tsx",
+        "tests/CameraRig.test.tsx"
+      ],
+      "reason": "ArchitectureCamera.tsx and its manual camera.lookAt() were removed along with the plain OrbitControls; CameraRig.tsx is the sole component holding the CameraControls ref and calling setLookAt.",
+      "required": true,
+      "scenario": "single_owner_of_camera_position_and_target",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        "e2e/explorer.spec.ts"
+      ],
+      "reason": "Playwright regression test clicks an object, waits a real 5000ms via waitForTimeout, and asserts no further camera movement/error occurs.",
+      "required": true,
+      "scenario": "focus_transition_settles_and_stays_settled_after_5s",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        "tests/CameraRig.test.tsx",
+        "e2e/explorer.spec.ts"
+      ],
+      "reason": "Unit test asserts setLookAt is called once per cameraId change with the last call matching the final id; e2e test clicks through all objects rapidly and asserts the app remains stable and lands on the last selection.",
+      "required": true,
+      "scenario": "rapid_multi_click_settles_on_last_target",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        "tests/CameraRig.test.tsx"
+      ],
+      "reason": "setLookAt is invoked from a useEffect keyed only on cameraId; a regression test confirms an unrelated re-render with the same cameraId does not re-trigger setLookAt.",
+      "required": true,
+      "scenario": "user_orbit_not_interrupted_by_unrelated_rerender",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        "e2e/explorer.spec.ts"
+      ],
+      "reason": "Existing 7-scene guided tour e2e coverage continues to pass against the new CameraRig-driven camera movement.",
+      "required": true,
+      "scenario": "guided_tour_camera_movement_unaffected",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        "src/interaction/cameraTargets.ts",
+        "tests/cameraTargets.test.ts"
+      ],
+      "reason": "buildSetLookAtArgs(id, reducedMotion) passes the enableTransition=false argument to setLookAt when prefersReducedMotion() is true, verified by a unit test.",
+      "required": true,
+      "scenario": "reduced_motion_produces_instant_cut",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        ".ai/evidence/WI-004-camera-stability.verification.json"
+      ],
+      "reason": "lint, tsc --noEmit, vitest (48/48), static export build, and Playwright e2e (9/9) all pass; the Governance Loop scene, three modes, and i18n routes are unchanged and still verified.",
+      "required": true,
+      "scenario": "full_verification_suite_green_no_regression",
+      "status": "verified"
+    }
+  ],
+  "state": "finish_ready",
+  "updatedAt": "2026-09-14T03:53:17Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-004-camera-stability"
+}
