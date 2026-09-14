@@ -1,0 +1,95 @@
+{
+  "bindings": {
+    "evidenceRefs": [
+      ".ai/evidence/WI-008-spatial-identity.verification.json"
+    ],
+    "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+    "repositorySnapshotDigest": "sha256:2db19dab79fdc360e1f64e9c1b2334a4a6e046cad5a78730f732cec3e8ec4326",
+    "workItemId": "WI-008-spatial-identity"
+  },
+  "format": "ai-cockpit.task-outcome",
+  "humanStatusColor": "green",
+  "schemaVersion": 1,
+  "sections": {
+    "avoidedImpact": [],
+    "deliveredChanges": [],
+    "evidence": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-008-spatial-identity.verification.json"
+        ],
+        "inference": false,
+        "text": ".ai/evidence/WI-008-spatial-identity.verification.json"
+      }
+    ],
+    "findings": [],
+    "forbiddenClaims": [
+      "merge_authorized_without_human_decision",
+      "release_published_without_release_evidence",
+      "provider_or_enterprise_approval_inferred_from_local_records",
+      "user_visible_benefit_invented_from_implementation_facts"
+    ],
+    "forcedStops": [],
+    "humanDecisions": [],
+    "interventions": [],
+    "limitations": [],
+    "nonRiskExplanations": [
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-008-spatial-identity.summary.json"
+        ],
+        "inference": false,
+        "text": "No repository paths were observed as changed by the current Summary."
+      }
+    ],
+    "outcomeSummary": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-008-spatial-identity.verification.json"
+        ],
+        "inference": false,
+        "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+      }
+    ],
+    "recurrencePrevention": [],
+    "residualRisks": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-008-spatial-identity.verification.json"
+        ],
+        "inference": false,
+        "text": "Remaining unknown: user_visible_benefit_not_declared"
+      }
+    ],
+    "resolutions": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-008-spatial-identity.verification.json"
+        ],
+        "inference": false,
+        "text": "The current verification evidence is valid for this repository and Work Item."
+      }
+    ],
+    "risks": [],
+    "taskOverview": [
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-008-spatial-identity.contract.json"
+        ],
+        "inference": false,
+        "text": "Ship v0.3 Spatial Identity: exactly five upgrades, no new architecture capabilities, no new tabs, no tour expansion, no new body text. (1) Runtime becomes a multi-ring Governance Engine (outer boundary ring, verification ring, evidence ring, core) that visibly sequences ring-by-ring during a Verify moment instead of sitting as an inert torus+icosahedron. (2) Flow connectors become curved data channels (Bezier/CatmullRom curves) with multiple packets traveling along the curve, replacing straight FlowLine segments. (3) The Work Item envelope becomes a boundary field (corner/edge markers implying a volume) instead of a full six-sided glass box, with a red boundary-block visual when execution would cross scope. (4) Verification gets a genuine cinematic beat: other scene elements dim, camera pushes in slightly, and GREEN -> (blocked X) -> Human Decision PENDING plays as a deliberate ~0.5-1s sequence, landing on the existing 'Verified != Approved' line. (5) Selective bloom via @react-three/postprocessing is added, applied only to semantically active elements (active evidence, the Runtime's active ring, active flow packets, a blocked boundary, a selected Knowledge node) -- inactive elements stay matte, this is not a full-scene glow. Three smaller companion fixes ride along: Knowledge gains a small pulse + new node animation when a Work Item archives into it; Trace gains an optional, click-to-reveal 3D light-trail representation (hidden by default, the existing UI timeline remains the primary interface); and the Human-Computer Interaction element's primary display label changes to the more intuitive 'Human Control' (en) / '人による制御' (ja) / '人工控制' (zh) in the picker/heading, while the fuller 'Human-Computer Interaction, Define -> Understand -> Decide' framing moves into the WHAT detail text -- the internal id humanControlInterface is unchanged."
+      }
+    ],
+    "warnings": [
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-008-spatial-identity.contract.json"
+        ],
+        "inference": false,
+        "text": "User-visible benefit is not declared by the Work Item owner."
+      }
+    ]
+  },
+  "status": "verified",
+  "workItemId": "WI-008-spatial-identity"
+}

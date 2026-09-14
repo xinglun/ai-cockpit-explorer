@@ -1,0 +1,25 @@
+{
+  "changedPaths": [],
+  "checkpointAt": "2026-09-14T08:04:11Z",
+  "checkpointContractDigest": "sha256:e0c86cf8c7ed7da30d233dcec2689b7126c2132ec160af1b009873613ef59534",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:2db19dab79fdc360e1f64e9c1b2334a4a6e046cad5a78730f732cec3e8ec4326",
+  "createdAt": "2026-09-14T07:30:05Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-14T08:07:19Z",
+  "preflightContractDigest": "sha256:e0c86cf8c7ed7da30d233dcec2689b7126c2132ec160af1b009873613ef59534",
+  "preflightDecisionDigest": "sha256:87984c0a1a26d0916db4f2c1b13f031eb89189e9b24d41497391ad35de9cf55e",
+  "preflightRepositorySnapshotDigest": "sha256:2db19dab79fdc360e1f64e9c1b2334a4a6e046cad5a78730f732cec3e8ec4326",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-14T08:07:20Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-008-spatial-identity"
+}

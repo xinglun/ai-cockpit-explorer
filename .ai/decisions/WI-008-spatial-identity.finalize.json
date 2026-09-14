@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-8-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "6e1ed4614178cf3b8cea7ae71e247ddd3374c9cf",
+    "name": "codex/wi-008-spatial-identity",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:c33a398f0f8d646f0bc4df8da2c963d4d86776b9f1e47d5d1372b519f7cbc540",
+  "operationId": "operation-WI-008-spatial-identity-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "3b304452c34e02318994477168493ac065f54453",
+    "headRevision": "6e1ed4614178cf3b8cea7ae71e247ddd3374c9cf",
+    "mergeCommit": "7453215e7e09ce819c43018ab042dc90541e1f2c",
+    "number": 8,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/8"
+  },
+  "reason": "PR #8 passed lint/typecheck/vitest/build/playwright checks, merged at 7453215 via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-008-spatial-identity-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-008-spatial-identity",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/8",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-008-spatial-identity"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T08:30:03Z",
+  "workItemId": "WI-008-spatial-identity",
+  "worktree": {
+    "branch": "codex/wi-008-spatial-identity",
+    "headRevision": "6e1ed4614178cf3b8cea7ae71e247ddd3374c9cf",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-008-spatial-identity",
+    "worktreeId": "WI-008-spatial-identity"
+  }
+}

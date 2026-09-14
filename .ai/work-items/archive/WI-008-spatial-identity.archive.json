@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-14T08:07:20Z",
+  "files": {
+    "contractDigest": "sha256:c33a398f0f8d646f0bc4df8da2c963d4d86776b9f1e47d5d1372b519f7cbc540",
+    "contractPath": ".ai/work-items/archive/WI-008-spatial-identity.contract.json",
+    "eventsDigest": "sha256:84b260a58adcfa3f3ede048e0f8f4d79e39e4b1fe5dcb143b45eaec02eb04829",
+    "eventsPath": ".ai/work-items/archive/WI-008-spatial-identity.events.jsonl",
+    "outcomeDigest": "sha256:22a1f61592e254d64251dc9a42a16468c9dd494ec5ed6eeebd15561a46b22c52",
+    "outcomePath": ".ai/work-items/archive/WI-008-spatial-identity.outcome.json",
+    "summaryDigest": "sha256:ac88289dcb3593c03eda5a4d303b1f660d2582a7cb68e84bb2502e00a9c54c0d",
+    "summaryPath": ".ai/work-items/archive/WI-008-spatial-identity.summary.json",
+    "taskReportDigest": "sha256:8123a4b5d4ba7fa2956f38566068795682202fc915df2eee8c8106030a84338e",
+    "taskReportMarkdownDigest": "sha256:122fbc08dd1a65f992f38e560fcf19644337364fbed03061a3577dd2cb526f48",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-008-spatial-identity.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-008-spatial-identity.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-008-spatial-identity"
+}
