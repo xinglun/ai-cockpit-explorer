@@ -8,7 +8,7 @@ import type { WorkItemEnvelopeStage } from "@/data/workItem";
  *   Agents (far left, outside) -> Entry gate -> Runtime (center)
  *   Runtime <-> Repository (below, Protocol nested inside) via Evidence
  *   Runtime <-> Human Authority (top) via Contract (down) / Outcome (up)
- *   Human Authority <-> Runtime via a Human Control Interface layer
+ *   Human Authority <-> Runtime via a Human-Computer Interaction layer
  *   Repository Protocol -> Knowledge (a derived-facts projection)
  *
  * - repository: solid, heavy foundation -> durable governed asset

@@ -100,7 +100,7 @@ export const en = {
       boundary: "Cannot authorize itself — GREEN outcome is not an APPROVED decision.",
     },
     humanControlInterface: {
-      label: "Human Control Interface",
+      label: "Human-Computer Interaction",
       what: "The Explorer's presentation of how a human directs and receives status from AI Cockpit, in three channels: Define (Intent, Scope, Acceptance Criteria, Authority), Understand (Outcome, Evidence Summary, Unknowns, Risk/Status, Next Action), and Decide (Approve, Reject, Recover, Continue).",
       inputs: ["Intent, Scope, Acceptance Criteria, Authority (Define)", "Outcome, Evidence Summary, Unknowns, Risk/Status, Next Action (Understand)"],
       outputs: ["Approve / Reject / Recover / Continue (Decide)"],
@@ -198,7 +198,7 @@ export const en = {
       {
         title: "HCI / Human Decision",
         narration:
-          "The Outcome rises to Human Authority through the Human Control Interface, who decides: approve or reject. Nothing is authorized until they do.",
+          "The Outcome rises to Human Authority through the Human-Computer Interaction layer; the human decides: approve or reject. Nothing is authorized until they do.",
       },
       {
         title: "Archive → Trace → Knowledge",

@@ -6,7 +6,8 @@ import { Label } from "./Label";
 import type { ArchitectureNodeProps } from "./types";
 
 /**
- * HCI is the Explorer's own conceptual framing of how a human directs
+ * HCI (Human-Computer Interaction) is the Explorer's own conceptual
+ * framing of how a human directs
  * and receives status from AI Cockpit — Define / Understand / Decide
  * (see the WHAT/INPUTS/OUTPUTS/BOUNDARY copy in src/i18n/*). It is a
  * presentation layer, not a claim that AI Cockpit Runtime exposes a
