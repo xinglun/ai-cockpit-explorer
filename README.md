@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Cockpit Explorer
+
+An interactive, real-time 3D architecture experience for
+[AI Cockpit](https://github.com/xinglun/ai-cockpit) — built so a first-time
+visitor can understand its architecture and governance model in about 30
+seconds, without reading a long explanation first.
+
+This repository is a presentation and comprehension layer only. It does not
+redefine AI Cockpit semantics; see [`docs/upstream.md`](docs/upstream.md) for
+the upstream source of truth and the revision this visualization was derived
+from.
+
+## Interactive Architecture
+
+Explore the architecture, governance lifecycle, evidence model, and
+human-authority boundary interactively:
+
+[Explore AI Cockpit →](https://xinglun.github.io/ai-cockpit-explorer/)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see
+the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js 16 (App Router, static export)
+- React 19 + TypeScript
+- React Three Fiber / Three.js / `@react-three/drei`
+- Tailwind CSS 4 (DOM UI)
+- Vitest + React Testing Library (unit tests)
+- Playwright (end-to-end)
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev        # local development
+npm run build      # static export to out/
+npm run lint       # eslint
+npm run typecheck  # tsc --noEmit
+npm run test       # vitest
+npm run test:e2e   # playwright
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Static export is deployed to GitHub Pages from
+`.github/workflows/deploy-pages.yml` at
+`https://xinglun.github.io/ai-cockpit-explorer/`. This repository has its own
+release lifecycle, independent of the AI Cockpit Runtime — a visualization
+change is never Runtime evidence and never implies new Runtime capabilities.
