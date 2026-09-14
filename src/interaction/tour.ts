@@ -1,4 +1,6 @@
 import type { ArchitectureElementId } from "@/data/architecture";
+import type { WorkItemEnvelopeStage } from "@/data/workItem";
+import type { FlowId } from "@/architecture/types";
 
 export type TourStatusBeat = "none" | "green" | "pending" | "verified-not-approved";
 
@@ -8,28 +10,81 @@ export interface TourStep {
   /** Which camera target to move toward. */
   cameraId: ArchitectureElementId;
   status: TourStatusBeat;
+  /** Which flow(s) carry this beat's data; defaults to none if omitted. */
+  activeFlowIds: FlowId[];
+  /** How the Work Item Envelope should read during this beat. */
+  envelopeStage: WorkItemEnvelopeStage;
 }
 
 /**
- * "Understand AI Cockpit in 30 seconds" — a 7-scene narrative, not a
- * camera pan across objects. Each scene explains a causal step in the
- * Governance Loop, ending on the single most important beat: verified
- * is not the same as approved. Title/narration display copy lives in
- * src/i18n/*'s `tour.steps` (same order, same length) — this file only
- * carries the semantic camera/focus/status behavior behind each beat.
+ * "Understand AI Cockpit in 30 seconds" — an 8-scene narrative, not a
+ * camera pan across objects: Request, Work Item, Contract, Governed
+ * Execution, Evidence, Verification, CHI/Human Decision, and finally
+ * Archive -> Trace -> Knowledge. The tour no longer ends on Human
+ * Authority alone — it ends on what happens to the record afterward,
+ * so a first-time visitor leaves knowing not just that verification
+ * happened, but where the evidence goes and how it becomes knowledge.
+ * Title/narration display copy lives in src/i18n/*'s `tour.steps` (same
+ * order, same length) — this file only carries the semantic
+ * camera/focus/flow/envelope/status behavior behind each beat.
  */
 export const tourSteps: TourStep[] = [
-  { focus: ["agents", "entrySurface"], cameraId: "entrySurface", status: "none" },
-  { focus: ["humanAuthority", "contract", "runtime"], cameraId: "contract", status: "none" },
-  { focus: ["repository", "repositoryProtocol", "runtime"], cameraId: "repository", status: "none" },
-  { focus: ["agents", "entrySurface", "runtime", "repository"], cameraId: "runtime", status: "none" },
-  { focus: ["repository", "evidence", "runtime"], cameraId: "evidence", status: "green" },
   {
-    focus: ["evidence", "runtime", "contract", "outcome", "humanAuthority"],
+    focus: ["agents", "entrySurface"],
+    cameraId: "entrySurface",
+    status: "none",
+    activeFlowIds: ["execution"],
+    envelopeStage: "none",
+  },
+  {
+    focus: ["workItem", "contract", "humanAuthority"],
+    cameraId: "workItem",
+    status: "none",
+    activeFlowIds: ["contract"],
+    envelopeStage: "opening",
+  },
+  {
+    focus: ["humanAuthority", "contract", "runtime", "workItem"],
+    cameraId: "contract",
+    status: "none",
+    activeFlowIds: ["contract"],
+    envelopeStage: "opening",
+  },
+  {
+    focus: ["agents", "entrySurface", "runtime", "repository", "workItem"],
+    cameraId: "runtime",
+    status: "none",
+    activeFlowIds: ["execution"],
+    envelopeStage: "active",
+  },
+  {
+    focus: ["repository", "evidence", "runtime", "workItem"],
+    cameraId: "evidence",
+    status: "green",
+    activeFlowIds: ["evidence"],
+    envelopeStage: "active",
+  },
+  {
+    focus: ["evidence", "runtime", "contract", "outcome", "humanAuthority", "workItem"],
     cameraId: "runtime",
     status: "verified-not-approved",
+    activeFlowIds: ["evidence", "outcome"],
+    envelopeStage: "finished",
   },
-  { focus: ["outcome", "humanAuthority"], cameraId: "humanAuthority", status: "pending" },
+  {
+    focus: ["outcome", "humanAuthority", "humanControlInterface", "workItem"],
+    cameraId: "humanControlInterface",
+    status: "pending",
+    activeFlowIds: ["outcome"],
+    envelopeStage: "finished",
+  },
+  {
+    focus: ["outcome", "repositoryProtocol", "knowledge", "workItem"],
+    cameraId: "knowledge",
+    status: "none",
+    activeFlowIds: ["knowledge"],
+    envelopeStage: "archived",
+  },
 ];
 
 export function nextStepIndex(current: number): number {

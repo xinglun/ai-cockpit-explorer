@@ -8,6 +8,7 @@ import { DetailPanel } from "./DetailPanel";
 import { GuidedTour } from "./GuidedTour";
 import { StatusLegend } from "./StatusLegend";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { TraceTimeline } from "./TraceTimeline";
 import { LifecycleFlow } from "@/lifecycle/LifecycleFlow";
 import { VerificationGraph } from "@/verification/VerificationGraph";
 import {
@@ -15,12 +16,14 @@ import {
   verificationScenarios,
   type VerificationScenarioId,
 } from "@/data/verificationDemo";
-import { stageRelevance, stageCameraId } from "@/interaction/stageFocus";
+import { sampleWorkItemId } from "@/data/workItem";
+import { stageRelevance, stageCameraId, stageFlowIds, stageEnvelope, elementFlowRelevance } from "@/interaction/stageFocus";
 import { tourSteps } from "@/interaction/tour";
 import { parseExplorerUrlState } from "@/interaction/explorerUrlState";
 import { colors } from "@/design-system/semanticColors";
 import { architectureOrder, type ArchitectureElementId } from "@/data/architecture";
 import type { LifecycleStepId } from "@/data/lifecycle";
+import type { FlowId } from "@/architecture/types";
 import type { Locale } from "@/i18n/locales";
 import { getMessages } from "@/i18n/getMessages";
 
@@ -30,7 +33,14 @@ const VERIFICATION_FOCUS: ArchitectureElementId[] = [
   "contract",
   "outcome",
   "humanAuthority",
+  "humanControlInterface",
+  "workItem",
 ];
+
+const VERIFICATION_FLOW_IDS: Record<VerificationScenarioId, FlowId[]> = {
+  "green-pending": ["evidence", "outcome"],
+  "red-fail-closed": ["evidence"],
+};
 
 interface ExplorerShellProps {
   locale: Locale;
@@ -89,22 +99,39 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
 
   const exitTour = () => setTourActive(false);
 
-  const { highlightIds, cameraId } = useMemo(() => {
+  const { highlightIds, cameraId, activeFlowIds, workItemStage } = useMemo(() => {
     if (tourActive) {
       const step = tourSteps[tourStepIndex];
-      return { highlightIds: step.focus, cameraId: step.cameraId };
+      return {
+        highlightIds: step.focus,
+        cameraId: step.cameraId,
+        activeFlowIds: step.activeFlowIds,
+        workItemStage: step.envelopeStage,
+      };
     }
     if (mode === "workitem") {
-      return { highlightIds: stageRelevance[activeStage], cameraId: stageCameraId[activeStage] };
+      return {
+        highlightIds: stageRelevance[activeStage],
+        cameraId: stageCameraId[activeStage],
+        activeFlowIds: stageFlowIds[activeStage],
+        workItemStage: stageEnvelope[activeStage],
+      };
     }
     if (mode === "verification") {
-      return { highlightIds: VERIFICATION_FOCUS, cameraId: "runtime" as ArchitectureElementId };
+      return {
+        highlightIds: VERIFICATION_FOCUS,
+        cameraId: "runtime" as ArchitectureElementId,
+        activeFlowIds: VERIFICATION_FLOW_IDS[scenarioId],
+        workItemStage: "finished" as const,
+      };
     }
     return {
       highlightIds: selectedId ? [selectedId] : null,
       cameraId: selectedId,
+      activeFlowIds: selectedId ? elementFlowRelevance[selectedId] : null,
+      workItemStage: selectedId === "workItem" ? ("active" as const) : ("none" as const),
     };
-  }, [tourActive, tourStepIndex, mode, activeStage, selectedId]);
+  }, [tourActive, tourStepIndex, mode, activeStage, selectedId, scenarioId]);
 
   return (
     <div className="relative h-dvh w-full overflow-hidden" style={{ backgroundColor: colors.background }}>
@@ -116,6 +143,10 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
           onSelect={setSelectedId}
           labels={labels}
           ariaLabel={messages.app.canvasAriaLabel}
+          activeFlowIds={activeFlowIds}
+          workItemStage={workItemStage}
+          workItemId={sampleWorkItemId}
+          workItemClosedLabel={messages.workItemEnvelope.closedLabel}
         />
       </div>
 
@@ -184,10 +215,15 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
         {mode === "workitem" && !tourActive && (
           <div
             style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-            className="pointer-events-auto flex flex-col gap-3 rounded border p-4"
+            className="pointer-events-auto flex flex-col gap-4 rounded border p-4"
           >
-            <h2 className="text-sm font-semibold">{messages.lifecycle.heading}</h2>
-            <LifecycleFlow activeStepId={activeStage} onSelectStep={setActiveStage} messages={messages} />
+            <div className="flex flex-col gap-3">
+              <h2 className="text-sm font-semibold">{messages.lifecycle.heading}</h2>
+              <LifecycleFlow activeStepId={activeStage} onSelectStep={setActiveStage} messages={messages} />
+            </div>
+            <div style={{ borderColor: colors.border }} className="border-t pt-3">
+              <TraceTimeline messages={messages} />
+            </div>
           </div>
         )}
 

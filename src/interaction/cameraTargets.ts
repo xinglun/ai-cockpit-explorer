@@ -54,6 +54,18 @@ export const cameraTargets: Record<ArchitectureElementId, CameraTarget> = {
     position: [3, 6, 6],
     lookAt: layout.humanAuthority.position,
   },
+  workItem: {
+    position: [5, 3.4, 6],
+    lookAt: layout.workItem.position,
+  },
+  knowledge: {
+    position: [3.4, 0.3, -4.2],
+    lookAt: layout.knowledge.position,
+  },
+  humanControlInterface: {
+    position: [2.4, 5.4, 4.8],
+    lookAt: layout.humanControlInterface.position,
+  },
 };
 
 export function cameraTargetFor(id: ArchitectureElementId | null): CameraTarget {

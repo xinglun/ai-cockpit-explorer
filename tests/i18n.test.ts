@@ -62,7 +62,7 @@ describe("locale completeness", () => {
 
   it("gives every locale the same tour length as the semantic tour data", () => {
     for (const locale of supportedLocales) {
-      expect(locales[locale].tour.steps).toHaveLength(7);
+      expect(locales[locale].tour.steps).toHaveLength(8);
     }
   });
 
