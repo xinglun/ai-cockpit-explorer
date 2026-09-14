@@ -127,17 +127,26 @@ test("Work Item mode shows a Trace timeline with the finalize/close cleanup coll
   await page.getByRole("button", { name: /show advanced/i }).click();
   await expect(page.getByText(/Provider finalization receipt recorded/i)).toBeVisible();
   await expect(page.getByText(/Work Item closed; record made immutable/i)).toBeVisible();
+
+  // The optional 3D trail companion stays hidden until explicitly
+  // revealed; toggling it doesn't disturb the primary DOM timeline.
+  const trailToggle = page.getByRole("button", { name: "Show in 3D" });
+  await expect(trailToggle).toHaveAttribute("aria-pressed", "false");
+  await trailToggle.click();
+  await expect(page.getByRole("button", { name: "Hide 3D trail" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByText(/Trace \/ Audit/i)).toBeVisible();
 });
 
-test("Knowledge and the Human-Computer Interaction are selectable as their own distinct elements", async ({ page }) => {
+test("Knowledge and Human Control are selectable as their own distinct elements", async ({ page }) => {
   await page.goto("/en/");
 
   await page.getByRole("button", { name: "Knowledge" }).click();
   await expect(page.getByRole("heading", { name: "Knowledge" })).toBeVisible();
   await expect(page.getByText(/not a source of authority/i)).toBeVisible();
 
-  await page.getByRole("button", { name: "Human-Computer Interaction" }).click();
-  await expect(page.getByRole("heading", { name: "Human-Computer Interaction" })).toBeVisible();
+  await page.getByRole("button", { name: "Human Control", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Human Control", exact: true })).toBeVisible();
+  await expect(page.getByText(/Human-Computer Interaction/i)).toBeVisible();
   await expect(page.getByText(/not a literal Runtime service/i)).toBeVisible();
 
   await page.getByRole("button", { name: "Work Item", exact: true }).click();

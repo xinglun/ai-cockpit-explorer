@@ -8,7 +8,7 @@ import type { WorkItemEnvelopeStage } from "@/data/workItem";
  *   Agents (far left, outside) -> Entry gate -> Runtime (center)
  *   Runtime <-> Repository (below, Protocol nested inside) via Evidence
  *   Runtime <-> Human Authority (top) via Contract (down) / Outcome (up)
- *   Human Authority <-> Runtime via a Human-Computer Interaction layer
+ *   Human Authority <-> Runtime via a Human Control (Human-Computer Interaction) layer
  *   Repository Protocol -> Knowledge (a derived-facts projection)
  *
  * - repository: solid, heavy foundation -> durable governed asset
@@ -54,6 +54,10 @@ export const knowledgeNodeOffsets: [number, number, number][] = [
   [0.3, 0.12, 0.08],
   [-0.26, 0.15, 0.05],
   [0.04, 0.28, -0.2],
+  // Index 4: the newest node, only shown once the sample Work Item has
+  // archived — Knowledge visibly gains a node instead of a paragraph
+  // explaining that completed facts get folded in.
+  [-0.1, -0.22, 0.24],
 ];
 
 export const knowledgeEdges: [number, number][] = [
@@ -62,6 +66,9 @@ export const knowledgeEdges: [number, number][] = [
   [0, 3],
   [1, 3],
 ];
+
+/** The newest node's edge back to the graph — separate from the base edges above because it only renders once that node is shown. */
+export const knowledgeNewNodeEdge: [number, number] = [0, 4];
 
 /**
  * The Work Item Envelope's bounds per lifecycle stage. Discrete
@@ -78,6 +85,25 @@ export const workItemEnvelopeBounds: Record<
   archived: { center: [0, -0.55, 0], size: [1.5, 0.55, 1.15] },
   closed: { center: [0, -0.55, 0], size: [1.5, 0.55, 1.15] },
 };
+
+/**
+ * A light-trail companion to the primary Trace UI timeline: one point
+ * per primary (non-"advanced") trace event, in the same order as
+ * `traceEvents` in src/data/workItem.ts, reusing existing element
+ * positions rather than inventing new ones. Hidden by default; the
+ * DOM TraceTimeline stays the primary interface (see
+ * src/architecture/TraceTrail.tsx).
+ */
+export const traceTrailPoints: [number, number, number][] = [
+  layout.humanAuthority.position, // intent
+  layout.contract.position, // contract
+  layout.repository.position, // snapshot
+  layout.runtime.position, // checkpoint
+  layout.evidence.position, // verificationReceipt
+  layout.outcome.position, // outcome
+  layout.humanAuthority.position, // humanDecision
+  layout.repositoryProtocol.position, // archive
+];
 
 export const cameraDefaults = {
   position: [11, 6.5, 14] as [number, number, number],

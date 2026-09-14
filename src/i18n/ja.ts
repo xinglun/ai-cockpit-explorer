@@ -100,8 +100,8 @@ export const ja = {
       boundary: "自ら認可することはできません——GREENのOutcomeはAPPROVEDという決定ではありません。",
     },
     humanControlInterface: {
-      label: "Human-Computer Interaction",
-      what: "人間がAI Cockpitを操作し、状況を受け取る方法についてのExplorerの提示。Define（Intent・Scope・受け入れ基準・Authority）、Understand（Outcome・証拠の要約・不明点・リスク/状況・次のアクション）、Decide（Approve・Reject・Recover・Continue）という3つのチャネルで構成されます。",
+      label: "人による制御",
+      what: "人間がAI Cockpitを操作し、状況を受け取る方法（Human-Computer Interaction）についてのExplorerの提示。Define（Intent・Scope・受け入れ基準・Authority）、Understand（Outcome・証拠の要約・不明点・リスク/状況・次のアクション）、Decide（Approve・Reject・Recover・Continue）という3つのチャネルで構成されます。",
       inputs: ["Intent・Scope・受け入れ基準・Authority（Define）", "Outcome・証拠の要約・不明点・リスク/状況・次のアクション（Understand）"],
       outputs: ["Approve / Reject / Recover / Continue（Decide）"],
       boundary: "Explorerが人間とRuntimeのやり取りを提示するための概念であり、Runtime自体が持つサービスではありません。",
@@ -196,7 +196,7 @@ export const ja = {
       {
         title: "HCI / 人間の決定",
         narration:
-          "OutcomeはHuman-Computer Interactionを通じてHuman Authorityへ上がり、そこで承認か却下かが決定されます。人間が決定するまで、何も認可されません。",
+          "Outcomeは人による制御層を通じてHuman Authorityへ上がり、そこで承認か却下かが決定されます。人間が決定するまで、何も認可されません。",
       },
       {
         title: "Archive → Trace → Knowledge",
@@ -258,6 +258,8 @@ export const ja = {
     ariaLabel: "Work Itemの追跡タイムライン",
     advancedToggleShow: "高度な項目を表示（finalize / close のクリーンアップ）",
     advancedToggleHide: "高度な項目を隠す",
+    show3dTrail: "3Dで表示",
+    hide3dTrail: "3D表示を隠す",
     events: {
       intent: "Intentを記録",
       contract: "Contractを紐づけ",

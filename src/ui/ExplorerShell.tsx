@@ -83,6 +83,7 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
   const [scenarioId, setScenarioId] = useState<VerificationScenarioId>("green-pending");
   const [tourActive, setTourActive] = useState(initial.tourStepIndex !== null);
   const [tourStepIndex, setTourStepIndex] = useState(initial.tourStepIndex ?? 0);
+  const [showTraceTrail, setShowTraceTrail] = useState(false);
 
   const changeMode = (next: ExplorerMode) => {
     setMode(next);
@@ -98,6 +99,8 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
   };
 
   const exitTour = () => setTourActive(false);
+
+  const blocked = mode === "verification" && !tourActive && scenarioId === "red-fail-closed";
 
   const { highlightIds, cameraId, activeFlowIds, workItemStage } = useMemo(() => {
     if (tourActive) {
@@ -147,6 +150,8 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
           workItemStage={workItemStage}
           workItemId={sampleWorkItemId}
           workItemClosedLabel={messages.workItemEnvelope.closedLabel}
+          blocked={blocked}
+          showTraceTrail={mode === "workitem" && !tourActive && showTraceTrail}
         />
       </div>
 
@@ -222,7 +227,11 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
               <LifecycleFlow activeStepId={activeStage} onSelectStep={setActiveStage} messages={messages} />
             </div>
             <div style={{ borderColor: colors.border }} className="border-t pt-3">
-              <TraceTimeline messages={messages} />
+              <TraceTimeline
+                messages={messages}
+                showTrail={showTraceTrail}
+                onToggleTrail={() => setShowTraceTrail((value) => !value)}
+              />
             </div>
           </div>
         )}
@@ -253,7 +262,7 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
                 ))}
               </div>
             </div>
-            <VerificationGraph scenario={verificationScenarios[scenarioId]} messages={messages} />
+            <VerificationGraph key={scenarioId} scenario={verificationScenarios[scenarioId]} messages={messages} />
             <StatusLegend messages={messages} />
           </div>
         )}

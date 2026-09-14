@@ -115,6 +115,8 @@ export interface ExplorerMessages {
     ariaLabel: string;
     advancedToggleShow: string;
     advancedToggleHide: string;
+    show3dTrail: string;
+    hide3dTrail: string;
     events: Record<TraceEventId, string>;
   };
 }
