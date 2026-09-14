@@ -111,13 +111,13 @@ export function WorkItemEnvelope({
         />
       </mesh>
       <Label
-        position={[0, size[1] / 2 + 0.3, 0]}
+        position={[0, size[1] / 2 + 0.5, 0]}
         text={`${label}: ${workItemId}`}
         size={0.18}
         dimmed={isDimmed}
       />
       {stage === "closed" && (
-        <Label position={[0, size[1] / 2 + 0.55, 0]} text={closedLabel} size={0.2} dimmed={isDimmed} />
+        <Label position={[0, size[1] / 2 + 0.75, 0]} text={closedLabel} size={0.2} dimmed={isDimmed} />
       )}
     </group>
   );
