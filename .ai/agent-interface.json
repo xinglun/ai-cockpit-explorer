@@ -1,0 +1,51 @@
+{
+  "adapter": {
+    "required": false
+  },
+  "adapterState": "unconfigured",
+  "capabilities": [
+    "attach",
+    "inspect",
+    "observe",
+    "status",
+    "compatibility",
+    "migrate-plan",
+    "migrate-apply",
+    "profile-confirm",
+    "profile-propose",
+    "preflight",
+    "gate",
+    "verify",
+    "work-item-scaffold",
+    "work-item-lifecycle",
+    "work-item-outcome",
+    "work-item-recovery",
+    "work-item-finalization",
+    "work-item-parallel",
+    "evidence",
+    "audit",
+    "capability-show",
+    "knowledge",
+    "agent-adapter",
+    "mcp",
+    "doctor"
+  ],
+  "interfaceVersion": 1,
+  "interfaces": {
+    "cli": {
+      "available": true,
+      "transport": null
+    },
+    "mcp": {
+      "available": true,
+      "transport": "stdio"
+    }
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "repositorySchemaVersion": 2,
+  "rootBinding": {
+    "type": "manifest-parent"
+  },
+  "schemaVersion": 1
+}
