@@ -54,6 +54,10 @@ export const knowledgeNodeOffsets: [number, number, number][] = [
   [0.3, 0.12, 0.08],
   [-0.26, 0.15, 0.05],
   [0.04, 0.28, -0.2],
+  // Index 4: the newest node, only shown once the sample Work Item has
+  // archived — Knowledge visibly gains a node instead of a paragraph
+  // explaining that completed facts get folded in.
+  [-0.1, -0.22, 0.24],
 ];
 
 export const knowledgeEdges: [number, number][] = [
@@ -62,6 +66,9 @@ export const knowledgeEdges: [number, number][] = [
   [0, 3],
   [1, 3],
 ];
+
+/** The newest node's edge back to the graph — separate from the base edges above because it only renders once that node is shown. */
+export const knowledgeNewNodeEdge: [number, number] = [0, 4];
 
 /**
  * The Work Item Envelope's bounds per lifecycle stage. Discrete

@@ -78,7 +78,7 @@ export function ArchitectureScene({
       <Runtime {...nodeProps("runtime")} verifying={verifying} blocked={blocked} />
       <Repository {...nodeProps("repository")} />
       <RepositoryProtocol {...nodeProps("repositoryProtocol")} />
-      <Knowledge {...nodeProps("knowledge")} />
+      <Knowledge {...nodeProps("knowledge")} workItemStage={workItemStage} />
       <Evidence {...nodeProps("evidence")} />
       <Outcome {...nodeProps("outcome")} />
       <HumanControlInterface {...nodeProps("humanControlInterface")} />
