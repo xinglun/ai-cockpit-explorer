@@ -112,3 +112,46 @@ test("language switcher is visible top-right, updates the URL, and preserves the
   await expect(page).toHaveURL(/\/zh-CN\/?(\?.*)?$/);
   await expect(page.getByText("工作项生命周期")).toBeVisible();
 });
+
+test("camera stays stable after a focus transition and survives rapidly clicking through every object", async ({
+  page,
+}) => {
+  const consoleErrors: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+
+  await page.goto("/en/");
+
+  // Single focus transition: click one object, let the transition
+  // settle, then wait well past it (the old bug re-snapped the camera
+  // on the very next OrbitControls tick after "arriving").
+  const runtimeButton = page.getByRole("button", { name: "AI Cockpit Runtime" });
+  await runtimeButton.click();
+  await expect(page.getByRole("heading", { name: "AI Cockpit Runtime" })).toBeVisible();
+  await page.waitForTimeout(5000);
+  await expect(page.getByRole("heading", { name: "AI Cockpit Runtime" })).toBeVisible();
+
+  // Rapidly click through every element picker button in quick
+  // succession; the app must remain responsive and land stably on the
+  // last one, with no crash/console error from the camera controller.
+  const labels = [
+    "Agents",
+    "Entry Gate",
+    "Contract",
+    "AI Cockpit Runtime",
+    "Software Repository",
+    "Repository Protocol",
+    "Evidence",
+    "Outcome",
+    "Human Authority",
+    "AI Cockpit Runtime",
+  ];
+  for (const label of labels) {
+    await page.getByRole("button", { name: label, exact: true }).click();
+  }
+  await expect(page.getByRole("heading", { name: "AI Cockpit Runtime" })).toBeVisible();
+  await expect(page.locator("canvas")).toBeVisible();
+
+  expect(consoleErrors).toEqual([]);
+});
