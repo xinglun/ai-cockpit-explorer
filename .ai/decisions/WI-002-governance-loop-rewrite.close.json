@@ -1,0 +1,123 @@
+{
+  "decisionState": "confirmed",
+  "finalReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:59b8e1e61a8c04041d7e4ffff2ae1083ee859eb54344f602a381d5f7d203ef45",
+      "workItemId": "WI-002-governance-loop-rewrite"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [
+        {
+          "evidenceRefs": [],
+          "inference": true,
+          "text": "Human decision 'accepted' by human:sei-rinn via user-confirmed-in-chat at 2026-09-14T02:43:08Z."
+        }
+      ],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-002-governance-loop-rewrite.summary.json"
+          ],
+          "inference": false,
+          "text": "No repository paths were observed as changed by the current Summary."
+        }
+      ],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-002-governance-loop-rewrite.contract.json"
+          ],
+          "inference": false,
+          "text": "Ship v0.2: a restrained default scene (no simultaneous 3-panel dashboard), a 3D scene graph with explicit relationships/flows/arrows/labels (not just objects), a 7-scene guided narrative culminating in 'Verified != Approved', three page modes (Overview / Work Item / Verification), and a redesigned Detail Panel (WHAT/INPUTS/OUTPUTS/BOUNDARY). Keep Next.js/R3F/design-system/data-layer/.ai infrastructure; rewrite ExplorerShell, ArchitectureScene, architecture/*, interaction/tour.ts, GuidedTour.tsx, lifecycle/*, and integrate verification into the 3D scene."
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-002-governance-loop-rewrite.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-002-governance-loop-rewrite"
+  },
+  "finalReportDigest": "sha256:0e96c2878315f7759feb8315cb8e2cce1d28ee3d7f9e385b3a2a6741fc590bff",
+  "humanDecision": "accepted",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceFinalizationHeadDigest": "sha256:39739b36a6a63124776b543cb92f09595424dbc46fbc60291b84181ea3d3997c",
+  "resourceFinalizationHeadPath": ".ai/decisions/WI-002-governance-loop-rewrite.finalize.json",
+  "resourceFinalizationSequence": 0,
+  "state": "closed",
+  "structuredDecision": {
+    "actor": "human:sei-rinn",
+    "authoritySource": "user-confirmed-in-chat",
+    "decidedAt": "2026-09-14T02:43:08Z",
+    "decision": "accepted",
+    "evidenceRefs": [],
+    "policyRefs": [],
+    "reason": "v0.2 Governance Loop rewrite merged via PR #2; user reviewed and accepted the outcome",
+    "resumeCondition": null
+  },
+  "timestamp": "2026-09-14T02:43:08Z",
+  "workItemId": "WI-002-governance-loop-rewrite"
+}

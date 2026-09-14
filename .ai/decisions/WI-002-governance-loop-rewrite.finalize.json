@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-2-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "1b8a699cbab2cdd4bfe026f5df757e416dd0ab42",
+    "name": "codex/wi-002-governance-loop-rewrite",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:9c64760b03612ae4f8305f20bf08d3c6764c65f4ae3db34489a22605c2cde6bf",
+  "operationId": "operation-WI-002-governance-loop-rewrite-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "b1baee2ba51396f081dabeeadf7747199bc4a27f",
+    "headRevision": "1b8a699cbab2cdd4bfe026f5df757e416dd0ab42",
+    "mergeCommit": "0c6e7a338060f03f6a335f6bf3fad361fff38d82",
+    "number": 2,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/2"
+  },
+  "reason": "PR #2 passed lint/typecheck/vitest/build/playwright checks, merged at 0c6e7a3 via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-002-governance-loop-rewrite-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-002-governance-loop-rewrite",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/2",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-002-governance-loop-rewrite"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T02:41:20Z",
+  "workItemId": "WI-002-governance-loop-rewrite",
+  "worktree": {
+    "branch": "codex/wi-002-governance-loop-rewrite",
+    "headRevision": "1b8a699cbab2cdd4bfe026f5df757e416dd0ab42",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-002-governance-loop-rewrite",
+    "worktreeId": "WI-002-governance-loop-rewrite"
+  }
+}

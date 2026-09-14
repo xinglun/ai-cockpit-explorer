@@ -1,0 +1,140 @@
+{
+  "acceptanceResults": [
+    "Default first screen shows only the Governance Loop (Human Authority / Contract / Runtime / Repository+Protocol / Outcome) with the core sentence (agents execute, evidence determines verification, humans determine authorization) -- no simultaneous 3-panel dashboard, no permanently-shown status legend, no 9-step lifecycle dump on first load.",
+    "The 3D scene renders explicit relationships: Contract, Evidence, and Outcome exist as scene objects; directional flow/arrows connect Agents->Entry->Runtime->Repository and Repository->Evidence->Runtime->Outcome->Human Authority; core elements have persistent 3D labels.",
+    "A guided narrative ('Understand AI Cockpit in 30 seconds') runs the 7 scenes described (autonomous execution stopped at the gate, Contract, repository facts, execution/checkpoint, evidence, verification GREEN with the 'Verified != Approved' beat, human decision PENDING/APPROVE/REJECT) rather than a plain camera pan across objects.",
+    "Navigation exposes exactly three modes -- Overview, Work Item, Verification -- and the Work Item mode shows the inspect..close lifecycle as a horizontal timeline (not nine dashboard tiles), selecting a step filters the 3D scene to that step's relationships.",
+    "Verification mode moves the camera into the Runtime and shows Tests/Contract/Snapshot feeding GREEN, then explicitly shows Human Decision PENDING as a separate, disconnected-by-default state.",
+    "Detail Panel for any selected element shows WHAT / INPUTS / OUTPUTS / BOUNDARY sections instead of prose; upstream revision/provenance moves to a secondary About/Source location, not the primary interaction path.",
+    "Existing infrastructure is preserved: Next.js App Router + static export, React Three Fiber/Three.js/drei, Tailwind, the src/data/* semantic model and upstream provenance boundary, the design-system tokens (modified/extended, not deleted), docs/upstream.md, and the ai-cockpit .ai/ governance files.",
+    "npm ci, lint, typecheck, unit tests, Playwright e2e, and production static-export build all succeed; keyboard-only navigation still works without requiring 3D interaction."
+  ],
+  "createdAt": "2026-09-14T02:40:23Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:9f5ee54a95aa066493f4272779ed75acefe26fd5a8da4212f8868ec462d7c56f",
+  "evidenceRefs": [
+    ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:59b8e1e61a8c04041d7e4ffff2ae1083ee859eb54344f602a381d5f7d203ef45",
+      "workItemId": "WI-002-governance-loop-rewrite"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-002-governance-loop-rewrite.summary.json"
+          ],
+          "inference": false,
+          "text": "No repository paths were observed as changed by the current Summary."
+        }
+      ],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-002-governance-loop-rewrite.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-002-governance-loop-rewrite.contract.json"
+          ],
+          "inference": false,
+          "text": "Ship v0.2: a restrained default scene (no simultaneous 3-panel dashboard), a 3D scene graph with explicit relationships/flows/arrows/labels (not just objects), a 7-scene guided narrative culminating in 'Verified != Approved', three page modes (Overview / Work Item / Verification), and a redesigned Detail Panel (WHAT/INPUTS/OUTPUTS/BOUNDARY). Keep Next.js/R3F/design-system/data-layer/.ai infrastructure; rewrite ExplorerShell, ArchitectureScene, architecture/*, interaction/tour.ts, GuidedTour.tsx, lifecycle/*, and integrate verification into the 3D scene."
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-002-governance-loop-rewrite.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-002-governance-loop-rewrite"
+  },
+  "taskReportDigest": "sha256:e04c28bf34f711fa1f88815e044d735de2ad9f952963ec283474a6e6318735d7",
+  "taskReportMarkdownDigest": "sha256:59bbb0e490f0095d16e75e5c372886993f79596cd00ebd38358a7fd7c003c3b5",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-002-governance-loop-rewrite.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-002-governance-loop-rewrite"
+}
