@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-7-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "deb881ffbf76ed988644861bdce7d5ab64914058",
+    "name": "codex/wi-007-legibility-fixes",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:3cbc37576683676549f31ea30d38c481cf67ca631d61e28236ef81af57c192ac",
+  "operationId": "operation-WI-007-legibility-fixes-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "29f9b8607fef2320c50503227192156b76e2119f",
+    "headRevision": "deb881ffbf76ed988644861bdce7d5ab64914058",
+    "mergeCommit": "fcffe940780af34b80781c28aff64cdcdfe54304",
+    "number": 7,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/7"
+  },
+  "reason": "PR #7 passed lint/typecheck/vitest/build/playwright checks, merged at fcffe94 via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-007-legibility-fixes-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-007-legibility-fixes",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/7",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-007-legibility-fixes"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T07:05:06Z",
+  "workItemId": "WI-007-legibility-fixes",
+  "worktree": {
+    "branch": "codex/wi-007-legibility-fixes",
+    "headRevision": "deb881ffbf76ed988644861bdce7d5ab64914058",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-007-legibility-fixes",
+    "worktreeId": "WI-007-legibility-fixes"
+  }
+}
