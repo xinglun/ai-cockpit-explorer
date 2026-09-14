@@ -256,7 +256,7 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
                 ))}
               </div>
             </div>
-            <VerificationGraph scenario={verificationScenarios[scenarioId]} messages={messages} />
+            <VerificationGraph key={scenarioId} scenario={verificationScenarios[scenarioId]} messages={messages} />
             <StatusLegend messages={messages} />
           </div>
         )}

@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { colors, verificationStatusColor } from "@/design-system/semanticColors";
+import { resolveDuration } from "@/design-system/motion";
 import type { VerificationScenario } from "@/data/verificationDemo";
 import type { ExplorerMessages } from "@/i18n/types";
 import { EvidenceNode } from "./EvidenceNode";
@@ -9,9 +11,22 @@ interface VerificationGraphProps {
   messages: ExplorerMessages;
 }
 
+/** How long the verification badge sits alone before the human-decision beat lands — the "moment", not an instant state switch. */
+const DECISION_BEAT_DELAY_MS = 650;
+
 export function VerificationGraph({ scenario, messages }: VerificationGraphProps) {
   const copy = messages.verification;
   const scenarioCopy = copy.scenarios[scenario.id];
+  // Keyed by scenario.id at the call site (ExplorerShell), so switching
+  // scenarios remounts this component and naturally resets
+  // `decisionRevealed` to its initial value instead of an effect
+  // needing to reset state synchronously on every scenario change.
+  const [decisionRevealed, setDecisionRevealed] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setDecisionRevealed(true), resolveDuration(DECISION_BEAT_DELAY_MS));
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
     <div style={{ color: colors.textPrimary }} className="flex flex-col gap-3">
@@ -31,13 +46,23 @@ export function VerificationGraph({ scenario, messages }: VerificationGraphProps
       </span>
 
       {/* Deliberate gap, not a connecting line: verification does not
-          automatically produce a human decision. */}
-      <div style={{ borderColor: colors.border }} className="border-t border-dashed pt-3">
-        <DecisionState decision={scenario.humanDecision} label={copy.humanDecisionLabel} />
-        {scenario.verificationStatus === "GREEN" && scenario.humanDecision === "PENDING" && (
-          <p style={{ color: colors.stateGreen }} className="mt-1 text-sm font-semibold">
-            {copy.verifiedNotApproved}
-          </p>
+          automatically produce a human decision. The decision itself
+          lands a beat after the verification badge, not instantly —
+          this is the one moment the Explorer stages deliberately. */}
+      <div
+        style={{ borderColor: colors.border }}
+        className="border-t border-dashed pt-3 transition-opacity duration-300"
+        aria-hidden={!decisionRevealed}
+      >
+        {decisionRevealed && (
+          <>
+            <DecisionState decision={scenario.humanDecision} label={copy.humanDecisionLabel} />
+            {scenario.verificationStatus === "GREEN" && scenario.humanDecision === "PENDING" && (
+              <p style={{ color: colors.stateGreen }} className="mt-1 text-sm font-semibold">
+                {copy.verifiedNotApproved}
+              </p>
+            )}
+          </>
         )}
       </div>
     </div>
