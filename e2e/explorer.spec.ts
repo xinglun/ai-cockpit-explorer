@@ -127,6 +127,14 @@ test("Work Item mode shows a Trace timeline with the finalize/close cleanup coll
   await page.getByRole("button", { name: /show advanced/i }).click();
   await expect(page.getByText(/Provider finalization receipt recorded/i)).toBeVisible();
   await expect(page.getByText(/Work Item closed; record made immutable/i)).toBeVisible();
+
+  // The optional 3D trail companion stays hidden until explicitly
+  // revealed; toggling it doesn't disturb the primary DOM timeline.
+  const trailToggle = page.getByRole("button", { name: "Show in 3D" });
+  await expect(trailToggle).toHaveAttribute("aria-pressed", "false");
+  await trailToggle.click();
+  await expect(page.getByRole("button", { name: "Hide 3D trail" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByText(/Trace \/ Audit/i)).toBeVisible();
 });
 
 test("Knowledge and Human Control are selectable as their own distinct elements", async ({ page }) => {

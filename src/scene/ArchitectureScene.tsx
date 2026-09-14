@@ -12,6 +12,7 @@ import { Evidence } from "@/architecture/Evidence";
 import { Knowledge } from "@/architecture/Knowledge";
 import { Outcome } from "@/architecture/Outcome";
 import { WorkItemEnvelope } from "@/architecture/WorkItemEnvelope";
+import { TraceTrail } from "@/architecture/TraceTrail";
 import { Flows } from "@/architecture/Flows";
 import type { FlowId } from "@/architecture/types";
 import { isAmong } from "@/interaction/selection";
@@ -35,6 +36,8 @@ interface ArchitectureSceneProps {
   workItemClosedLabel: string;
   /** True only for the RED fail-closed Verification scenario — Runtime holds its sequence short of resolving, and the Work Item boundary reads blocked. */
   blocked: boolean;
+  /** An optional 3D echo of the Trace timeline, hidden unless explicitly revealed — the DOM TraceTimeline stays primary. */
+  showTraceTrail: boolean;
 }
 
 export function ArchitectureScene({
@@ -48,6 +51,7 @@ export function ArchitectureScene({
   workItemId,
   workItemClosedLabel,
   blocked,
+  showTraceTrail,
 }: ArchitectureSceneProps) {
   const nodeProps = (id: ArchitectureElementId) => ({
     isDimmed: !isAmong(highlightIds, id),
@@ -62,6 +66,7 @@ export function ArchitectureScene({
       <SceneLighting />
       <CameraRig cameraId={cameraId} pushIn={verifying} />
       <Flows activeFlowIds={activeFlowIds} />
+      {showTraceTrail && <TraceTrail />}
       <AgentActors {...nodeProps("agents")} />
       <EntrySurface {...nodeProps("entrySurface")} />
       <Contract {...nodeProps("contract")} />

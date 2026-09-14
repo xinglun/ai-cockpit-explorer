@@ -86,6 +86,25 @@ export const workItemEnvelopeBounds: Record<
   closed: { center: [0, -0.55, 0], size: [1.5, 0.55, 1.15] },
 };
 
+/**
+ * A light-trail companion to the primary Trace UI timeline: one point
+ * per primary (non-"advanced") trace event, in the same order as
+ * `traceEvents` in src/data/workItem.ts, reusing existing element
+ * positions rather than inventing new ones. Hidden by default; the
+ * DOM TraceTimeline stays the primary interface (see
+ * src/architecture/TraceTrail.tsx).
+ */
+export const traceTrailPoints: [number, number, number][] = [
+  layout.humanAuthority.position, // intent
+  layout.contract.position, // contract
+  layout.repository.position, // snapshot
+  layout.runtime.position, // checkpoint
+  layout.evidence.position, // verificationReceipt
+  layout.outcome.position, // outcome
+  layout.humanAuthority.position, // humanDecision
+  layout.repositoryProtocol.position, // archive
+];
+
 export const cameraDefaults = {
   position: [11, 6.5, 14] as [number, number, number],
   fov: 42,

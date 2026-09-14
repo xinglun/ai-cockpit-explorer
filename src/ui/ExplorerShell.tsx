@@ -83,6 +83,7 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
   const [scenarioId, setScenarioId] = useState<VerificationScenarioId>("green-pending");
   const [tourActive, setTourActive] = useState(initial.tourStepIndex !== null);
   const [tourStepIndex, setTourStepIndex] = useState(initial.tourStepIndex ?? 0);
+  const [showTraceTrail, setShowTraceTrail] = useState(false);
 
   const changeMode = (next: ExplorerMode) => {
     setMode(next);
@@ -150,6 +151,7 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
           workItemId={sampleWorkItemId}
           workItemClosedLabel={messages.workItemEnvelope.closedLabel}
           blocked={blocked}
+          showTraceTrail={mode === "workitem" && !tourActive && showTraceTrail}
         />
       </div>
 
@@ -225,7 +227,11 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
               <LifecycleFlow activeStepId={activeStage} onSelectStep={setActiveStage} messages={messages} />
             </div>
             <div style={{ borderColor: colors.border }} className="border-t pt-3">
-              <TraceTimeline messages={messages} />
+              <TraceTimeline
+                messages={messages}
+                showTrail={showTraceTrail}
+                onToggleTrail={() => setShowTraceTrail((value) => !value)}
+              />
             </div>
           </div>
         )}

@@ -7,6 +7,9 @@ import type { ExplorerMessages } from "@/i18n/types";
 
 interface TraceTimelineProps {
   messages: ExplorerMessages;
+  /** Whether the optional 3D light-trail companion is currently shown. */
+  showTrail: boolean;
+  onToggleTrail: () => void;
 }
 
 /**
@@ -15,9 +18,11 @@ interface TraceTimelineProps {
  * The resource-finalize/finalize/close cleanup sub-steps stay
  * collapsed by default so they never compete with the primary
  * 30-second comprehension flow; they only appear once a user
- * explicitly asks to see the advanced detail.
+ * explicitly asks to see the advanced detail. The optional 3D trail
+ * companion is likewise hidden until explicitly revealed — this DOM
+ * timeline remains the primary Traceability interface either way.
  */
-export function TraceTimeline({ messages }: TraceTimelineProps) {
+export function TraceTimeline({ messages, showTrail, onToggleTrail }: TraceTimelineProps) {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const copy = messages.trace;
   const visibleEvents = traceEvents.filter((event) => !event.advanced || showAdvanced);
@@ -28,15 +33,26 @@ export function TraceTimeline({ messages }: TraceTimelineProps) {
         <h3 className="text-sm font-semibold" style={{ color: colors.textPrimary }}>
           {copy.heading} — {sampleWorkItemId}
         </h3>
-        <button
-          type="button"
-          onClick={() => setShowAdvanced((value) => !value)}
-          className="text-xs underline"
-          style={{ color: colors.informationFlow }}
-          aria-expanded={showAdvanced}
-        >
-          {showAdvanced ? copy.advancedToggleHide : copy.advancedToggleShow}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={onToggleTrail}
+            className="text-xs underline"
+            style={{ color: colors.informationFlow }}
+            aria-pressed={showTrail}
+          >
+            {showTrail ? copy.hide3dTrail : copy.show3dTrail}
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowAdvanced((value) => !value)}
+            className="text-xs underline"
+            style={{ color: colors.informationFlow }}
+            aria-expanded={showAdvanced}
+          >
+            {showAdvanced ? copy.advancedToggleHide : copy.advancedToggleShow}
+          </button>
+        </div>
       </div>
       <ol className="flex flex-col gap-1.5" aria-label={copy.ariaLabel}>
         {visibleEvents.map((event) => (

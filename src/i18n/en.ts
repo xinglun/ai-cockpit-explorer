@@ -260,6 +260,8 @@ export const en = {
     ariaLabel: "Work Item trace timeline",
     advancedToggleShow: "Show advanced (finalize / close cleanup)",
     advancedToggleHide: "Hide advanced",
+    show3dTrail: "Show in 3D",
+    hide3dTrail: "Hide 3D trail",
     events: {
       intent: "Intent recorded",
       contract: "Contract bound",

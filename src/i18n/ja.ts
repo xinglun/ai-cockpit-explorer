@@ -258,6 +258,8 @@ export const ja = {
     ariaLabel: "Work Itemの追跡タイムライン",
     advancedToggleShow: "高度な項目を表示（finalize / close のクリーンアップ）",
     advancedToggleHide: "高度な項目を隠す",
+    show3dTrail: "3Dで表示",
+    hide3dTrail: "3D表示を隠す",
     events: {
       intent: "Intentを記録",
       contract: "Contractを紐づけ",

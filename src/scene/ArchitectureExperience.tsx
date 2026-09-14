@@ -21,6 +21,7 @@ interface ArchitectureExperienceProps {
   workItemId: string;
   workItemClosedLabel: string;
   blocked: boolean;
+  showTraceTrail: boolean;
 }
 
 /**
@@ -39,6 +40,7 @@ export function ArchitectureExperience({
   workItemId,
   workItemClosedLabel,
   blocked,
+  showTraceTrail,
 }: ArchitectureExperienceProps) {
   return (
     <Canvas
@@ -57,6 +59,7 @@ export function ArchitectureExperience({
         workItemId={workItemId}
         workItemClosedLabel={workItemClosedLabel}
         blocked={blocked}
+        showTraceTrail={showTraceTrail}
       />
       {/*
         Selective by luminance, not a full-scene glow: every "at rest"

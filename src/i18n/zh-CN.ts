@@ -252,6 +252,8 @@ export const zhCN = {
     ariaLabel: "工作项追溯时间线",
     advancedToggleShow: "显示高级项（finalize / close 清理）",
     advancedToggleHide: "隐藏高级项",
+    show3dTrail: "以 3D 显示",
+    hide3dTrail: "隐藏 3D 轨迹",
     events: {
       intent: "记录 Intent",
       contract: "绑定契约",
