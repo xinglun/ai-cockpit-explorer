@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-5-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "62215b339db100055aa4985135b91df26ecc7c05",
+    "name": "codex/wi-005-semantic-completeness",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:5db7f4009af1461a36069efedc4ae0da0017e528337d9ab936e27007157ac831",
+  "operationId": "operation-WI-005-semantic-completeness-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "4e7bfeb83acab07bc11d43dfa95c6ac95f86dd68",
+    "headRevision": "62215b339db100055aa4985135b91df26ecc7c05",
+    "mergeCommit": "456136f988e6813ded1108f44897ba1834d01928",
+    "number": 5,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/5"
+  },
+  "reason": "PR #5 passed lint/typecheck/vitest/build/playwright checks, merged at 456136f via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-005-semantic-completeness-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-005-semantic-completeness",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/5",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-005-semantic-completeness"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:9c3ef07ca3b0ff8a37d0fb6abbd85d179a316d6becb30f53465f874aa97aa7f9",
+  "runtimeVersion": "0.2.87",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-14T04:28:25Z",
+  "workItemId": "WI-005-semantic-completeness",
+  "worktree": {
+    "branch": "codex/wi-005-semantic-completeness",
+    "headRevision": "62215b339db100055aa4985135b91df26ecc7c05",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-005-semantic-completeness",
+    "worktreeId": "WI-005-semantic-completeness"
+  }
+}
