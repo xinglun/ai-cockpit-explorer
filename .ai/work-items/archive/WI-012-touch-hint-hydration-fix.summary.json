@@ -1,0 +1,30 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.contract.json",
+    ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.summary.json",
+    "src/ui/TouchAffordanceHint.tsx"
+  ],
+  "checkpointAt": "2026-09-15T20:58:11Z",
+  "checkpointContractDigest": "sha256:21f5141d818d5ac1ca1cbd269a65918f5248e51ddd7b3cbdb3612217fba0ee67",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:8334a937293661c416481d7526b11f1708ae6ebeb8d1f69853cc68ba66ac4ae0",
+  "createdAt": "2026-09-15T20:56:34Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-15T20:58:21Z",
+  "preflightContractDigest": "sha256:21f5141d818d5ac1ca1cbd269a65918f5248e51ddd7b3cbdb3612217fba0ee67",
+  "preflightDecisionDigest": "sha256:20b4b742353bcc748008ea6dbb9f63bdf18a5136367959ab2a0ae37d53adb025",
+  "preflightRepositorySnapshotDigest": "sha256:8334a937293661c416481d7526b11f1708ae6ebeb8d1f69853cc68ba66ac4ae0",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-15T20:58:22Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-012-touch-hint-hydration-fix"
+}
