@@ -67,70 +67,79 @@ export function Runtime({ isDimmed, isSelected, onSelect, label, verifying = fal
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("runtime");
       }}
     >
-      {/* Outer boundary ring: the widest, structural layer. */}
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[size * 1.25, size * 0.05, 8, 40]} />
-        <meshStandardMaterial
-          color={colors.surfaceRaised}
-          emissive={resolvedColor}
-          emissiveIntensity={litIntensity(outerLit)}
-          opacity={opacity}
-          transparent
-          depthWrite={false}
-          roughness={0.3}
-          metalness={0.8}
-        />
+      {/* Fixed-size hit target, always scale 1 -- see Contract.tsx. A
+          single sphere bounding the outermost ring, since the 4
+          concentric layers below changing size together on hover is
+          what used to cause boundary flicker. */}
+      <mesh visible={false}>
+        <sphereGeometry args={[size * 1.3, 12, 12]} />
+        <meshBasicMaterial />
       </mesh>
-      {/* Verification ring: the controlled emissive layer. */}
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[size, size * 0.05, 8, 36]} />
-        <meshStandardMaterial
-          color={colors.surfaceRaised}
-          emissive={resolvedColor}
-          emissiveIntensity={litIntensity(verifyLit)}
-          opacity={opacity}
-          transparent
-          depthWrite={false}
-          roughness={0.28}
-          metalness={0.82}
-        />
-      </mesh>
-      {/* Evidence ring: the innermost ring, closest to the core. */}
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[size * 0.7, size * 0.045, 8, 32]} />
-        <meshStandardMaterial
-          color={colors.stateGreen}
-          emissive={colors.stateGreen}
-          emissiveIntensity={evidenceLit ? litIntensity(evidenceLit) : restIntensity * 0.5}
-          opacity={opacity}
-          transparent
-          depthWrite={false}
-          roughness={0.4}
-          metalness={0.4}
-        />
-      </mesh>
-      {/* The core: solid at rest, resolves (or holds blocked) at the sequence's end. */}
-      <mesh>
-        <icosahedronGeometry args={[size * 0.38, 1]} />
-        <meshStandardMaterial
-          color={colors.surface}
-          emissive={coreLit || isSelected ? resolvedColor : "#000000"}
-          emissiveIntensity={coreLit ? litIntensity(true, blocked) : isSelected ? 0.3 : 0}
-          opacity={opacity}
-          transparent
-          depthWrite={false}
-          roughness={0.55}
-          metalness={0.25}
-        />
-      </mesh>
-      <Label position={[0, size * 1.25 + 0.15, 0]} text={label} dimmed={isDimmed} />
+      <group scale={hovered && !isDimmed ? HOVER_SCALE : 1}>
+        {/* Outer boundary ring: the widest, structural layer. */}
+        <mesh rotation={[Math.PI / 2, 0, 0]} raycast={() => null}>
+          <torusGeometry args={[size * 1.25, size * 0.05, 8, 40]} />
+          <meshStandardMaterial
+            color={colors.surfaceRaised}
+            emissive={resolvedColor}
+            emissiveIntensity={litIntensity(outerLit)}
+            opacity={opacity}
+            transparent
+            depthWrite={false}
+            roughness={0.3}
+            metalness={0.8}
+          />
+        </mesh>
+        {/* Verification ring: the controlled emissive layer. */}
+        <mesh rotation={[Math.PI / 2, 0, 0]} raycast={() => null}>
+          <torusGeometry args={[size, size * 0.05, 8, 36]} />
+          <meshStandardMaterial
+            color={colors.surfaceRaised}
+            emissive={resolvedColor}
+            emissiveIntensity={litIntensity(verifyLit)}
+            opacity={opacity}
+            transparent
+            depthWrite={false}
+            roughness={0.28}
+            metalness={0.82}
+          />
+        </mesh>
+        {/* Evidence ring: the innermost ring, closest to the core. */}
+        <mesh rotation={[Math.PI / 2, 0, 0]} raycast={() => null}>
+          <torusGeometry args={[size * 0.7, size * 0.045, 8, 32]} />
+          <meshStandardMaterial
+            color={colors.stateGreen}
+            emissive={colors.stateGreen}
+            emissiveIntensity={evidenceLit ? litIntensity(evidenceLit) : restIntensity * 0.5}
+            opacity={opacity}
+            transparent
+            depthWrite={false}
+            roughness={0.4}
+            metalness={0.4}
+          />
+        </mesh>
+        {/* The core: solid at rest, resolves (or holds blocked) at the sequence's end. */}
+        <mesh raycast={() => null}>
+          <icosahedronGeometry args={[size * 0.38, 1]} />
+          <meshStandardMaterial
+            color={colors.surface}
+            emissive={coreLit || isSelected ? resolvedColor : "#000000"}
+            emissiveIntensity={coreLit ? litIntensity(true, blocked) : isSelected ? 0.3 : 0}
+            opacity={opacity}
+            transparent
+            depthWrite={false}
+            roughness={0.55}
+            metalness={0.25}
+          />
+        </mesh>
+        <Label position={[0, size * 1.25 + 0.15, 0]} text={label} dimmed={isDimmed} />
+      </group>
     </group>
   );
 }

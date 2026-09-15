@@ -1,0 +1,41 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/work-items/archive/WI-014-hover-hittest-decouple.contract.json",
+    ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json",
+    "src/architecture/AgentActors.tsx",
+    "src/architecture/Contract.tsx",
+    "src/architecture/EntrySurface.tsx",
+    "src/architecture/Evidence.tsx",
+    "src/architecture/HumanAuthority.tsx",
+    "src/architecture/HumanControlInterface.tsx",
+    "src/architecture/Knowledge.tsx",
+    "src/architecture/Label.tsx",
+    "src/architecture/Outcome.tsx",
+    "src/architecture/Repository.tsx",
+    "src/architecture/RepositoryProtocol.tsx",
+    "src/architecture/Runtime.tsx"
+  ],
+  "checkpointAt": "2026-09-15T23:10:23Z",
+  "checkpointContractDigest": "sha256:d3da074e7b47dc92433fe1ec9eac17e452aba2c1efc68256759fc7c2fe23ee30",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:11afbf6329910926d30f9663e09646f3c3d44c96e7f12803662390a569bd7533",
+  "createdAt": "2026-09-15T23:02:54Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-15T23:10:29Z",
+  "preflightContractDigest": "sha256:d3da074e7b47dc92433fe1ec9eac17e452aba2c1efc68256759fc7c2fe23ee30",
+  "preflightDecisionDigest": "sha256:20b4b742353bcc748008ea6dbb9f63bdf18a5136367959ab2a0ae37d53adb025",
+  "preflightRepositorySnapshotDigest": "sha256:11afbf6329910926d30f9663e09646f3c3d44c96e7f12803662390a569bd7533",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-15T23:10:30Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-014-hover-hittest-decouple"
+}

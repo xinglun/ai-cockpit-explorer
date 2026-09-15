@@ -13,37 +13,46 @@ export function RepositoryProtocol({ isDimmed, isSelected, onSelect, label }: Ar
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("repositoryProtocol");
       }}
     >
-      <mesh>
+      {/* Fixed-size hit target, always scale 1 -- see Contract.tsx.
+          Especially important here: this plate sits nested inside
+          Repository's own footprint, so their shared boundary is
+          exactly the kind of edge that used to flicker. */}
+      <mesh visible={false}>
         <boxGeometry args={size} />
-        <meshStandardMaterial
-          color={colors.surface}
-          emissive={isSelected ? colors.informationFlow : "#000000"}
-          emissiveIntensity={isSelected ? 0.3 : 0}
-          opacity={isDimmed ? 0.2 : 0.9}
-          transparent
-          depthWrite={false}
-          roughness={0.6}
-          metalness={0.2}
-        />
+        <meshBasicMaterial />
       </mesh>
-      {/*
-        Offset toward -Z (away from Evidence, which sits at +Z ahead of
-        this plate) so the two labels don't visually collide from the
-        default Overview camera angle.
-      */}
-      <Label
-        position={[0, size[1] / 2 + 0.3, -size[2] / 2 - 0.35]}
-        text={label}
-        size={0.2}
-        dimmed={isDimmed}
-      />
+      <group scale={hovered && !isDimmed ? HOVER_SCALE : 1}>
+        <mesh raycast={() => null}>
+          <boxGeometry args={size} />
+          <meshStandardMaterial
+            color={colors.surface}
+            emissive={isSelected ? colors.informationFlow : "#000000"}
+            emissiveIntensity={isSelected ? 0.3 : 0}
+            opacity={isDimmed ? 0.2 : 0.9}
+            transparent
+            depthWrite={false}
+            roughness={0.6}
+            metalness={0.2}
+          />
+        </mesh>
+        {/*
+          Offset toward -Z (away from Evidence, which sits at +Z ahead of
+          this plate) so the two labels don't visually collide from the
+          default Overview camera angle.
+        */}
+        <Label
+          position={[0, size[1] / 2 + 0.3, -size[2] / 2 - 0.35]}
+          text={label}
+          size={0.2}
+          dimmed={isDimmed}
+        />
+      </group>
     </group>
   );
 }

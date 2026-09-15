@@ -13,26 +13,32 @@ export function Evidence({ isDimmed, isSelected, onSelect, label }: Architecture
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("evidence");
       }}
     >
-      <mesh>
+      {/* Fixed-size hit target, always scale 1 -- see Contract.tsx. */}
+      <mesh visible={false}>
         <dodecahedronGeometry args={[size, 0]} />
-        <meshStandardMaterial
-          color={colors.stateGreen}
-          emissive={isSelected ? colors.stateGreen : "#000000"}
-          emissiveIntensity={isSelected ? 0.4 : 0.2}
-          opacity={isDimmed ? 0.15 : 0.95}
-          transparent
-          depthWrite={false}
-          roughness={0.4}
-        />
+        <meshBasicMaterial />
       </mesh>
-      <Label position={[0, size + 0.55, 0]} text={label} size={0.2} dimmed={isDimmed} />
+      <group scale={hovered && !isDimmed ? HOVER_SCALE : 1}>
+        <mesh raycast={() => null}>
+          <dodecahedronGeometry args={[size, 0]} />
+          <meshStandardMaterial
+            color={colors.stateGreen}
+            emissive={isSelected ? colors.stateGreen : "#000000"}
+            emissiveIntensity={isSelected ? 0.4 : 0.2}
+            opacity={isDimmed ? 0.15 : 0.95}
+            transparent
+            depthWrite={false}
+            roughness={0.4}
+          />
+        </mesh>
+        <Label position={[0, size + 0.55, 0]} text={label} size={0.2} dimmed={isDimmed} />
+      </group>
     </group>
   );
 }

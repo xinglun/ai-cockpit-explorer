@@ -54,61 +54,72 @@ export function Knowledge({ isDimmed, isSelected, onSelect, label, workItemStage
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("knowledge");
       }}
     >
-      {knowledgeEdges.map(([a, b], index) => (
-        <Line
-          key={index}
-          points={[knowledgeNodeOffsets[a], knowledgeNodeOffsets[b]]}
-          color={colors.textMuted}
-          lineWidth={1}
-          transparent
-          opacity={opacity * 0.8}
-        />
-      ))}
-      {knowledgeNodeOffsets.slice(0, 4).map((offset, index) => (
-        <mesh key={index} position={offset}>
-          <sphereGeometry args={[size * (index === 0 ? 0.65 : 0.45), 10, 10]} />
-          <meshStandardMaterial
-            color={colors.textMuted}
-            emissive={isSelected ? colors.informationFlow : colors.textMuted}
-            emissiveIntensity={emissiveIntensity}
-            opacity={opacity}
-            transparent
-            depthWrite={false}
-            roughness={0.6}
-          />
-        </mesh>
-      ))}
-      {newNodeScale[0] > 0.05 && (
-        <>
+      {/* Fixed-size hit target, always scale 1 -- see Contract.tsx. A
+          single sphere roughly bounding the whole node cluster, since
+          the cluster's own footprint changing on hover is what used to
+          cause boundary flicker. */}
+      <mesh visible={false}>
+        <sphereGeometry args={[0.5, 10, 10]} />
+        <meshBasicMaterial />
+      </mesh>
+      <group scale={hovered && !isDimmed ? HOVER_SCALE : 1}>
+        {knowledgeEdges.map(([a, b], index) => (
           <Line
-            points={[knowledgeNodeOffsets[knowledgeNewNodeEdge[0]], knowledgeNodeOffsets[knowledgeNewNodeEdge[1]]]}
-            color={colors.stateGreen}
+            key={index}
+            points={[knowledgeNodeOffsets[a], knowledgeNodeOffsets[b]]}
+            color={colors.textMuted}
             lineWidth={1}
             transparent
-            opacity={opacity * 0.8 * newNodeScale[0]}
+            opacity={opacity * 0.8}
+            raycast={() => null}
           />
-          <mesh position={knowledgeNodeOffsets[4]} scale={newNodeScale}>
-            <sphereGeometry args={[size * 0.45, 10, 10]} />
+        ))}
+        {knowledgeNodeOffsets.slice(0, 4).map((offset, index) => (
+          <mesh key={index} position={offset} raycast={() => null}>
+            <sphereGeometry args={[size * (index === 0 ? 0.65 : 0.45), 10, 10]} />
             <meshStandardMaterial
-              color={colors.stateGreen}
-              emissive={colors.stateGreen}
-              emissiveIntensity={newNodeGrowing ? 0.85 : isSelected ? 0.9 : emissiveIntensity}
+              color={colors.textMuted}
+              emissive={isSelected ? colors.informationFlow : colors.textMuted}
+              emissiveIntensity={emissiveIntensity}
               opacity={opacity}
               transparent
               depthWrite={false}
-              roughness={0.5}
+              roughness={0.6}
             />
           </mesh>
-        </>
-      )}
-      <Label position={[0, 0.55, 0]} text={label} size={0.18} dimmed={isDimmed} />
+        ))}
+        {newNodeScale[0] > 0.05 && (
+          <>
+            <Line
+              points={[knowledgeNodeOffsets[knowledgeNewNodeEdge[0]], knowledgeNodeOffsets[knowledgeNewNodeEdge[1]]]}
+              color={colors.stateGreen}
+              lineWidth={1}
+              transparent
+              opacity={opacity * 0.8 * newNodeScale[0]}
+              raycast={() => null}
+            />
+            <mesh position={knowledgeNodeOffsets[4]} scale={newNodeScale} raycast={() => null}>
+              <sphereGeometry args={[size * 0.45, 10, 10]} />
+              <meshStandardMaterial
+                color={colors.stateGreen}
+                emissive={colors.stateGreen}
+                emissiveIntensity={newNodeGrowing ? 0.85 : isSelected ? 0.9 : emissiveIntensity}
+                opacity={opacity}
+                transparent
+                depthWrite={false}
+                roughness={0.5}
+              />
+            </mesh>
+          </>
+        )}
+        <Label position={[0, 0.55, 0]} text={label} size={0.18} dimmed={isDimmed} />
+      </group>
     </group>
   );
 }

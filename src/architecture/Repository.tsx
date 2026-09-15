@@ -12,27 +12,33 @@ export function Repository({ isDimmed, isSelected, onSelect, label }: Architectu
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("repository");
       }}
     >
-      <mesh>
+      {/* Fixed-size hit target, always scale 1 -- see Contract.tsx. */}
+      <mesh visible={false}>
         <boxGeometry args={size} />
-        <meshStandardMaterial
-          color={colors.surfaceRaised}
-          emissive={isSelected ? colors.informationFlow : "#000000"}
-          emissiveIntensity={isSelected ? 0.25 : 0}
-          opacity={isDimmed ? 0.25 : 1}
-          transparent
-          depthWrite={false}
-          roughness={0.95}
-          metalness={0}
-        />
+        <meshBasicMaterial />
       </mesh>
-      <Label position={[0, -size[1] / 2 - 0.35, 0]} text={label} dimmed={isDimmed} />
+      <group scale={hovered && !isDimmed ? HOVER_SCALE : 1}>
+        <mesh raycast={() => null}>
+          <boxGeometry args={size} />
+          <meshStandardMaterial
+            color={colors.surfaceRaised}
+            emissive={isSelected ? colors.informationFlow : "#000000"}
+            emissiveIntensity={isSelected ? 0.25 : 0}
+            opacity={isDimmed ? 0.25 : 1}
+            transparent
+            depthWrite={false}
+            roughness={0.95}
+            metalness={0}
+          />
+        </mesh>
+        <Label position={[0, -size[1] / 2 - 0.35, 0]} text={label} dimmed={isDimmed} />
+      </group>
     </group>
   );
 }

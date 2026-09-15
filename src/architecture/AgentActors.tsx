@@ -20,6 +20,19 @@ const agentLabel: Record<string, string> = {
   grok: "Grok",
 };
 
+function agentGeometry(shape: (typeof agentShape)[string]) {
+  switch (shape) {
+    case "box":
+      return <boxGeometry args={[0.55, 0.55, 0.55]} />;
+    case "cone":
+      return <coneGeometry args={[0.32, 0.75, 4]} />;
+    case "sphere":
+      return <sphereGeometry args={[0.36, 16, 16]} />;
+    case "octahedron":
+      return <octahedronGeometry args={[0.42, 0]} />;
+  }
+}
+
 /**
  * Agents are external actors, placed outside the loop on the left,
  * facing the entry gate. Positions are static (no continuous idle
@@ -32,38 +45,45 @@ export function AgentActors({ isDimmed, isSelected, onSelect }: ArchitectureNode
 
   return (
     <group
-      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("agents");
       }}
     >
+      {/* Fixed-size hit targets, always scale 1 -- see Contract.tsx. One
+          per agent, matching that agent's own shape/position, so hover
+          still tracks the visual cluster's actual footprint. */}
       {layout.agents.map((agent) => (
-        <group key={agent.id} position={agent.position} rotation={[0, Math.PI / 2, 0]}>
-          <mesh>
-            {agentShape[agent.id] === "box" && <boxGeometry args={[0.55, 0.55, 0.55]} />}
-            {agentShape[agent.id] === "cone" && <coneGeometry args={[0.32, 0.75, 4]} />}
-            {agentShape[agent.id] === "sphere" && <sphereGeometry args={[0.36, 16, 16]} />}
-            {agentShape[agent.id] === "octahedron" && <octahedronGeometry args={[0.42, 0]} />}
-            <meshStandardMaterial
-              color={colors.textPrimary}
-              emissive={isSelected ? colors.informationFlow : "#000000"}
-              emissiveIntensity={emissiveIntensity}
-              opacity={opacity}
-              transparent
-              depthWrite={false}
-              roughness={0.5}
-            />
-          </mesh>
-          <Label
-            position={[0, 0.6, 0]}
-            text={agentLabel[agent.id] ?? agent.id}
-            size={0.2}
-            dimmed={isDimmed}
-          />
-        </group>
+        <mesh key={`hit-${agent.id}`} position={agent.position} rotation={[0, Math.PI / 2, 0]} visible={false}>
+          {agentGeometry(agentShape[agent.id])}
+          <meshBasicMaterial />
+        </mesh>
       ))}
+      <group scale={hovered && !isDimmed ? HOVER_SCALE : 1}>
+        {layout.agents.map((agent) => (
+          <group key={agent.id} position={agent.position} rotation={[0, Math.PI / 2, 0]}>
+            <mesh raycast={() => null}>
+              {agentGeometry(agentShape[agent.id])}
+              <meshStandardMaterial
+                color={colors.textPrimary}
+                emissive={isSelected ? colors.informationFlow : "#000000"}
+                emissiveIntensity={emissiveIntensity}
+                opacity={opacity}
+                transparent
+                depthWrite={false}
+                roughness={0.5}
+              />
+            </mesh>
+            <Label
+              position={[0, 0.6, 0]}
+              text={agentLabel[agent.id] ?? agent.id}
+              size={0.2}
+              dimmed={isDimmed}
+            />
+          </group>
+        ))}
+      </group>
     </group>
   );
 }
