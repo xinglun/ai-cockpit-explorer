@@ -122,7 +122,7 @@ export function Runtime({ isDimmed, isSelected, onSelect, label, verifying = fal
           metalness={0.25}
         />
       </mesh>
-      <Label position={[0, size * 1.25 + 0.3, 0]} text={label} dimmed={isDimmed} />
+      <Label position={[0, size * 1.25 + 0.15, 0]} text={label} dimmed={isDimmed} />
     </group>
   );
 }
