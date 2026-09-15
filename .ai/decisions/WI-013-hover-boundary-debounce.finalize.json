@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "authoritySource": "reviewed-PR-12-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "3ca032f285fb60bb9440a4665ad2e51c8cbb43eb",
+    "name": "WI-013-hover-boundary-debounce",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:827e2a6b89ced1fdd5f1f07ab0ea08e995b1c95dc95b0eda9590a27676d7874e",
+  "operationId": "operation-WI-013-hover-boundary-debounce-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "1fa0a82d63555c6da7e79b7436ef105efee892e8",
+    "headRevision": "3ca032f285fb60bb9440a4665ad2e51c8cbb43eb",
+    "mergeCommit": "33a7a170bdefee66c861387b3648f13866146994",
+    "number": 12,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/12"
+  },
+  "reason": "PR #12 passed CI (task-list-completed), merged at 33a7a17 via merge commit by owner (xinglun); feature branch kept, worktree still present pending cleanup.",
+  "receiptId": "ai-cockpit-explorer-WI-013-hover-boundary-debounce-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "WI-013-hover-boundary-debounce",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/12",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi013"
+  },
+  "result": {
+    "disposition": "retained",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+  "runtimeVersion": "0.2.92",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-15T22:02:16Z",
+  "workItemId": "WI-013-hover-boundary-debounce",
+  "worktree": {
+    "branch": "WI-013-hover-boundary-debounce",
+    "headRevision": "3ca032f285fb60bb9440a4665ad2e51c8cbb43eb",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi013",
+    "worktreeId": "WI-013-hover-boundary-debounce"
+  }
+}

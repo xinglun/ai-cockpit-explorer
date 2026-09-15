@@ -1,0 +1,152 @@
+{
+  "decisionState": "confirmed",
+  "finalReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:0d95b0e7fcbf0cafc2816b94170110f1e61b26ed0f2b46f6ddca231c3a6dbfdb",
+      "workItemId": "WI-013-hover-boundary-debounce"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/decisions/observer-snapshot.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/useHover.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: tests/useHover.test.ts"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": "Human decision 'approved' by human:sei-rinn via reviewed-PR-12-merge at 2026-09-15T22:02:16Z."
+        }
+      ],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json"
+          ],
+          "inference": false,
+          "text": "Hovering near the shared edge between two adjacent elements settles on a stable hover state instead of visibly strobing"
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-013-hover-boundary-debounce"
+  },
+  "finalReportDigest": "sha256:a153d79fbda8964e670855011f6e2a73b5212f9032839047acd7d340faddbe8e",
+  "humanDecision": "approved",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "closed",
+  "structuredDecision": {
+    "actor": "human:sei-rinn",
+    "authoritySource": "reviewed-PR-12-merge",
+    "decidedAt": "2026-09-15T22:02:16Z",
+    "decision": "approved",
+    "evidenceRefs": [
+      ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+    ],
+    "policyRefs": [],
+    "reason": "New useHover.test.ts covers the debounce behavior; lint/typecheck/vitest/build all green; PR #12 reviewed and merged to main by repository owner",
+    "resumeCondition": null
+  },
+  "timestamp": "2026-09-15T22:02:40Z",
+  "workItemId": "WI-013-hover-boundary-debounce"
+}
