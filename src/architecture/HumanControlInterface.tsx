@@ -33,6 +33,7 @@ export function HumanControlInterface({ isDimmed, isSelected, onSelect, label }:
           emissiveIntensity={isSelected ? 0.35 : 0.05}
           opacity={isDimmed ? 0.15 : 0.55}
           transparent
+          depthWrite={false}
           roughness={0.75}
           metalness={0}
           transmission={0.35}

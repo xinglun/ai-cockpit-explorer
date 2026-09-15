@@ -28,6 +28,7 @@ export function HumanAuthority({ isDimmed, isSelected, onSelect, label }: Archit
           emissiveIntensity={isSelected ? 0.2 : 0}
           opacity={isDimmed ? 0.2 : 1}
           transparent
+          depthWrite={false}
           roughness={0.9}
           metalness={0}
         />

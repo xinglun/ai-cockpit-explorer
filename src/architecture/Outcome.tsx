@@ -24,6 +24,7 @@ export function Outcome({ isDimmed, isSelected, onSelect, label }: ArchitectureN
           emissiveIntensity={isSelected ? 0.3 : 0.1}
           opacity={isDimmed ? 0.15 : 0.95}
           transparent
+          depthWrite={false}
           roughness={0.5}
         />
       </mesh>

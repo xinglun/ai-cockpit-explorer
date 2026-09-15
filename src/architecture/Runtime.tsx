@@ -79,6 +79,7 @@ export function Runtime({ isDimmed, isSelected, onSelect, label, verifying = fal
           emissiveIntensity={litIntensity(outerLit)}
           opacity={opacity}
           transparent
+          depthWrite={false}
           roughness={0.3}
           metalness={0.8}
         />
@@ -92,6 +93,7 @@ export function Runtime({ isDimmed, isSelected, onSelect, label, verifying = fal
           emissiveIntensity={litIntensity(verifyLit)}
           opacity={opacity}
           transparent
+          depthWrite={false}
           roughness={0.28}
           metalness={0.82}
         />
@@ -105,6 +107,7 @@ export function Runtime({ isDimmed, isSelected, onSelect, label, verifying = fal
           emissiveIntensity={evidenceLit ? litIntensity(evidenceLit) : restIntensity * 0.5}
           opacity={opacity}
           transparent
+          depthWrite={false}
           roughness={0.4}
           metalness={0.4}
         />
@@ -118,6 +121,7 @@ export function Runtime({ isDimmed, isSelected, onSelect, label, verifying = fal
           emissiveIntensity={coreLit ? litIntensity(true, blocked) : isSelected ? 0.3 : 0}
           opacity={opacity}
           transparent
+          depthWrite={false}
           roughness={0.55}
           metalness={0.25}
         />

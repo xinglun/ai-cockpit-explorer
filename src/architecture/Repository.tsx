@@ -23,6 +23,7 @@ export function Repository({ isDimmed, isSelected, onSelect, label }: Architectu
           emissiveIntensity={isSelected ? 0.25 : 0}
           opacity={isDimmed ? 0.25 : 1}
           transparent
+          depthWrite={false}
           roughness={0.95}
           metalness={0}
         />

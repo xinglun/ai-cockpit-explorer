@@ -25,6 +25,7 @@ export function TraceTrail() {
             emissive={colors.informationFlow}
             emissiveIntensity={0.5}
             transparent
+            depthWrite={false}
             opacity={0.8}
           />
         </mesh>

@@ -76,6 +76,7 @@ export function Knowledge({ isDimmed, isSelected, onSelect, label, workItemStage
             emissiveIntensity={emissiveIntensity}
             opacity={opacity}
             transparent
+            depthWrite={false}
             roughness={0.6}
           />
         </mesh>
@@ -97,6 +98,7 @@ export function Knowledge({ isDimmed, isSelected, onSelect, label, workItemStage
               emissiveIntensity={newNodeGrowing ? 0.85 : isSelected ? 0.9 : emissiveIntensity}
               opacity={opacity}
               transparent
+              depthWrite={false}
               roughness={0.5}
             />
           </mesh>

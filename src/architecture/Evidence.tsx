@@ -24,6 +24,7 @@ export function Evidence({ isDimmed, isSelected, onSelect, label }: Architecture
           emissiveIntensity={isSelected ? 0.4 : 0.2}
           opacity={isDimmed ? 0.15 : 0.95}
           transparent
+          depthWrite={false}
           roughness={0.4}
         />
       </mesh>

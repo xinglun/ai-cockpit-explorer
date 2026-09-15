@@ -24,6 +24,7 @@ export function Contract({ isDimmed, isSelected, onSelect, label }: Architecture
           emissiveIntensity={isSelected ? 0.3 : 0}
           opacity={isDimmed ? 0.15 : 0.95}
           transparent
+          depthWrite={false}
           roughness={0.7}
         />
       </mesh>

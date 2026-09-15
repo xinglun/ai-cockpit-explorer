@@ -24,6 +24,7 @@ export function RepositoryProtocol({ isDimmed, isSelected, onSelect, label }: Ar
           emissiveIntensity={isSelected ? 0.3 : 0}
           opacity={isDimmed ? 0.2 : 0.9}
           transparent
+          depthWrite={false}
           roughness={0.6}
           metalness={0.2}
         />

@@ -48,6 +48,7 @@ export function AgentActors({ isDimmed, isSelected, onSelect }: ArchitectureNode
               emissiveIntensity={emissiveIntensity}
               opacity={opacity}
               transparent
+              depthWrite={false}
               roughness={0.5}
             />
           </mesh>

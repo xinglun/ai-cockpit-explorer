@@ -24,6 +24,7 @@ export function EntrySurface({ isDimmed, isSelected, onSelect, label }: Architec
           emissiveIntensity={isSelected ? 0.4 : 0}
           opacity={isDimmed ? 0.15 : 0.75}
           transparent
+          depthWrite={false}
           side={2}
         />
       </mesh>
