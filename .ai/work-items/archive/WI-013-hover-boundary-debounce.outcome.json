@@ -1,0 +1,162 @@
+{
+  "acceptanceResults": [
+    "A pointer leave immediately followed by a re-enter on the same element (simulating boundary jitter) does not toggle the hovered state off",
+    "A genuine pointer leave with no re-entry still turns the hovered state off within a short, barely-perceptible delay"
+  ],
+  "createdAt": "2026-09-15T22:01:45Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:f670293b423bb854d76fab003a7993593c09c2d04ad87262144cb71838d1e229",
+  "evidenceRefs": [
+    ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:0d95b0e7fcbf0cafc2816b94170110f1e61b26ed0f2b46f6ddca231c3a6dbfdb",
+      "workItemId": "WI-013-hover-boundary-debounce"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/decisions/observer-snapshot.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/useHover.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: tests/useHover.test.ts"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-013-hover-boundary-debounce.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json"
+          ],
+          "inference": false,
+          "text": "Hovering near the shared edge between two adjacent elements settles on a stable hover state instead of visibly strobing"
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-013-hover-boundary-debounce"
+  },
+  "taskReportDigest": "sha256:459472ea07f6b8436327b38575e0e7fd5a61b9b54d6e9c1b5edad368852e7ccb",
+  "taskReportMarkdownDigest": "sha256:2259c28ae53851a735a36294f6efe2dde0a9a4983d14b11e84150cc212856eaf",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-013-hover-boundary-debounce.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-013-hover-boundary-debounce"
+}

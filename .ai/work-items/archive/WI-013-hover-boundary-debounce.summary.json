@@ -1,0 +1,31 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json",
+    ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json",
+    "src/architecture/useHover.ts",
+    "tests/useHover.test.ts"
+  ],
+  "checkpointAt": "2026-09-15T22:01:37Z",
+  "checkpointContractDigest": "sha256:568c851796cd611e1030729e9bccdb9638a4e7cc1cfc6c9ef6ed198607211a32",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:0d95b0e7fcbf0cafc2816b94170110f1e61b26ed0f2b46f6ddca231c3a6dbfdb",
+  "createdAt": "2026-09-15T22:00:18Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-15T22:01:45Z",
+  "preflightContractDigest": "sha256:568c851796cd611e1030729e9bccdb9638a4e7cc1cfc6c9ef6ed198607211a32",
+  "preflightDecisionDigest": "sha256:20b4b742353bcc748008ea6dbb9f63bdf18a5136367959ab2a0ae37d53adb025",
+  "preflightRepositorySnapshotDigest": "sha256:0d95b0e7fcbf0cafc2816b94170110f1e61b26ed0f2b46f6ddca231c3a6dbfdb",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-15T22:01:45Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-013-hover-boundary-debounce"
+}
