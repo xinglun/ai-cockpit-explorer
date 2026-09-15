@@ -27,6 +27,11 @@ interface LabelProps {
  * than a restrained, readable filtered view. Dimmed labels are
  * dropped entirely instead: the geometry stays (faded), the text
  * does not compete for the same screen space.
+ *
+ * raycast is disabled: every element's hover/click hit target is a
+ * dedicated fixed-size mesh (see each architecture component), never
+ * this text, so the label can't itself become a second, independently
+ * flickering hit target near a neighboring element's boundary.
  */
 export function Label({ position, text, size = 0.26, dimmed = false }: LabelProps) {
   if (dimmed) return null;
@@ -39,6 +44,7 @@ export function Label({ position, text, size = 0.26, dimmed = false }: LabelProp
         anchorY="bottom"
         outlineWidth={0.012}
         outlineColor={colors.background}
+        raycast={() => null}
       >
         {text}
       </Text>

@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-15T23:10:30Z",
+  "files": {
+    "contractDigest": "sha256:690aeba7c59f0da429aa32be20e5615fc914782f2466a0026b94d8ecc3f2ae5c",
+    "contractPath": ".ai/work-items/archive/WI-014-hover-hittest-decouple.contract.json",
+    "eventsDigest": "sha256:ce5822b88329bfd03fcebcc9a50ee74de891ef6dd3dcfcf2a02090b9e89a445b",
+    "eventsPath": ".ai/work-items/archive/WI-014-hover-hittest-decouple.events.jsonl",
+    "outcomeDigest": "sha256:721d05601ab9c5143144bed7624b884d888077e9e82a6a17c5ddef8bd2b00697",
+    "outcomePath": ".ai/work-items/archive/WI-014-hover-hittest-decouple.outcome.json",
+    "summaryDigest": "sha256:4e4467391f18da54daf8c315e178bf26cc12164cac569eedb4e8b7d5b72ab2e5",
+    "summaryPath": ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json",
+    "taskReportDigest": "sha256:004379fbe4cbf6748055a8d645dac5aaf5c2338674f84933d6d9523a2646b00b",
+    "taskReportMarkdownDigest": "sha256:d98556cac29da638cc6834fac7d46e27a75ffc5c0d0ece86669a0e22026b8d98",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-014-hover-hittest-decouple.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-014-hover-hittest-decouple.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-014-hover-hittest-decouple"
+}

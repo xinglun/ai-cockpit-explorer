@@ -1,0 +1,232 @@
+{
+  "acceptanceResults": [
+    "Every architecture element's pointer-event hit target (the mesh carrying hoverHandlers/onClick) keeps a fixed, unscaled geometry regardless of hover state; only a visually-scaled, raycast-disabled sibling changes size",
+    "lint, typecheck, unit tests, and the static export build all succeed with no regression to any prior WI's established acceptance behavior"
+  ],
+  "createdAt": "2026-09-15T23:10:30Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:fb0d9f03ec670f7a268e3795d5009cff443ce406f294fe11a4b9bc8e844294d8",
+  "evidenceRefs": [
+    ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:11afbf6329910926d30f9663e09646f3c3d44c96e7f12803662390a569bd7533",
+      "workItemId": "WI-014-hover-hittest-decouple"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/decisions/observer-snapshot.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-014-hover-hittest-decouple.contract.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/AgentActors.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Contract.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/EntrySurface.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Evidence.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/HumanAuthority.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/HumanControlInterface.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Knowledge.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Label.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Outcome.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Repository.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/RepositoryProtocol.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Runtime.tsx"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-014-hover-hittest-decouple.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.contract.json"
+          ],
+          "inference": false,
+          "text": "Hovering near the shared boundary between two adjacent elements settles into a stable state because the interactive hit-test geometry never changes size, regardless of the hover visual scale bump"
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-014-hover-hittest-decouple.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-014-hover-hittest-decouple"
+  },
+  "taskReportDigest": "sha256:004379fbe4cbf6748055a8d645dac5aaf5c2338674f84933d6d9523a2646b00b",
+  "taskReportMarkdownDigest": "sha256:d98556cac29da638cc6834fac7d46e27a75ffc5c0d0ece86669a0e22026b8d98",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-014-hover-hittest-decouple.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-014-hover-hittest-decouple"
+}

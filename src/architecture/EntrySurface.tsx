@@ -13,26 +13,32 @@ export function EntrySurface({ isDimmed, isSelected, onSelect, label }: Architec
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("entrySurface");
       }}
     >
-      <mesh rotation={[0, Math.PI / 2, 0]}>
+      {/* Fixed-size hit target, always scale 1 -- see Contract.tsx. */}
+      <mesh rotation={[0, Math.PI / 2, 0]} visible={false}>
         <ringGeometry args={[0.9, 1.15, 32]} />
-        <meshStandardMaterial
-          color={colors.textSecondary}
-          emissive={isSelected ? colors.informationFlow : "#000000"}
-          emissiveIntensity={isSelected ? 0.4 : 0}
-          opacity={isDimmed ? 0.15 : 0.75}
-          transparent
-          depthWrite={false}
-          side={2}
-        />
+        <meshBasicMaterial />
       </mesh>
-      <Label position={[0, 1.3, 0]} text={label} size={0.2} dimmed={isDimmed} />
+      <group scale={hovered && !isDimmed ? HOVER_SCALE : 1}>
+        <mesh rotation={[0, Math.PI / 2, 0]} raycast={() => null}>
+          <ringGeometry args={[0.9, 1.15, 32]} />
+          <meshStandardMaterial
+            color={colors.textSecondary}
+            emissive={isSelected ? colors.informationFlow : "#000000"}
+            emissiveIntensity={isSelected ? 0.4 : 0}
+            opacity={isDimmed ? 0.15 : 0.75}
+            transparent
+            depthWrite={false}
+            side={2}
+          />
+        </mesh>
+        <Label position={[0, 1.3, 0]} text={label} size={0.2} dimmed={isDimmed} />
+      </group>
     </group>
   );
 }
