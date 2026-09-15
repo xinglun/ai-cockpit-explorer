@@ -1,0 +1,34 @@
+{
+  "dependencyFingerprint": "sha256:4d8747ac62733f11e38ac11397f8e0dfcd78b31e57017b05dd9bee2559c5a495",
+  "diffDigest": "sha256:688f75812224c883209d5f68adfdd93214129c03e8b8a553537d1a76f37f2108",
+  "observation": {
+    "buildSystems": [
+      "Npm"
+    ],
+    "cacheHit": false,
+    "ciSurfaces": [
+      ".github/workflows/deploy-pages.yml"
+    ],
+    "criticalDomains": [
+      "identity",
+      "payment",
+      "production",
+      "release",
+      "security"
+    ],
+    "dependencyFingerprint": "sha256:4d8747ac62733f11e38ac11397f8e0dfcd78b31e57017b05dd9bee2559c5a495",
+    "filesRead": 31595,
+    "languages": [
+      "Go",
+      "JavaScript",
+      "Python",
+      "TypeScript"
+    ],
+    "qualityCommands": [],
+    "snapshotDigest": "sha256:9fa014e356d13fcb4a1982ed3180f190c32b839f2826e92fee461e79394ee522",
+    "testRoots": [
+      "tests/**"
+    ]
+  },
+  "treeDigest": "sha256:c8f4a603acb0b16518a140530899f44a378d525911fbae7a4235b4fd014f67c0"
+}

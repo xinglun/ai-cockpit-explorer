@@ -1,0 +1,48 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/work-items/archive/WI-011-interaction-affordance.contract.json",
+    ".ai/work-items/archive/WI-011-interaction-affordance.summary.json",
+    "src/architecture/AgentActors.tsx",
+    "src/architecture/Contract.tsx",
+    "src/architecture/EntrySurface.tsx",
+    "src/architecture/Evidence.tsx",
+    "src/architecture/HumanAuthority.tsx",
+    "src/architecture/HumanControlInterface.tsx",
+    "src/architecture/Knowledge.tsx",
+    "src/architecture/Outcome.tsx",
+    "src/architecture/Repository.tsx",
+    "src/architecture/RepositoryProtocol.tsx",
+    "src/architecture/Runtime.tsx",
+    "src/architecture/WorkItemEnvelope.tsx",
+    "src/architecture/useHover.ts",
+    "src/i18n/en.ts",
+    "src/i18n/ja.ts",
+    "src/i18n/types.ts",
+    "src/i18n/zh-CN.ts",
+    "src/ui/ExplorerShell.tsx",
+    "src/ui/TouchAffordanceHint.tsx"
+  ],
+  "checkpointAt": "2026-09-15T12:58:22Z",
+  "checkpointContractDigest": "sha256:1138e6c1199161ef68c438fcc1211fbcd7ecdcb80a1848ccfa5684063feb0a51",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:19d033c66c717410a6b4de4b8c60142820d2aa7af0dc6205d3a73617be9b960a",
+  "createdAt": "2026-09-15T12:57:22Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-15T12:58:42Z",
+  "preflightContractDigest": "sha256:1138e6c1199161ef68c438fcc1211fbcd7ecdcb80a1848ccfa5684063feb0a51",
+  "preflightDecisionDigest": "sha256:20b4b742353bcc748008ea6dbb9f63bdf18a5136367959ab2a0ae37d53adb025",
+  "preflightRepositorySnapshotDigest": "sha256:19d033c66c717410a6b4de4b8c60142820d2aa7af0dc6205d3a73617be9b960a",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-15T12:58:47Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-011-interaction-affordance"
+}

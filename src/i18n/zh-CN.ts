@@ -13,6 +13,7 @@ export const zhCN = {
     coreDistinction: "AI 智能体可以执行任务。证据决定了什么被验证。最终授权由人决定。",
     interactionHint: "拖动旋转 · 滚动缩放 · 点击查看详情",
     canvasAriaLabel: "展示 AI Cockpit 治理循环的交互式 3D 场景",
+    touchHint: "点击任意图形即可查看含义",
   },
   navigation: {
     ariaLabel: "浏览模式",

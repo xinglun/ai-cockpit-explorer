@@ -9,6 +9,7 @@ import { GuidedTour } from "./GuidedTour";
 import { StatusLegend } from "./StatusLegend";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { FadeIn } from "./FadeIn";
+import { TouchAffordanceHint } from "./TouchAffordanceHint";
 import { TraceTimeline } from "./TraceTimeline";
 import { LifecycleFlow } from "@/lifecycle/LifecycleFlow";
 import { VerificationGraph } from "@/verification/VerificationGraph";
@@ -155,6 +156,8 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
           showTraceTrail={mode === "workitem" && !tourActive && showTraceTrail}
         />
       </div>
+
+      <TouchAffordanceHint messages={messages} dismissed={selectedId !== null || tourActive} />
 
       <div
         className="pointer-events-none absolute inset-0 flex flex-col justify-between gap-4 p-4 md:p-6"

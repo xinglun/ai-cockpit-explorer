@@ -15,6 +15,7 @@ export const en = {
       "AI agents can execute. Evidence determines what is verified. Humans determine what is authorized.",
     interactionHint: "Drag to orbit · Scroll to zoom · Click to explore",
     canvasAriaLabel: "Interactive 3D AI Cockpit governance loop",
+    touchHint: "Tap any shape to see what it means",
   },
   navigation: {
     ariaLabel: "Explorer mode",
