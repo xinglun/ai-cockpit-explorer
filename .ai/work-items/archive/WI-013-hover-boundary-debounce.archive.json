@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-15T22:01:45Z",
+  "files": {
+    "contractDigest": "sha256:827e2a6b89ced1fdd5f1f07ab0ea08e995b1c95dc95b0eda9590a27676d7874e",
+    "contractPath": ".ai/work-items/archive/WI-013-hover-boundary-debounce.contract.json",
+    "eventsDigest": "sha256:d6e7f7277eff7df9c790318a472a10edc408bb8260ee265fecdf4d9f622f2cda",
+    "eventsPath": ".ai/work-items/archive/WI-013-hover-boundary-debounce.events.jsonl",
+    "outcomeDigest": "sha256:590e596d78f175e025894caf6116792d52c056b71eabb51502d829a2b62a6242",
+    "outcomePath": ".ai/work-items/archive/WI-013-hover-boundary-debounce.outcome.json",
+    "summaryDigest": "sha256:b5f41ab52b09ae8793edaa5556ad2b7f4b46df854a2919cd28e8e6f0b7ca5fcd",
+    "summaryPath": ".ai/work-items/archive/WI-013-hover-boundary-debounce.summary.json",
+    "taskReportDigest": "sha256:459472ea07f6b8436327b38575e0e7fd5a61b9b54d6e9c1b5edad368852e7ccb",
+    "taskReportMarkdownDigest": "sha256:2259c28ae53851a735a36294f6efe2dde0a9a4983d14b11e84150cc212856eaf",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-013-hover-boundary-debounce.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-013-hover-boundary-debounce.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-013-hover-boundary-debounce"
+}
