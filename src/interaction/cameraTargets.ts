@@ -54,8 +54,13 @@ export const cameraTargets: Record<ArchitectureElementId, CameraTarget> = {
     position: [3, 6, 6],
     lookAt: layout.humanAuthority.position,
   },
+  // Pulled back ~35% from a tighter framing that packed Contract and
+  // Runtime's labels close enough together to read as overlapping —
+  // widening the shot gives every simultaneously-relevant element in
+  // Work Item mode (up to 5 per stage, see stageRelevance) more room
+  // rather than trying to out-guess label offsets one at a time.
   workItem: {
-    position: [5, 3.4, 6],
+    position: [6.8, 3.9, 7.9],
     lookAt: layout.workItem.position,
   },
   knowledge: {

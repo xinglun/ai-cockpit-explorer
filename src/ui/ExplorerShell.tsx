@@ -219,8 +219,8 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
 
         {mode === "workitem" && !tourActive && (
           <div
-            style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-            className="pointer-events-auto flex flex-col gap-4 rounded border p-4"
+            style={{ backgroundColor: colors.surface, borderColor: colors.border, opacity: 0.94 }}
+            className="pointer-events-auto flex max-h-[42dvh] flex-col gap-4 self-start overflow-y-auto rounded border p-4 md:max-w-xl"
           >
             <div className="flex flex-col gap-3">
               <h2 className="text-sm font-semibold">{messages.lifecycle.heading}</h2>
