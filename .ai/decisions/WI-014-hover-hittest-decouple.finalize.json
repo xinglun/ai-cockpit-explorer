@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "authoritySource": "reviewed-PR-13-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "41e90deb58727b670ed1d297e61b66459e0a89b8",
+    "name": "WI-014-hover-hittest-decouple",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:690aeba7c59f0da429aa32be20e5615fc914782f2466a0026b94d8ecc3f2ae5c",
+  "operationId": "operation-WI-014-hover-hittest-decouple-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "2f5a467d22e02d2ca42517a65dbacb93165bc703",
+    "headRevision": "41e90deb58727b670ed1d297e61b66459e0a89b8",
+    "mergeCommit": "19e626a44545fa61e9fcd9ec03bab04a89697098",
+    "number": 13,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/13"
+  },
+  "reason": "PR #13 passed CI (task-list-completed), merged at 19e626a via merge commit by owner (xinglun); feature branch kept, worktree still present pending cleanup.",
+  "receiptId": "ai-cockpit-explorer-WI-014-hover-hittest-decouple-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "WI-014-hover-hittest-decouple",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/13",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi014"
+  },
+  "result": {
+    "disposition": "retained",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+  "runtimeVersion": "0.2.92",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-15T23:11:02Z",
+  "workItemId": "WI-014-hover-hittest-decouple",
+  "worktree": {
+    "branch": "WI-014-hover-hittest-decouple",
+    "headRevision": "41e90deb58727b670ed1d297e61b66459e0a89b8",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi014",
+    "worktreeId": "WI-014-hover-hittest-decouple"
+  }
+}
