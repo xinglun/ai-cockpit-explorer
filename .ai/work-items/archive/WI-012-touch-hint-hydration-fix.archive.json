@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-15T20:58:25Z",
+  "files": {
+    "contractDigest": "sha256:2f113388be6d025bef0e7d9fe3bcb44c4be07a3ec0666f6803a020d79fafcca4",
+    "contractPath": ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.contract.json",
+    "eventsDigest": "sha256:b8e7105ecd58fc965f466dcb468bb3d688c53df2ad625ef67df2b7eaa0f9d569",
+    "eventsPath": ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.events.jsonl",
+    "outcomeDigest": "sha256:1764b3d13fb7e21c05240eebc914800c5d5295b911f7a17a12228e2dec024ccc",
+    "outcomePath": ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.outcome.json",
+    "summaryDigest": "sha256:da7815edce22444eebbfb07dc7cdb2844c108985ffc6a99cd44fce77e474688b",
+    "summaryPath": ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.summary.json",
+    "taskReportDigest": "sha256:f018ba0e36292149f8986c81caee91c76ccf1740868c010d4087becb56d5ed7f",
+    "taskReportMarkdownDigest": "sha256:1d4f06a1e201d49accfa2dc0a3b8d3ae482ec12359d4b54e7bdeb084997209e5",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-012-touch-hint-hydration-fix.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-012-touch-hint-hydration-fix"
+}

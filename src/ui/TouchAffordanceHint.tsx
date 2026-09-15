@@ -21,8 +21,18 @@ const AUTO_DISMISS_MS = 4500;
  * pass -- never a persistent overlay.
  */
 export function TouchAffordanceHint({ messages, dismissed }: TouchAffordanceHintProps) {
-  const [isTouch] = useState(() => typeof window !== "undefined" && window.matchMedia("(hover: none)").matches);
+  // Starts false to match the statically-exported server markup (no
+  // `window` at build time) -- reading matchMedia synchronously here
+  // instead would make the very first client render disagree with
+  // that markup on a real touch device and trip a hydration mismatch.
+  // The real value is only known after mount, via the effect below.
+  const [isTouch, setIsTouch] = useState(false);
   const [expired, setExpired] = useState(false);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setIsTouch(window.matchMedia("(hover: none)").matches));
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   useEffect(() => {
     if (!isTouch) return;
