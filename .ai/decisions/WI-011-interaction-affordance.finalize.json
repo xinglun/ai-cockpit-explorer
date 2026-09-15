@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "authoritySource": "reviewed-PR-10-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "ce35e876ded697b50f3e29c6bc1c91d12f07ce9f",
+    "name": "WI-011-interaction-affordance",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:31fd3ef4dfacc653fb33788d83cf95b9b05b57b15aa521d59730825dc2daaa1f",
+  "operationId": "operation-WI-011-interaction-affordance-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "d4b3eff1fcf4c18343dbb2b51c079df370b6a106",
+    "headRevision": "ce35e876ded697b50f3e29c6bc1c91d12f07ce9f",
+    "mergeCommit": "fe72e73cedbec840acaee6c67c920c21941d98b6",
+    "number": 10,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/10"
+  },
+  "reason": "PR #10 passed CI (task-list-completed), merged at fe72e73 via merge commit by owner (xinglun); feature branch kept, worktree still present pending cleanup.",
+  "receiptId": "ai-cockpit-explorer-WI-011-interaction-affordance-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "WI-011-interaction-affordance",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/10",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi011"
+  },
+  "result": {
+    "disposition": "retained",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+  "runtimeVersion": "0.2.92",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-15T13:00:47Z",
+  "workItemId": "WI-011-interaction-affordance",
+  "worktree": {
+    "branch": "WI-011-interaction-affordance",
+    "headRevision": "ce35e876ded697b50f3e29c6bc1c91d12f07ce9f",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi011",
+    "worktreeId": "WI-011-interaction-affordance"
+  }
+}
