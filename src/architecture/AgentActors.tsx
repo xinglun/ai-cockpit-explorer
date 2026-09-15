@@ -3,6 +3,7 @@
 import { layout } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
+import { useHover } from "./useHover";
 import type { ArchitectureNodeProps } from "./types";
 
 const agentShape: Record<string, "box" | "cone" | "sphere" | "octahedron"> = {
@@ -27,9 +28,12 @@ const agentLabel: Record<string, string> = {
 export function AgentActors({ isDimmed, isSelected, onSelect }: ArchitectureNodeProps) {
   const opacity = isDimmed ? 0.15 : 0.9;
   const emissiveIntensity = isSelected ? 0.5 : 0.1;
+  const { hovered, hoverHandlers } = useHover();
 
   return (
     <group
+      scale={hovered && !isDimmed ? 1.05 : 1}
+      {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("agents");

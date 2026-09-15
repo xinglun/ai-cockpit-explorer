@@ -7,6 +7,7 @@ import { colors } from "@/design-system/semanticColors";
 import { prefersReducedMotion } from "@/design-system/motion";
 import { ringPhaseAt, isRingLit, type RingPhase } from "@/interaction/verifyPhase";
 import { Label } from "./Label";
+import { useHover } from "./useHover";
 import type { ArchitectureNodeProps } from "./types";
 
 interface RuntimeProps extends ArchitectureNodeProps {
@@ -61,10 +62,13 @@ export function Runtime({ isDimmed, isSelected, onSelect, label, verifying = fal
   const outerLit = isRingLit(phase, "outer");
   const verifyLit = isRingLit(phase, "verify");
   const coreLit = isRingLit(phase, "core") && !blocked;
+  const { hovered, hoverHandlers } = useHover();
 
   return (
     <group
       position={position}
+      scale={hovered && !isDimmed ? 1.05 : 1}
+      {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("runtime");

@@ -9,6 +9,7 @@ import { prefersReducedMotion } from "@/design-system/motion";
 import { nextEnvelopeStep, vec3Reached, type Vec3 } from "@/interaction/envelopeTransition";
 import { cornerBracketSegments } from "@/interaction/boundaryField";
 import { Label } from "./Label";
+import { useHover } from "./useHover";
 import type { WorkItemEnvelopeStage } from "@/data/workItem";
 import type { ArchitectureElementId } from "@/data/architecture";
 
@@ -63,6 +64,7 @@ export function WorkItemEnvelope({
   const [size, setSize] = useState<Vec3>(target?.size ?? [0.01, 0.01, 0.01]);
   const wasVisible = useRef(stage !== "none");
   const [flashPhase, setFlashPhase] = useState(1);
+  const { hovered, hoverHandlers } = useHover();
 
   useEffect(() => {
     // Nothing to morph from the first time the envelope appears —
@@ -96,13 +98,20 @@ export function WorkItemEnvelope({
   if (!target) return null;
 
   const boundaryColor = blocked ? colors.stateRed : colors.informationFlow;
-  const baseOpacity = isDimmed ? 0.08 : collapsed ? 0.4 : blocked ? 0.85 : isSelected ? 0.7 : 0.5;
+  // A hover boost on opacity, not scale: center/size are absolute world
+  // coordinates the segments/mesh below use directly, not a local
+  // offset from this group's own (unset) position -- scaling the group
+  // would grow the boundary outward from the world origin instead of
+  // from its own center, a visibly wrong jump rather than a subtle cue.
+  const baseOpacity =
+    (isDimmed ? 0.08 : collapsed ? 0.4 : blocked ? 0.85 : isSelected ? 0.7 : 0.5) + (hovered && !isDimmed ? 0.15 : 0);
   const opacity = baseOpacity * (blocked ? flashPhase : 1);
   const segments = cornerBracketSegments(center, size);
-  const lineWidth = isSelected ? 3 : 2;
+  const lineWidth = isSelected || hovered ? 3 : 2;
 
   return (
     <group
+      {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("workItem");
