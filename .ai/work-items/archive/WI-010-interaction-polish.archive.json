@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-15T12:28:22Z",
+  "files": {
+    "contractDigest": "sha256:060543bf5dd575d591ab5aabe19f84a6891a9671299c9d9be6dd0e0e74d7fb50",
+    "contractPath": ".ai/work-items/archive/WI-010-interaction-polish.contract.json",
+    "eventsDigest": "sha256:7324dc8c226fce2d7462da34be3c3c80a3d683031d926173740b7443e2c5bfee",
+    "eventsPath": ".ai/work-items/archive/WI-010-interaction-polish.events.jsonl",
+    "outcomeDigest": "sha256:ff79e71eaebe76a5dadb2863be30f4566bed7954ff2637e6a6e6199ad1594769",
+    "outcomePath": ".ai/work-items/archive/WI-010-interaction-polish.outcome.json",
+    "summaryDigest": "sha256:4b4ea59077a5325d0ccd174d6a50dc5d387818c214dd8dd0b412be5a9d241a09",
+    "summaryPath": ".ai/work-items/archive/WI-010-interaction-polish.summary.json",
+    "taskReportDigest": "sha256:43ad378699ca8c35dfd8a0949b64841c67476d6e5c32eb978358d0d34b39dcde",
+    "taskReportMarkdownDigest": "sha256:730a30c9a26d259dbebf36465fc6aeefb7828eda3af55ea9046b2868e4eb2a50",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-010-interaction-polish.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-010-interaction-polish.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-010-interaction-polish"
+}

@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "deleted",
+    "pullRequest": "merged",
+    "worktree": "removed"
+  },
+  "authoritySource": "reviewed-PR-9-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "37566e311bd92b7db03b9de2cd022787e971eb36",
+    "name": "codex/wi-010-interaction-polish",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:060543bf5dd575d591ab5aabe19f84a6891a9671299c9d9be6dd0e0e74d7fb50",
+  "operationId": "operation-WI-010-interaction-polish-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "6cd26e21356cf09fb287744892d152b38cf05417",
+    "headRevision": "37566e311bd92b7db03b9de2cd022787e971eb36",
+    "mergeCommit": "6cd26e21356cf09fb287744892d152b38cf05417",
+    "number": 9,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/9"
+  },
+  "reason": "PR #9 passed lint/typecheck/vitest/build/playwright checks, merged at 6cd26e2 via squash by owner (xinglun); feature branch and worktree removed after synchronization.",
+  "receiptId": "ai-cockpit-explorer-WI-010-interaction-polish-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "codex/wi-010-interaction-polish",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/9",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-010-redo"
+  },
+  "result": {
+    "disposition": "deleted",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+  "runtimeVersion": "0.2.92",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-15T12:26:04Z",
+  "workItemId": "WI-010-interaction-polish",
+  "worktree": {
+    "branch": "codex/wi-010-interaction-polish",
+    "headRevision": "37566e311bd92b7db03b9de2cd022787e971eb36",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer/.worktrees/wi-010-redo",
+    "worktreeId": "WI-010-interaction-polish"
+  }
+}

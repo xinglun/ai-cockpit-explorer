@@ -1,0 +1,30 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/evidence/WI-010-interaction-polish.verification-attempt.1e38e5c4280ae7c1b7ffa8f270e01bd8f14a31961cdcd1525a39d1c60f22af97.json",
+    ".ai/work-items/archive/WI-010-interaction-polish.contract.json",
+    ".ai/work-items/archive/WI-010-interaction-polish.summary.json"
+  ],
+  "checkpointAt": "2026-09-15T12:27:40Z",
+  "checkpointContractDigest": "sha256:20243c6de3a62efa8b54bc0ab3063907500b7180f35b3460279a8edb9528931c",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:37cb4309f8ad4debdbbcdebf5b9f9599e238a980cb2be0902bbea3e2a163b4b2",
+  "createdAt": "2026-09-15T12:27:33Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-15T12:28:21Z",
+  "preflightContractDigest": "sha256:20243c6de3a62efa8b54bc0ab3063907500b7180f35b3460279a8edb9528931c",
+  "preflightDecisionDigest": "sha256:87984c0a1a26d0916db4f2c1b13f031eb89189e9b24d41497391ad35de9cf55e",
+  "preflightRepositorySnapshotDigest": "sha256:37cb4309f8ad4debdbbcdebf5b9f9599e238a980cb2be0902bbea3e2a163b4b2",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-15T12:28:21Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-010-interaction-polish"
+}

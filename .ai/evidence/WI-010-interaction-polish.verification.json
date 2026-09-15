@@ -1,0 +1,103 @@
+{
+  "captureMode": "full_capture",
+  "contractDigest": "sha256:20243c6de3a62efa8b54bc0ab3063907500b7180f35b3460279a8edb9528931c",
+  "createdAt": "2026-09-15T12:28:21Z",
+  "evidenceSchemaVersion": 2,
+  "passed": true,
+  "protocolVersion": 1,
+  "receipt": {
+    "costObservation": {
+      "advisoryOnly": true,
+      "confidence": "unknown",
+      "elapsedMs": 4,
+      "executionElapsedMs": 0,
+      "maxConcurrentProcesses": 0,
+      "nodesExecuted": 0,
+      "nodesPlanned": 1,
+      "nodesReused": 1,
+      "passed": true,
+      "planningElapsedMs": 0,
+      "processesSpawned": 0,
+      "protectedNodesExecuted": 0,
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+      "runtimeVersion": "0.2.92",
+      "schemaVersion": 1,
+      "unknowns": [
+        "cost_observation_invalid"
+      ]
+    },
+    "elapsedMs": 4,
+    "executionElapsedMs": 0,
+    "filesHashed": 9,
+    "filesRead": 9,
+    "gitCalls": 8,
+    "maxConcurrentProcesses": 0,
+    "nodesExecuted": 0,
+    "nodesPlanned": 1,
+    "nodesReused": 1,
+    "passed": true,
+    "planReceipt": {
+      "affectedPaths": [],
+      "assurance": "repository_verified",
+      "baseRevision": "6cd26e21356cf09fb287744892d152b38cf05417",
+      "dependencyConfidence": "unknown",
+      "escalations": [],
+      "executedNodes": [],
+      "executionElapsedMs": 0,
+      "finalTier": "T0",
+      "initialTier": "T0",
+      "planningElapsedMs": 0,
+      "policyRefs": [],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:37cb4309f8ad4debdbbcdebf5b9f9599e238a980cb2be0902bbea3e2a163b4b2",
+      "requiredAssurance": null,
+      "requiredTier": null,
+      "reusedNodes": [
+        "project-command-0"
+      ],
+      "savedExecutions": 1,
+      "schemaVersion": 1,
+      "selectionReasons": [
+        "cli_route_stage_explicit"
+      ],
+      "sharedNodes": [],
+      "stage": "task",
+      "workItemId": "WI-010-interaction-polish"
+    },
+    "planningElapsedMs": 0,
+    "processSpawnFailures": 0,
+    "processesSpawned": 0,
+    "protectedNodesExecuted": 0,
+    "protectedNodesSkipped": 0,
+    "receiptCandidates": [],
+    "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+    "rerunStale": 0,
+    "rerunUnknown": 0,
+    "results": [
+      {
+        "action": "reuse",
+        "nodeId": "project-command-0",
+        "outputDigest": "sha256:9b63ebee744f311a698df747aac4e4fd031919b923627f0bf33420d019fb4ed1",
+        "outputTruncated": false,
+        "passed": true,
+        "protected": false,
+        "reason": "fresh_exact_binding",
+        "receiptId": null,
+        "reused": true,
+        "satisfiedBy": "reused_receipt",
+        "state": "fresh",
+        "timedOut": false
+      }
+    ],
+    "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+    "runtimeVersion": "0.2.92",
+    "workItemId": "WI-010-interaction-polish"
+  },
+  "receiptDigest": "sha256:2fe430c062a897229ab9ad550f57a6bdf843f5aeb3fc47aea757882f15879ca2",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "repositorySnapshotDigest": "sha256:37cb4309f8ad4debdbbcdebf5b9f9599e238a980cb2be0902bbea3e2a163b4b2",
+  "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+  "runtimeVersion": "0.2.92",
+  "workItemId": "WI-010-interaction-polish"
+}
