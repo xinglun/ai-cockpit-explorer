@@ -46,7 +46,13 @@ export function HumanControlInterface({ isDimmed, isSelected, onSelect, label }:
         must clear `radius`, not `height / 2`, or the mesh visually
         overlaps the middle of the text.
       */}
-      <Label position={[0, radius + 0.32, 0]} text={label} size={0.19} dimmed={isDimmed} />
+      {/*
+        Kept close to the plate rather than radius + a large offset:
+        Human Authority sits directly above this element with its own
+        box bottom edge only ~0.7 above this plate's center, so a
+        taller offset pushed this label up into that box.
+      */}
+      <Label position={[0, 0.25, 0]} text={label} size={0.19} dimmed={isDimmed} />
     </group>
   );
 }
