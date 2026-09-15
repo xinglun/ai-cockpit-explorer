@@ -8,6 +8,7 @@ import { DetailPanel } from "./DetailPanel";
 import { GuidedTour } from "./GuidedTour";
 import { StatusLegend } from "./StatusLegend";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { FadeIn } from "./FadeIn";
 import { TraceTimeline } from "./TraceTimeline";
 import { LifecycleFlow } from "@/lifecycle/LifecycleFlow";
 import { VerificationGraph } from "@/verification/VerificationGraph";
@@ -179,7 +180,9 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
         {mode === "overview" && !tourActive && (
           <div className="pointer-events-auto flex flex-col gap-3">
             {selectedId && (
-              <DetailPanel selected={selectedId} onClose={() => setSelectedId(null)} messages={messages} />
+              <FadeIn key={selectedId}>
+                <DetailPanel selected={selectedId} onClose={() => setSelectedId(null)} messages={messages} />
+              </FadeIn>
             )}
             <p className="max-w-md text-sm" style={{ color: colors.textSecondary }}>
               {messages.app.openingExplanation}
@@ -218,9 +221,10 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
         )}
 
         {mode === "workitem" && !tourActive && (
+          <FadeIn className="pointer-events-auto self-start">
           <div
             style={{ backgroundColor: colors.surface, borderColor: colors.border, opacity: 0.94 }}
-            className="pointer-events-auto flex max-h-[42dvh] flex-col gap-4 self-start overflow-y-auto rounded border p-4 md:max-w-xl"
+            className="flex max-h-[42dvh] flex-col gap-4 overflow-y-auto rounded border p-4 md:max-w-xl"
           >
             <div className="flex flex-col gap-3">
               <h2 className="text-sm font-semibold">{messages.lifecycle.heading}</h2>
@@ -234,12 +238,14 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
               />
             </div>
           </div>
+          </FadeIn>
         )}
 
         {mode === "verification" && !tourActive && (
+          <FadeIn className="pointer-events-auto">
           <div
             style={{ backgroundColor: colors.surface, borderColor: colors.border }}
-            className="pointer-events-auto flex flex-col gap-3 rounded border p-4 md:max-w-md"
+            className="flex flex-col gap-3 rounded border p-4 md:max-w-md"
           >
             <div className="flex items-center justify-between">
               <h2 className="text-sm font-semibold">{messages.verification.title}</h2>
@@ -265,6 +271,7 @@ export function ExplorerShell({ locale }: ExplorerShellProps) {
             <VerificationGraph key={scenarioId} scenario={verificationScenarios[scenarioId]} messages={messages} />
             <StatusLegend messages={messages} />
           </div>
+          </FadeIn>
         )}
       </div>
     </div>

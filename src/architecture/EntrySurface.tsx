@@ -3,14 +3,18 @@
 import { layout } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
+import { useHover } from "./useHover";
 import type { ArchitectureNodeProps } from "./types";
 
 /** The gate agents must pass through — vertical, blocking, not a floor ring. */
 export function EntrySurface({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position } = layout.entrySurface;
+  const { hovered, hoverHandlers } = useHover();
   return (
     <group
       position={position}
+      scale={hovered && !isDimmed ? 1.05 : 1}
+      {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("entrySurface");

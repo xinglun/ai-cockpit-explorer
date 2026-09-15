@@ -3,13 +3,17 @@
 import { layout } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
+import { useHover } from "./useHover";
 import type { ArchitectureNodeProps } from "./types";
 
 export function Repository({ isDimmed, isSelected, onSelect, label }: ArchitectureNodeProps) {
   const { position, size } = layout.repository;
+  const { hovered, hoverHandlers } = useHover();
   return (
     <group
       position={position}
+      scale={hovered && !isDimmed ? 1.05 : 1}
+      {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();
         onSelect("repository");
