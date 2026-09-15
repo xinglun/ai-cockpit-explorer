@@ -102,7 +102,7 @@
     "workItemId": "WI-005-semantic-completeness"
   },
   "finalReportDigest": "sha256:868b483e64e01dc80747c4ebb78b8aa19dc3577b113d34108dd02e73740c6aa7",
-  "humanDecision": "accepted",
+  "humanDecision": "approved",
   "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
   "resourceFinalizationHeadDigest": "sha256:7e85d0485cfb7940d3e32dc1c3ef7e566ecd10f28504e2e3493c6ac3cd649b29",
   "resourceFinalizationHeadPath": ".ai/decisions/WI-005-semantic-completeness.finalize.json",
@@ -112,7 +112,7 @@
     "actor": "human:sei-rinn",
     "authoritySource": "user-confirmed-in-chat",
     "decidedAt": "2026-09-14T04:29:50Z",
-    "decision": "accepted",
+    "decision": "approved",
     "evidenceRefs": [],
     "policyRefs": [],
     "reason": "Semantic completeness (Work Item envelope, Knowledge, Traceability, HCI, per-flow activation, 8-scene tour) merged via PR #5, including a CHI->HCI naming fix requested by the user; user reviewed and accepted the outcome",

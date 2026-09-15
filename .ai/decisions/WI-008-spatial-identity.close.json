@@ -85,7 +85,7 @@
             ".ai/work-items/archive/WI-008-spatial-identity.contract.json"
           ],
           "inference": false,
-          "text": "Ship v0.3 Spatial Identity: exactly five upgrades, no new architecture capabilities, no new tabs, no tour expansion, no new body text. (1) Runtime becomes a multi-ring Governance Engine (outer boundary ring, verification ring, evidence ring, core) that visibly sequences ring-by-ring during a Verify moment instead of sitting as an inert torus+icosahedron. (2) Flow connectors become curved data channels (Bezier/CatmullRom curves) with multiple packets traveling along the curve, replacing straight FlowLine segments. (3) The Work Item envelope becomes a boundary field (corner/edge markers implying a volume) instead of a full six-sided glass box, with a red boundary-block visual when execution would cross scope. (4) Verification gets a genuine cinematic beat: other scene elements dim, camera pushes in slightly, and GREEN -> (blocked X) -> Human Decision PENDING plays as a deliberate ~0.5-1s sequence, landing on the existing 'Verified != Approved' line. (5) Selective bloom via @react-three/postprocessing is added, applied only to semantically active elements (active evidence, the Runtime's active ring, active flow packets, a blocked boundary, a selected Knowledge node) -- inactive elements stay matte, this is not a full-scene glow. Three smaller companion fixes ride along: Knowledge gains a small pulse + new node animation when a Work Item archives into it; Trace gains an optional, click-to-reveal 3D light-trail representation (hidden by default, the existing UI timeline remains the primary interface); and the Human-Computer Interaction element's primary display label changes to the more intuitive 'Human Control' (en) / '人による制御' (ja) / '人工控制' (zh) in the picker/heading, while the fuller 'Human-Computer Interaction, Define -> Understand -> Decide' framing moves into the WHAT detail text -- the internal id humanControlInterface is unchanged."
+          "text": "Ship v0.3 Spatial Identity: exactly five upgrades, no new architecture capabilities, no new tabs, no tour expansion, no new body text. (1) Runtime becomes a multi-ring Governance Engine (outer boundary ring, verification ring, evidence ring, core) that visibly sequences ring-by-ring during a Verify moment instead of sitting as an inert torus+icosahedron. (2) Flow connectors become curved data channels (Bezier/CatmullRom curves) with multiple packets traveling along the curve, replacing straight FlowLine segments. (3) The Work Item envelope becomes a boundary field (corner/edge markers implying a volume) instead of a full six-sided glass box, with a red boundary-block visual when execution would cross scope. (4) Verification gets a genuine cinematic beat: other scene elements dim, camera pushes in slightly, and GREEN -> (blocked X) -> Human Decision PENDING plays as a deliberate ~0.5-1s sequence, landing on the existing 'Verified != Approved' line. (5) Selective bloom via @react-three/postprocessing is added, applied only to semantically active elements (active evidence, the Runtime's active ring, active flow packets, a blocked boundary, a selected Knowledge node) -- inactive elements stay matte, this is not a full-scene glow. Three smaller companion fixes ride along: Knowledge gains a small pulse + new node animation when a Work Item archives into it; Trace gains an optional, click-to-reveal 3D light-trail representation (hidden by default, the existing UI timeline remains the primary interface); and the Human-Computer Interaction element's primary display label changes to the more intuitive 'Human Control' (en) / '\u4eba\u306b\u3088\u308b\u5236\u5fa1' (ja) / '\u4eba\u5de5\u63a7\u5236' (zh) in the picker/heading, while the fuller 'Human-Computer Interaction, Define -> Understand -> Decide' framing moves into the WHAT detail text -- the internal id humanControlInterface is unchanged."
         }
       ],
       "warnings": [
@@ -102,7 +102,7 @@
     "workItemId": "WI-008-spatial-identity"
   },
   "finalReportDigest": "sha256:9ca03cd8e76a39cf18856441b4aa46e2e4aea76d3c7088ab0632891bad9f3400",
-  "humanDecision": "accepted",
+  "humanDecision": "approved",
   "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
   "resourceFinalizationHeadDigest": "sha256:cd3b8f8bf0e63acbf5153e774136dde63857dbe3001ca03a5b80582d82cec1ee",
   "resourceFinalizationHeadPath": ".ai/decisions/WI-008-spatial-identity.finalize.json",
@@ -112,7 +112,7 @@
     "actor": "human:sei-rinn",
     "authoritySource": "user-confirmed-in-chat",
     "decidedAt": "2026-09-14T08:32:10Z",
-    "decision": "accepted",
+    "decision": "approved",
     "evidenceRefs": [],
     "policyRefs": [],
     "reason": "v0.3 Spatial Identity (Governance Engine Runtime, curved flows, boundary-field Work Item, cinematic Verification, selective bloom, HCI label rename) merged via PR #8; user reviewed and accepted the outcome",

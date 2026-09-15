@@ -102,7 +102,7 @@
     "workItemId": "WI-002-governance-loop-rewrite"
   },
   "finalReportDigest": "sha256:0e96c2878315f7759feb8315cb8e2cce1d28ee3d7f9e385b3a2a6741fc590bff",
-  "humanDecision": "accepted",
+  "humanDecision": "approved",
   "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
   "resourceFinalizationHeadDigest": "sha256:39739b36a6a63124776b543cb92f09595424dbc46fbc60291b84181ea3d3997c",
   "resourceFinalizationHeadPath": ".ai/decisions/WI-002-governance-loop-rewrite.finalize.json",
@@ -112,7 +112,7 @@
     "actor": "human:sei-rinn",
     "authoritySource": "user-confirmed-in-chat",
     "decidedAt": "2026-09-14T02:43:08Z",
-    "decision": "accepted",
+    "decision": "approved",
     "evidenceRefs": [],
     "policyRefs": [],
     "reason": "v0.2 Governance Loop rewrite merged via PR #2; user reviewed and accepted the outcome",

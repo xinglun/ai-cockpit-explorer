@@ -102,7 +102,7 @@
     "workItemId": "WI-003-i18n-and-blender-removal"
   },
   "finalReportDigest": "sha256:13412957d19f905dcfaec4110eae79e28664133907766b29d24866ba866f69ff",
-  "humanDecision": "accepted",
+  "humanDecision": "approved",
   "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
   "resourceFinalizationHeadDigest": "sha256:cfdb19fb45434abaea21623bb81d23d628df9d23f61d7b8683044184532e0a88",
   "resourceFinalizationHeadPath": ".ai/decisions/WI-003-i18n-and-blender-removal.finalize.json",
@@ -112,7 +112,7 @@
     "actor": "human:sei-rinn",
     "authoritySource": "user-confirmed-in-chat",
     "decidedAt": "2026-09-14T03:25:15Z",
-    "decision": "accepted",
+    "decision": "approved",
     "evidenceRefs": [],
     "policyRefs": [],
     "reason": "v0.2.1 i18n (en/ja/zh-CN) + Blender-free confirmation merged via PR #3; user reviewed and accepted the outcome",

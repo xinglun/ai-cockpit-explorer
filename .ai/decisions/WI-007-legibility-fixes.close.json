@@ -102,7 +102,7 @@
     "workItemId": "WI-007-legibility-fixes"
   },
   "finalReportDigest": "sha256:44785c53465d2bd54037c70538fde7c708ce4ef86e42bc92723bd6ef206748f6",
-  "humanDecision": "accepted",
+  "humanDecision": "approved",
   "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
   "resourceFinalizationHeadDigest": "sha256:b7b70794dcb07efab177dec13a17d0e1a52d34987c3e723a72bd5d7c6b610423",
   "resourceFinalizationHeadPath": ".ai/decisions/WI-007-legibility-fixes.finalize.json",
@@ -112,7 +112,7 @@
     "actor": "human:sei-rinn",
     "authoritySource": "user-confirmed-in-chat",
     "decidedAt": "2026-09-14T07:14:39Z",
-    "decision": "accepted",
+    "decision": "approved",
     "evidenceRefs": [],
     "policyRefs": [],
     "reason": "v0.2.3 legibility fixes (billboard labels, hide dimmed labels, connect all agents, envelope label clearance) merged via PR #7; user reviewed and accepted the outcome",

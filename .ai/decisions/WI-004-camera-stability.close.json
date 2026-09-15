@@ -102,7 +102,7 @@
     "workItemId": "WI-004-camera-stability"
   },
   "finalReportDigest": "sha256:11562c9f30b2b319a79204f5ea94cf3fa9debad6289e48df0180397f2913b38b",
-  "humanDecision": "accepted",
+  "humanDecision": "approved",
   "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
   "resourceFinalizationHeadDigest": "sha256:6e1efb533bbcbd67cab43faec7ba8f7e64cd1edc24554e8a515745c2be10acf3",
   "resourceFinalizationHeadPath": ".ai/decisions/WI-004-camera-stability.finalize.json",
@@ -112,7 +112,7 @@
     "actor": "human:sei-rinn",
     "authoritySource": "user-confirmed-in-chat",
     "decidedAt": "2026-09-14T03:57:16Z",
-    "decision": "accepted",
+    "decision": "approved",
     "evidenceRefs": [],
     "policyRefs": [],
     "reason": "P0 camera stability fix (single CameraRig via drei CameraControls) merged via PR #4; user reviewed and accepted the outcome",
