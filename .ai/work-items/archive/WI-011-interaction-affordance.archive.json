@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-15T12:59:09Z",
+  "files": {
+    "contractDigest": "sha256:31fd3ef4dfacc653fb33788d83cf95b9b05b57b15aa521d59730825dc2daaa1f",
+    "contractPath": ".ai/work-items/archive/WI-011-interaction-affordance.contract.json",
+    "eventsDigest": "sha256:7b13858c2c3da31e4d9cd0f0139b7db235a6f7604afd4d64d1f82b96a6705968",
+    "eventsPath": ".ai/work-items/archive/WI-011-interaction-affordance.events.jsonl",
+    "outcomeDigest": "sha256:628ee893411e15d70b94f37332f46db9bc9e846dec1bf2ff493ea9337cefd21a",
+    "outcomePath": ".ai/work-items/archive/WI-011-interaction-affordance.outcome.json",
+    "summaryDigest": "sha256:cb5c9e220640f8a3bf13be59b0348db8751d36a4ce6de89fd8ca763322f6b52e",
+    "summaryPath": ".ai/work-items/archive/WI-011-interaction-affordance.summary.json",
+    "taskReportDigest": "sha256:ab405b17e54fe3cc7d8ffb41053e086a453907dfac8ee592f3b4d9dcb77c4d71",
+    "taskReportMarkdownDigest": "sha256:e80f049aef6fd54479791506c8e4aa83d0a7ff1681639e9ac7d0cf594339fed8",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-011-interaction-affordance.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-011-interaction-affordance.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-011-interaction-affordance"
+}

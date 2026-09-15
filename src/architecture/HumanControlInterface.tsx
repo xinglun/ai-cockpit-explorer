@@ -3,7 +3,7 @@
 import { layout } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
-import { useHover } from "./useHover";
+import { useHover, HOVER_SCALE } from "./useHover";
 import type { ArchitectureNodeProps } from "./types";
 
 /**
@@ -21,7 +21,7 @@ export function HumanControlInterface({ isDimmed, isSelected, onSelect, label }:
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? 1.05 : 1}
+      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();

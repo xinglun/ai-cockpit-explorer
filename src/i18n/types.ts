@@ -48,6 +48,8 @@ export interface ExplorerMessages {
     coreDistinction: string;
     interactionHint: string;
     canvasAriaLabel: string;
+    /** Shown once on touch/no-hover viewports, since the hover cue below never fires there. */
+    touchHint: string;
   };
   navigation: {
     ariaLabel: string;

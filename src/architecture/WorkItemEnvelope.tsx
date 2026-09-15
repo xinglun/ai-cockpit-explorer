@@ -104,7 +104,7 @@ export function WorkItemEnvelope({
   // would grow the boundary outward from the world origin instead of
   // from its own center, a visibly wrong jump rather than a subtle cue.
   const baseOpacity =
-    (isDimmed ? 0.08 : collapsed ? 0.4 : blocked ? 0.85 : isSelected ? 0.7 : 0.5) + (hovered && !isDimmed ? 0.15 : 0);
+    (isDimmed ? 0.08 : collapsed ? 0.4 : blocked ? 0.85 : isSelected ? 0.7 : 0.5) + (hovered && !isDimmed ? 0.25 : 0);
   const opacity = baseOpacity * (blocked ? flashPhase : 1);
   const segments = cornerBracketSegments(center, size);
   const lineWidth = isSelected || hovered ? 3 : 2;

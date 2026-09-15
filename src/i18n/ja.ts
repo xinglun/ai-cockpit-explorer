@@ -15,6 +15,7 @@ export const ja = {
       "AIエージェントはタスクを実行できます。何が検証されるかは証拠が決め、何を許可するかは人間が決めます。",
     interactionHint: "ドラッグで回転 · スクロールでズーム · クリックで詳細表示",
     canvasAriaLabel: "AI Cockpitのガバナンスループを表すインタラクティブな3Dシーン",
+    touchHint: "図形をタップすると意味を確認できます",
   },
   navigation: {
     ariaLabel: "エクスプローラーモード",

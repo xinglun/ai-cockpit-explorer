@@ -9,7 +9,7 @@ import { prefersReducedMotion } from "@/design-system/motion";
 import { nextEnvelopeStep, vec3Reached, type Vec3 } from "@/interaction/envelopeTransition";
 import { hasArchivedKnowledge } from "@/interaction/knowledgeReveal";
 import { Label } from "./Label";
-import { useHover } from "./useHover";
+import { useHover, HOVER_SCALE } from "./useHover";
 import type { ArchitectureNodeProps } from "./types";
 import type { WorkItemEnvelopeStage } from "@/data/workItem";
 
@@ -54,7 +54,7 @@ export function Knowledge({ isDimmed, isSelected, onSelect, label, workItemStage
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? 1.05 : 1}
+      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();

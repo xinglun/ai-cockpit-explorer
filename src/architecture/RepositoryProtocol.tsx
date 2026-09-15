@@ -3,7 +3,7 @@
 import { layout } from "@/design-system/geometry";
 import { colors } from "@/design-system/semanticColors";
 import { Label } from "./Label";
-import { useHover } from "./useHover";
+import { useHover, HOVER_SCALE } from "./useHover";
 import type { ArchitectureNodeProps } from "./types";
 
 /** Nested inside the repository's footprint — a layer, not a peer object. */
@@ -13,7 +13,7 @@ export function RepositoryProtocol({ isDimmed, isSelected, onSelect, label }: Ar
   return (
     <group
       position={position}
-      scale={hovered && !isDimmed ? 1.05 : 1}
+      scale={hovered && !isDimmed ? HOVER_SCALE : 1}
       {...hoverHandlers}
       onClick={(event) => {
         event.stopPropagation();

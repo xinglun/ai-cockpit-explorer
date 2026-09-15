@@ -1,0 +1,281 @@
+{
+  "acceptanceResults": [
+    "Hovering an architecture element on desktop produces a clearly visible scale or glow change distinguishable from the resting state",
+    "On a touch viewport (no pointer hover), interactive elements still communicate they are clickable without requiring a tap first"
+  ],
+  "createdAt": "2026-09-15T12:58:47Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:f6c5f323029120485659c23bac1bc96f5f82834cca6fe7cc8b07e71878cf3e08",
+  "evidenceRefs": [
+    ".ai/evidence/WI-011-interaction-affordance.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-011-interaction-affordance.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-011-interaction-affordance.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:19d033c66c717410a6b4de4b8c60142820d2aa7af0dc6205d3a73617be9b960a",
+      "workItemId": "WI-011-interaction-affordance"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/decisions/observer-snapshot.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-011-interaction-affordance.contract.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/AgentActors.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Contract.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/EntrySurface.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Evidence.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/HumanAuthority.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/HumanControlInterface.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Knowledge.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Outcome.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Repository.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/RepositoryProtocol.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/Runtime.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/WorkItemEnvelope.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/architecture/useHover.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/i18n/en.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/i18n/ja.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/i18n/types.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/i18n/zh-CN.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/ui/ExplorerShell.tsx"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/ui/TouchAffordanceHint.tsx"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-011-interaction-affordance.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-011-interaction-affordance.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-011-interaction-affordance.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-011-interaction-affordance.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-011-interaction-affordance.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.contract.json"
+          ],
+          "inference": false,
+          "text": "Users on desktop clearly notice which 3D elements are interactive, and users on touch devices get an equivalent affordance without relying on hover"
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-011-interaction-affordance.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-011-interaction-affordance"
+  },
+  "taskReportDigest": "sha256:ab405b17e54fe3cc7d8ffb41053e086a453907dfac8ee592f3b4d9dcb77c4d71",
+  "taskReportMarkdownDigest": "sha256:e80f049aef6fd54479791506c8e4aa83d0a7ff1681639e9ac7d0cf594339fed8",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-011-interaction-affordance.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-011-interaction-affordance"
+}
