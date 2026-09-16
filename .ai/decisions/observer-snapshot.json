@@ -1,6 +1,6 @@
 {
   "dependencyFingerprint": "sha256:4d8747ac62733f11e38ac11397f8e0dfcd78b31e57017b05dd9bee2559c5a495",
-  "diffDigest": "sha256:94aeb51c5a9e9e43321ad7d21408e4be09d0bb72e8bf4b1c98f7b11227511fa5",
+  "diffDigest": "sha256:4257e73674f758ea84797f4c51863545ab7eec03dd15a698ba7260d863e528de",
   "observation": {
     "buildSystems": [
       "Npm"
@@ -17,7 +17,7 @@
       "security"
     ],
     "dependencyFingerprint": "sha256:4d8747ac62733f11e38ac11397f8e0dfcd78b31e57017b05dd9bee2559c5a495",
-    "filesRead": 31618,
+    "filesRead": 31619,
     "languages": [
       "Go",
       "JavaScript",
@@ -25,10 +25,10 @@
       "TypeScript"
     ],
     "qualityCommands": [],
-    "snapshotDigest": "sha256:9da891bf52eb4237bd480032797c5e68731eb1e133ac545140ab44f0b272e0c8",
+    "snapshotDigest": "sha256:fd22cea35905e9ad26537c2670f64b64f9fc004b2c4b3fc6ca8b523d58bd9416",
     "testRoots": [
       "tests/**"
     ]
   },
-  "treeDigest": "sha256:3d0ecbe0030c1986e7661230d3c9e5431436c1b130e39a3650a2bd5385f245c5"
+  "treeDigest": "sha256:fa1f3ec0f792cd22881047dee7ca24da8791b00b5a23eae1e4f5f671377be5a1"
 }

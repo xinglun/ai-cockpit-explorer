@@ -1,0 +1,30 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.contract.json",
+    ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.summary.json",
+    "src/lifecycle/LifecycleFlow.tsx"
+  ],
+  "checkpointAt": "2026-09-16T00:03:01Z",
+  "checkpointContractDigest": "sha256:16f2900e0d2600f34e5cd45ebbc2ae2cdc5653c35fe52f3b825e3bb9a4e3dd5a",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:f4c022251803d9f34b62999a00c61154fd4f5a7390c6dd88ae77e8e4cc7f2677",
+  "createdAt": "2026-09-15T23:59:14Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-16T00:03:08Z",
+  "preflightContractDigest": "sha256:16f2900e0d2600f34e5cd45ebbc2ae2cdc5653c35fe52f3b825e3bb9a4e3dd5a",
+  "preflightDecisionDigest": "sha256:20b4b742353bcc748008ea6dbb9f63bdf18a5136367959ab2a0ae37d53adb025",
+  "preflightRepositorySnapshotDigest": "sha256:f4c022251803d9f34b62999a00c61154fd4f5a7390c6dd88ae77e8e4cc7f2677",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-16T00:03:08Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-015-lifecycle-flow-wrap"
+}

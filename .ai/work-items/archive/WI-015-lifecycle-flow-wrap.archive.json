@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-16T00:03:08Z",
+  "files": {
+    "contractDigest": "sha256:64cf34577d2a64ff39f0b782def02594a9cf6eca059f2941179ba97dcdbd3b7d",
+    "contractPath": ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.contract.json",
+    "eventsDigest": "sha256:8e21cac1f296f0e86fc6d724de5a760918312fd2e446a41291a370f96b6e4a24",
+    "eventsPath": ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.events.jsonl",
+    "outcomeDigest": "sha256:1af540051aa4e3d684e087f0ffdcef36b592eb5faf11aa25a5759a1b249cbf12",
+    "outcomePath": ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.outcome.json",
+    "summaryDigest": "sha256:4d5753255d717ad05d9c97a7485423cf868f51e038e2c7d6d6de62da31cc3857",
+    "summaryPath": ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.summary.json",
+    "taskReportDigest": "sha256:b0bbe9eb0c51be7f8db60847aed36a577d84f5a1a82f12f7425c1de11a62f006",
+    "taskReportMarkdownDigest": "sha256:2301d7463a8a245fbe556b47ade50cbc0b0d7e20a3d9b2a267beb9511a932379",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-015-lifecycle-flow-wrap"
+}
