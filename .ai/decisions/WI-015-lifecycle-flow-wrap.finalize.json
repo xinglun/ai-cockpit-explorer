@@ -1,0 +1,58 @@
+{
+  "actor": "human:repository-owner",
+  "after": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "authoritySource": "reviewed-PR-14-merge",
+  "before": {
+    "branch": "present",
+    "pullRequest": "merged",
+    "worktree": "clean"
+  },
+  "branch": {
+    "headRevision": "65cd81080c1d981314be98d8bee8257b0b059310",
+    "name": "WI-015-lifecycle-flow-wrap",
+    "remote": "origin"
+  },
+  "contractDigest": "sha256:64cf34577d2a64ff39f0b782def02594a9cf6eca059f2941179ba97dcdbd3b7d",
+  "operationId": "operation-WI-015-lifecycle-flow-wrap-post-merge-cleanup",
+  "provider": "github",
+  "pullRequest": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "baseRevision": "9cbfd4f9928b4fb7610105422227d33c748ae624",
+    "headRevision": "65cd81080c1d981314be98d8bee8257b0b059310",
+    "mergeCommit": "ef18ab06e45a8528c2e5cc197a03b3ced37d0b22",
+    "number": 14,
+    "url": "https://github.com/xinglun/ai-cockpit-explorer/pull/14"
+  },
+  "reason": "PR #14 passed CI (task-list-completed), merged at ef18ab0 via merge commit by owner (xinglun); feature branch kept, worktree still present pending cleanup.",
+  "receiptId": "ai-cockpit-explorer-WI-015-lifecycle-flow-wrap-finalization",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "resourceContext": {
+    "baseBranch": "main",
+    "baseRemote": "origin",
+    "branch": "WI-015-lifecycle-flow-wrap",
+    "provider": "github",
+    "pullRequest": "https://github.com/xinglun/ai-cockpit-explorer/pull/14",
+    "worktree": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi015"
+  },
+  "result": {
+    "disposition": "retained",
+    "failureCodes": [],
+    "unknownCodes": []
+  },
+  "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+  "runtimeVersion": "0.2.92",
+  "schemaVersion": 1,
+  "timestamp": "2026-09-16T00:03:33Z",
+  "workItemId": "WI-015-lifecycle-flow-wrap",
+  "worktree": {
+    "branch": "WI-015-lifecycle-flow-wrap",
+    "headRevision": "65cd81080c1d981314be98d8bee8257b0b059310",
+    "path": "/Users/sei-rinn/dev/workspace_typescript/ai-cockpit-explorer-wi015",
+    "worktreeId": "WI-015-lifecycle-flow-wrap"
+  }
+}

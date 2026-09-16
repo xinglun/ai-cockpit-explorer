@@ -1,0 +1,145 @@
+{
+  "decisionState": "confirmed",
+  "finalReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:f4c022251803d9f34b62999a00c61154fd4f5a7390c6dd88ae77e8e4cc7f2677",
+      "workItemId": "WI-015-lifecycle-flow-wrap"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/decisions/observer-snapshot.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-015-lifecycle-flow-wrap.contract.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-015-lifecycle-flow-wrap.summary.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/lifecycle/LifecycleFlow.tsx"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+          ],
+          "inference": false,
+          "text": "Human decision 'approved' by human:sei-rinn via reviewed-PR-14-merge at 2026-09-16T00:03:33Z."
+        }
+      ],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.contract.json"
+          ],
+          "inference": false,
+          "text": "All 9 lifecycle steps are visible at once in the Work Item panel with no horizontal scrolling required"
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-015-lifecycle-flow-wrap.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-015-lifecycle-flow-wrap"
+  },
+  "finalReportDigest": "sha256:5fefe7a1c982271024cb73b7b36758ec0303427234dadfa814b85a935f687e15",
+  "humanDecision": "approved",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "closed",
+  "structuredDecision": {
+    "actor": "human:sei-rinn",
+    "authoritySource": "reviewed-PR-14-merge",
+    "decidedAt": "2026-09-16T00:03:33Z",
+    "decision": "approved",
+    "evidenceRefs": [
+      ".ai/evidence/WI-015-lifecycle-flow-wrap.verification.json"
+    ],
+    "policyRefs": [],
+    "reason": "Playwright verification against the built export confirmed no horizontal overflow and all nine steps visible across wrapped rows; lint/typecheck/vitest/build all green; PR #14 reviewed and merged to main by repository owner",
+    "resumeCondition": null
+  },
+  "timestamp": "2026-09-16T00:03:55Z",
+  "workItemId": "WI-015-lifecycle-flow-wrap"
+}
