@@ -58,7 +58,7 @@ export const zhCN = {
     },
     runtime: {
       label: "AI Cockpit Runtime",
-      what: "依据仓库事实与证据评估契约的引擎。",
+      what: "依据仓库事实与证据评估契约的引擎。AI Cockpit 自身的发布产物附带依赖 SBOM（SPDX）、SHA-256 校验和以及构建来源证明。",
       inputs: ["契约", "仓库事实", "证据"],
       outputs: ["验证结果", "Outcome"],
       boundary: "不能授予人的批准——它计算的是验证，而非授权。",
@@ -74,7 +74,10 @@ export const zhCN = {
       label: "仓库协议",
       what: "持久化、由仓库自身拥有的层（.ai/），保存契约、证据、决策，以及派生的 Knowledge。",
       inputs: ["生命周期事件"],
-      outputs: ["与代码一同版本化的持久治理历史"],
+      outputs: [
+        "与代码一同版本化的持久治理历史",
+        "基于 SHA-256 清单（repositoryId／profileDigest）对存储状态进行完整性校验",
+      ],
       boundary: "本身不能作为证据被评估——它只是存储状态，由 Runtime 评估。",
     },
     knowledge: {

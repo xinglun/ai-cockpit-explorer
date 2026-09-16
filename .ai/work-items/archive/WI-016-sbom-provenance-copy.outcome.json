@@ -1,0 +1,185 @@
+{
+  "acceptanceResults": [
+    "Repository Protocol copy in all three locales mentions the existing SHA-256 repositoryId/profileDigest manifest identity",
+    "AI Cockpit Runtime copy in all three locales mentions AI Cockpit's own release SBOM (SPDX), SHA-256 checksums, and build provenance",
+    "docs/upstream.md records the v0.2.92 release and cockpit-release/Anchore source, and states this is not a generic adopter-project feature",
+    "lint, typecheck, unit tests, and the static export build all succeed with no regression"
+  ],
+  "createdAt": "2026-09-16T01:46:55Z",
+  "decisionState": "green",
+  "evidenceDigest": "sha256:11142aff9418f28f0a53868bc8a2e491bb6548316ff78221c06e31d256f4408f",
+  "evidenceRefs": [
+    ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+  ],
+  "humanBenefitReport": {
+    "affectedUsers": [],
+    "evidenceRefs": [
+      ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+    ],
+    "state": "unknown",
+    "unknowns": [
+      "user_visible_benefit_not_declared"
+    ],
+    "userVisibleChanges": []
+  },
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "schemaVersion": 2,
+  "state": "finish_ready",
+  "summary": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner.",
+  "taskOutcomeReport": {
+    "bindings": {
+      "evidenceRefs": [
+        ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+      ],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:032b68171b9cafff460831d1c704e42dcd1abc1abaeb4c4e467e3c48f1da6f21",
+      "workItemId": "WI-016-sbom-provenance-copy"
+    },
+    "format": "ai-cockpit.task-outcome",
+    "humanStatusColor": "green",
+    "schemaVersion": 1,
+    "sections": {
+      "avoidedImpact": [],
+      "deliveredChanges": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/decisions/observer-snapshot.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/evidence/WI-016-sbom-provenance-copy.verification-attempt.a902fe56ba794c1e369362492fd472827ce597c98de604c45421afb88c4b75c9.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-016-sbom-provenance-copy.contract.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: .ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: docs/upstream.md"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/i18n/en.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/i18n/ja.ts"
+        },
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json"
+          ],
+          "inference": false,
+          "text": "Changed path: src/i18n/zh-CN.ts"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+          ],
+          "inference": false,
+          "text": ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+        }
+      ],
+      "findings": [],
+      "forbiddenClaims": [
+        "merge_authorized_without_human_decision",
+        "release_published_without_release_evidence",
+        "provider_or_enterprise_approval_inferred_from_local_records",
+        "user_visible_benefit_invented_from_implementation_facts"
+      ],
+      "forcedStops": [],
+      "humanDecisions": [],
+      "interventions": [],
+      "limitations": [],
+      "nonRiskExplanations": [],
+      "outcomeSummary": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+          ],
+          "inference": false,
+          "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+        }
+      ],
+      "recurrencePrevention": [],
+      "residualRisks": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+          ],
+          "inference": false,
+          "text": "Remaining unknown: user_visible_benefit_not_declared"
+        }
+      ],
+      "resolutions": [
+        {
+          "evidenceRefs": [
+            ".ai/evidence/WI-016-sbom-provenance-copy.verification.json"
+          ],
+          "inference": false,
+          "text": "The current verification evidence is valid for this repository and Work Item."
+        }
+      ],
+      "risks": [],
+      "taskOverview": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.contract.json"
+          ],
+          "inference": false,
+          "text": "Explorer detail-panel copy (ja/en/zh-CN) for the runtime and repositoryProtocol architecture elements accurately discloses these two integrity facts without overstating scope, and docs/upstream.md records the release this claim traces to."
+        }
+      ],
+      "warnings": [
+        {
+          "evidenceRefs": [
+            ".ai/work-items/archive/WI-016-sbom-provenance-copy.contract.json"
+          ],
+          "inference": false,
+          "text": "User-visible benefit is not declared by the Work Item owner."
+        }
+      ]
+    },
+    "status": "verified",
+    "workItemId": "WI-016-sbom-provenance-copy"
+  },
+  "taskReportDigest": "sha256:00f827d28d89935a8c3deb5aab1b32adda9f841d67324ebc6e57ca51f17b50d4",
+  "taskReportMarkdownDigest": "sha256:0adea34d8e7d3515ccf7937c20a5cd75635e640c998596ea2e25aa1cf367835a",
+  "unknowns": [
+    "user_visible_benefit_not_declared"
+  ],
+  "verification": {
+    "evidencePath": ".ai/evidence/WI-016-sbom-provenance-copy.verification.json",
+    "required": true,
+    "status": "verified"
+  },
+  "workItemId": "WI-016-sbom-provenance-copy"
+}

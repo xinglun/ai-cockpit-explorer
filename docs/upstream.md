@@ -31,3 +31,15 @@ upstream runtime does not support.
 This is the revision of `xinglun/ai-cockpit` used to derive the architecture
 and lifecycle facts rendered in `src/data/`. When architecture semantics are
 updated, record the new upstream revision here alongside the change.
+
+## Release supply-chain facts (separate provenance)
+
+The `runtime` architecture element's copy also states that AI Cockpit's own
+release artifacts ship with a dependency SBOM, checksums, and build
+provenance. This is confirmed against the `xinglun/ai-cockpit` release
+`v0.2.92`, not the commit revision above: `cockpit-release` (Rust) binds
+version, target platform, distribution archive, and executable SHA-256, and
+Anchore generates an SPDX-format dependency manifest per platform (`.spdx.json`,
+attached to the release for 5 platforms). This describes AI Cockpit's own
+software supply chain only — it is not a generic SBOM feature offered to
+projects that adopt AI Cockpit, and must not be described as one.

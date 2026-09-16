@@ -60,7 +60,7 @@ export const ja = {
     },
     runtime: {
       label: "AI Cockpit Runtime",
-      what: "ContractをRepositoryのファクトと証拠に照らして評価するエンジン。",
+      what: "ContractをRepositoryのファクトと証拠に照らして評価するエンジン。AI Cockpitの配布物には、依存関係を示すSBOM（SPDX）、SHA-256チェックサム、およびビルド来歴の証明が用意されている。",
       inputs: ["Contract", "リポジトリのファクト", "証拠"],
       outputs: ["検証結果", "Outcome"],
       boundary: "人間の承認を与えることはできません——行うのは検証であり、認可ではありません。",
@@ -76,7 +76,10 @@ export const ja = {
       label: "Repository Protocol",
       what: "Contract・証拠・決定、そして派生的なKnowledgeを保存する、リポジトリが所有する永続的なレイヤー（.ai/）。",
       inputs: ["ライフサイクルのイベント"],
-      outputs: ["コードと共にバージョン管理される、恒久的なガバナンス履歴"],
+      outputs: [
+        "コードと共にバージョン管理される、恒久的なガバナンス履歴",
+        "SHA256ベースのマニフェスト（repositoryId／profileDigest）による状態の同一性検証",
+      ],
       boundary: "それ自体は証拠として評価されません——状態を保存するだけで、評価するのはRuntimeです。",
     },
     knowledge: {

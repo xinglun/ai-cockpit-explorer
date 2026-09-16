@@ -1,0 +1,37 @@
+{
+  "acceptanceCriteria": [
+    "Repository Protocol copy in all three locales mentions the existing SHA-256 repositoryId/profileDigest manifest identity",
+    "AI Cockpit Runtime copy in all three locales mentions AI Cockpit's own release SBOM (SPDX), SHA-256 checksums, and build provenance",
+    "docs/upstream.md records the v0.2.92 release and cockpit-release/Anchore source, and states this is not a generic adopter-project feature",
+    "lint, typecheck, unit tests, and the static export build all succeed with no regression"
+  ],
+  "authority": "sei-rinn",
+  "baseRevision": "4e7ff82d153a50113c731aa2aa2e886cc8d47817",
+  "createdAt": "2026-09-16T01:44:55Z",
+  "goal": "Explorer detail-panel copy (ja/en/zh-CN) for the runtime and repositoryProtocol architecture elements accurately discloses these two integrity facts without overstating scope, and docs/upstream.md records the release this claim traces to.",
+  "intent": "The user asked whether enterprise-compliance SBOM and manifest/SHA verification concepts should be reflected in the Explorer presentation. After discussion, scoped to two accurate, brief additions: (1) AI Cockpit's own release artifacts ship a dependency SBOM (SPDX), SHA-256 checksums, and build provenance, confirmed against upstream release v0.2.92 (cockpit-release + Anchore) -- this belongs on the runtime element, not as a generic feature claim for adopter projects; (2) the repository-owned .ai/ governance state (Repository Protocol) is itself identified/verified via a SHA-256 manifest (repositoryId / profileDigest), observable in this repo's own .ai/project.json and agent-interface.json.",
+  "mode": "implementation",
+  "outOfScope": [
+    "No new architecture element or 3D scene node",
+    "No claim that AI Cockpit auto-generates SBOM for projects that merely adopt it",
+    "No component or UI structural changes"
+  ],
+  "projectProfileDigest": "sha256:ad2985721bc9a417f9bf9b683d3e6478e7ad901bd480b28ba9ceebe15b625270",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "repositorySnapshotDigest": "sha256:f4c022251803d9f34b62999a00c61154fd4f5a7390c6dd88ae77e8e4cc7f2677",
+  "requiredEvidenceClasses": [
+    "verification"
+  ],
+  "risk": "normal",
+  "scope": [
+    "src/i18n/en.ts",
+    "src/i18n/ja.ts",
+    "src/i18n/zh-CN.ts",
+    "docs/upstream.md"
+  ],
+  "sources": [],
+  "state": "implementation_active",
+  "verification": [],
+  "workItemId": "WI-016-sbom-provenance-copy"
+}
