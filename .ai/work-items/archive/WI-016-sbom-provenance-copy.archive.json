@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-16T01:47:03Z",
+  "files": {
+    "contractDigest": "sha256:3ed55fa7de505bcfcf3be4248cd3a1ef171eeddd86ebe1808c9289647d9c450c",
+    "contractPath": ".ai/work-items/archive/WI-016-sbom-provenance-copy.contract.json",
+    "eventsDigest": "sha256:3ce6d48f2d6adca593d067ca3e3eef0a8642fe8279e352d6d7d123e6eea25a67",
+    "eventsPath": ".ai/work-items/archive/WI-016-sbom-provenance-copy.events.jsonl",
+    "outcomeDigest": "sha256:2ed5144cb4cf582a3236a4b8c828610df3676451c61c017bf1ccd47b0d8689ea",
+    "outcomePath": ".ai/work-items/archive/WI-016-sbom-provenance-copy.outcome.json",
+    "summaryDigest": "sha256:a201219e5ede1159c020f1ac1cbd98a3dd6802e12c9a5f6137ea8661fe3b3be8",
+    "summaryPath": ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json",
+    "taskReportDigest": "sha256:00f827d28d89935a8c3deb5aab1b32adda9f841d67324ebc6e57ca51f17b50d4",
+    "taskReportMarkdownDigest": "sha256:0adea34d8e7d3515ccf7937c20a5cd75635e640c998596ea2e25aa1cf367835a",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-016-sbom-provenance-copy.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-016-sbom-provenance-copy.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-016-sbom-provenance-copy"
+}

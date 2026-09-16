@@ -1,0 +1,34 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/evidence/WI-016-sbom-provenance-copy.verification-attempt.a902fe56ba794c1e369362492fd472827ce597c98de604c45421afb88c4b75c9.json",
+    ".ai/work-items/archive/WI-016-sbom-provenance-copy.contract.json",
+    ".ai/work-items/archive/WI-016-sbom-provenance-copy.summary.json",
+    "docs/upstream.md",
+    "src/i18n/en.ts",
+    "src/i18n/ja.ts",
+    "src/i18n/zh-CN.ts"
+  ],
+  "checkpointAt": "2026-09-16T01:45:34Z",
+  "checkpointContractDigest": "sha256:cc37470e5bee291300e60e1c87b648f70b9e4484cf85144faceebacbeeac6fec",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:032b68171b9cafff460831d1c704e42dcd1abc1abaeb4c4e467e3c48f1da6f21",
+  "createdAt": "2026-09-16T01:44:55Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-16T01:46:52Z",
+  "preflightContractDigest": "sha256:cc37470e5bee291300e60e1c87b648f70b9e4484cf85144faceebacbeeac6fec",
+  "preflightDecisionDigest": "sha256:20b4b742353bcc748008ea6dbb9f63bdf18a5136367959ab2a0ae37d53adb025",
+  "preflightRepositorySnapshotDigest": "sha256:032b68171b9cafff460831d1c704e42dcd1abc1abaeb4c4e467e3c48f1da6f21",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-16T01:46:55Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-016-sbom-provenance-copy"
+}

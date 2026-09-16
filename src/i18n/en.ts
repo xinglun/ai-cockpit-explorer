@@ -60,7 +60,7 @@ export const en = {
     },
     runtime: {
       label: "AI Cockpit Runtime",
-      what: "The engine that evaluates the Contract against repository facts and evidence.",
+      what: "The engine that evaluates the Contract against repository facts and evidence. AI Cockpit's own release artifacts ship with a dependency SBOM (SPDX), SHA-256 checksums, and build provenance attestations.",
       inputs: ["Contract", "Repository facts", "Evidence"],
       outputs: ["Verification result", "Outcome"],
       boundary: "Cannot grant human approval — it computes verification, not authorization.",
@@ -76,7 +76,10 @@ export const en = {
       label: "Repository Protocol",
       what: "A persistent, repository-owned layer (.ai/) storing Contracts, evidence, decisions, and derived Knowledge.",
       inputs: ["Lifecycle events"],
-      outputs: ["Durable governance history versioned with the code"],
+      outputs: [
+        "Durable governance history versioned with the code",
+        "SHA-256 manifest-based integrity verification of the stored state (repositoryId / profileDigest)",
+      ],
       boundary: "Cannot be evaluated as evidence by itself — it stores state, Runtime evaluates it.",
     },
     knowledge: {
