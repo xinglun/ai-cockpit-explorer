@@ -1,0 +1,22 @@
+{
+  "closeRequired": true,
+  "createdAt": "2026-09-16T05:34:11Z",
+  "files": {
+    "contractDigest": "sha256:77a76fbbf499c193ae5810423937c245c2efaba0136de932fdbbf37e3372fff3",
+    "contractPath": ".ai/work-items/archive/WI-017-entry-gate-transport-copy.contract.json",
+    "eventsDigest": "sha256:783c27e84896e98fe82206d2d229e7969859976a6b5de94994cd10959f92c06d",
+    "eventsPath": ".ai/work-items/archive/WI-017-entry-gate-transport-copy.events.jsonl",
+    "outcomeDigest": "sha256:2acc1f21bb5b150094ea45cc808043dd1864f6ffa4b8d035b75145644a3e254f",
+    "outcomePath": ".ai/work-items/archive/WI-017-entry-gate-transport-copy.outcome.json",
+    "summaryDigest": "sha256:d6651f23ce4f357a1da1ead7df5611fb97afbeab74f1262cd6cec37a35a615f6",
+    "summaryPath": ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json",
+    "taskReportDigest": "sha256:60443c663eacf69ec1a361f264c1a9d70a39fbff1b12b2a408a5b56ade1bc88e",
+    "taskReportMarkdownDigest": "sha256:32beec4aa1ecc9144fd56f5f98997aee1cc259592a92b98ea2003e85e8ddbde9",
+    "taskReportMarkdownPath": ".ai/work-items/archive/WI-017-entry-gate-transport-copy.task-report.md",
+    "taskReportPath": ".ai/work-items/archive/WI-017-entry-gate-transport-copy.task-report.json"
+  },
+  "historicalArtifacts": [],
+  "protocolVersion": 1,
+  "state": "archived",
+  "workItemId": "WI-017-entry-gate-transport-copy"
+}

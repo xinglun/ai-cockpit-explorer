@@ -39,7 +39,7 @@ export const en = {
     },
     entrySurface: {
       label: "Entry Gate",
-      what: "Where execution requests enter the governed lifecycle.",
+      what: "Where execution requests enter the governed lifecycle, accepted via a CLI or an MCP interface (stdio transport).",
       inputs: ["Agent execution requests"],
       outputs: ["Bounded start / checkpoint / finish calls"],
       boundary: "Cannot be bypassed to mutate the repository directly and invisibly.",

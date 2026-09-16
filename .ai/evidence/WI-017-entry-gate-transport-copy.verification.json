@@ -1,0 +1,120 @@
+{
+  "captureMode": "full_capture",
+  "contractDigest": "sha256:5aaee547f5efab0a4609b939fb0e653d4f7da8b7dcad4074662274901919f566",
+  "createdAt": "2026-09-16T05:34:07Z",
+  "evidenceSchemaVersion": 2,
+  "passed": true,
+  "protocolVersion": 1,
+  "receipt": {
+    "costObservation": {
+      "advisoryOnly": true,
+      "confidence": "complete",
+      "elapsedMs": 5320,
+      "executionElapsedMs": 4597,
+      "maxConcurrentProcesses": 1,
+      "nodesExecuted": 1,
+      "nodesPlanned": 1,
+      "nodesReused": 0,
+      "passed": true,
+      "planningElapsedMs": 0,
+      "processesSpawned": 1,
+      "protectedNodesExecuted": 0,
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+      "runtimeVersion": "0.2.92",
+      "schemaVersion": 1,
+      "unknowns": []
+    },
+    "elapsedMs": 5320,
+    "executionElapsedMs": 4597,
+    "executionRecords": [
+      {
+        "commandDigest": "sha256:f785cb29ab6d1b2c213c44441af63622f63751c1e4f804eb03f626baf6ef1b76",
+        "elapsedMs": 4597,
+        "exitCode": 0,
+        "nodeId": "project-command-0",
+        "passed": true,
+        "spawned": true,
+        "stderr": "",
+        "stderrTruncated": false,
+        "stdout": "0a3e2061692d636f636b7069742d6578706c6f72657240302e312e30206275696c640a3e206e657874206275696c640a0ae296b2204e6578742e6a732031362e332e352028547572626f7061636b290ae29c932052756e6e696e67206e6578742e636f6e6669672e747320746f6f6b2031326d730a0a20204372656174696e6720616e206f7074696d697a65642070726f64756374696f6e206275696c64202e2e2e0ae29c9320436f6d70696c6564207375636365737366756c6c7920696e203530386d730a202052756e6e696e672054797065536372697074202e2e2e0a202046696e6973686564205479706553637269707420696e20313531376d73202e2e2e0a2020436f6c6c656374696e6720706167652064617461207573696e67203620776f726b657273202e2e2e0a202047656e65726174696e6720737461746963207061676573207573696e67203620776f726b6572732028302f3729202e2e2e0a202047656e65726174696e6720737461746963207061676573207573696e67203620776f726b6572732028312f3729200d0a202047656e65726174696e6720737461746963207061676573207573696e67203620776f726b6572732028332f3729200d0a202047656e65726174696e6720737461746963207061676573207573696e67203620776f726b6572732028352f3729200d0ae29c932047656e65726174696e6720737461746963207061676573207573696e67203620776f726b6572732028372f372920696e203431326d730a202046696e616c697a696e672070616765206f7074696d697a6174696f6e202e2e2e0a0a526f7574652028617070290ae2948c20e2978b202f0ae2949c20e2978b202f5f6e6f742d666f756e640ae294942020202f5b6c6f63616c655d0a2020e2949c20e2978f202f656e0a2020e2949c20e2978f202f6a610a2020e2949420e2978f202f7a682d434e0a0a0ae2978b20202853746174696329202070726572656e64657265642061732073746174696320636f6e74656e740ae2978f20202853534729202020202070726572656e6465726564206173207374617469632048544d4c2028757365732067656e6572617465537461746963506172616d73290a0a",
+        "stdoutTruncated": false,
+        "timedOut": false
+      }
+    ],
+    "filesHashed": 13,
+    "filesRead": 13,
+    "gitCalls": 8,
+    "maxConcurrentProcesses": 1,
+    "nodesExecuted": 1,
+    "nodesPlanned": 1,
+    "nodesReused": 0,
+    "passed": true,
+    "planReceipt": {
+      "affectedPaths": [
+        "src/i18n/en.ts",
+        "src/i18n/ja.ts",
+        "src/i18n/zh-CN.ts"
+      ],
+      "assurance": "repository_verified",
+      "baseRevision": "a66cd1d890ec9e3953a9a6d2f1a6060b05ba8202",
+      "dependencyConfidence": "unknown",
+      "escalations": [],
+      "executedNodes": [
+        "project-command-0"
+      ],
+      "executionElapsedMs": 4597,
+      "finalTier": "T0",
+      "initialTier": "T0",
+      "planningElapsedMs": 0,
+      "policyRefs": [],
+      "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+      "repositorySnapshotDigest": "sha256:24c3e8afc632e5d927f46088f2938d666633004b3e18e54891ea33028fbf4602",
+      "requiredAssurance": null,
+      "requiredTier": null,
+      "reusedNodes": [],
+      "savedExecutions": 0,
+      "schemaVersion": 1,
+      "selectionReasons": [
+        "cli_route_stage_explicit"
+      ],
+      "sharedNodes": [],
+      "stage": "task",
+      "workItemId": "WI-017-entry-gate-transport-copy"
+    },
+    "planningElapsedMs": 0,
+    "processSpawnFailures": 0,
+    "processesSpawned": 1,
+    "protectedNodesExecuted": 0,
+    "protectedNodesSkipped": 0,
+    "receiptCandidates": [],
+    "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+    "rerunStale": 0,
+    "rerunUnknown": 0,
+    "results": [
+      {
+        "action": "execute",
+        "nodeId": "project-command-0",
+        "outputDigest": "sha256:12a4233e43ba657fcb2acb413893069b8d96ea7b9fc217ccaad66e4fe592428d",
+        "outputTruncated": false,
+        "passed": true,
+        "protected": false,
+        "reason": "reuse_not_configured",
+        "receiptId": null,
+        "reused": false,
+        "satisfiedBy": "execution",
+        "state": "not_applicable",
+        "timedOut": false
+      }
+    ],
+    "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+    "runtimeVersion": "0.2.92",
+    "workItemId": "WI-017-entry-gate-transport-copy"
+  },
+  "receiptDigest": "sha256:df6b23101d552643bff751632b93a2ab5a2509a683b8a3b74c3c648ac092f9c0",
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "repositorySnapshotDigest": "sha256:24c3e8afc632e5d927f46088f2938d666633004b3e18e54891ea33028fbf4602",
+  "runtimeDigest": "sha256:4a87171fd6130d9c37bd21ed7630c4ef4cb0e0cb54d45c99a29d5ed55eeb4969",
+  "runtimeVersion": "0.2.92",
+  "workItemId": "WI-017-entry-gate-transport-copy"
+}

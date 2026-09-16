@@ -1,0 +1,33 @@
+{
+  "changedPaths": [
+    ".ai/decisions/observer-snapshot.json",
+    ".ai/decisions/profile-v2.json",
+    ".ai/work-items/archive/WI-017-entry-gate-transport-copy.contract.json",
+    ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json",
+    "src/i18n/en.ts",
+    "src/i18n/ja.ts",
+    "src/i18n/zh-CN.ts"
+  ],
+  "checkpointAt": "2026-09-16T05:33:37Z",
+  "checkpointContractDigest": "sha256:5aaee547f5efab0a4609b939fb0e653d4f7da8b7dcad4074662274901919f566",
+  "checkpointCount": 1,
+  "checkpointRepositorySnapshotDigest": "sha256:24c3e8afc632e5d927f46088f2938d666633004b3e18e54891ea33028fbf4602",
+  "createdAt": "2026-09-16T05:31:27Z",
+  "mode": "implementation",
+  "preflightAt": "2026-09-16T05:34:07Z",
+  "preflightContractDigest": "sha256:5aaee547f5efab0a4609b939fb0e653d4f7da8b7dcad4074662274901919f566",
+  "preflightDecisionDigest": "sha256:20b4b742353bcc748008ea6dbb9f63bdf18a5136367959ab2a0ae37d53adb025",
+  "preflightRepositorySnapshotDigest": "sha256:24c3e8afc632e5d927f46088f2938d666633004b3e18e54891ea33028fbf4602",
+  "preflightState": "green",
+  "protocolVersion": 1,
+  "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+  "state": "finish_ready",
+  "updatedAt": "2026-09-16T05:34:10Z",
+  "verification": [
+    {
+      "check": "project-command-0",
+      "result": "passed"
+    }
+  ],
+  "workItemId": "WI-017-entry-gate-transport-copy"
+}
