@@ -1,0 +1,137 @@
+{
+  "bindings": {
+    "evidenceRefs": [
+      ".ai/evidence/WI-017-entry-gate-transport-copy.verification.json"
+    ],
+    "repositoryId": "sha256:87477d355b8d5e7603bb2d14eb5202a27ffbc2a91065a23ee5cc4566bb72789d",
+    "repositorySnapshotDigest": "sha256:24c3e8afc632e5d927f46088f2938d666633004b3e18e54891ea33028fbf4602",
+    "workItemId": "WI-017-entry-gate-transport-copy"
+  },
+  "format": "ai-cockpit.task-outcome",
+  "humanStatusColor": "green",
+  "schemaVersion": 1,
+  "sections": {
+    "avoidedImpact": [],
+    "deliveredChanges": [
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+        ],
+        "inference": false,
+        "text": "Changed path: .ai/decisions/observer-snapshot.json"
+      },
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+        ],
+        "inference": false,
+        "text": "Changed path: .ai/decisions/profile-v2.json"
+      },
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+        ],
+        "inference": false,
+        "text": "Changed path: .ai/work-items/archive/WI-017-entry-gate-transport-copy.contract.json"
+      },
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+        ],
+        "inference": false,
+        "text": "Changed path: .ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+      },
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+        ],
+        "inference": false,
+        "text": "Changed path: src/i18n/en.ts"
+      },
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+        ],
+        "inference": false,
+        "text": "Changed path: src/i18n/ja.ts"
+      },
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.summary.json"
+        ],
+        "inference": false,
+        "text": "Changed path: src/i18n/zh-CN.ts"
+      }
+    ],
+    "evidence": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-017-entry-gate-transport-copy.verification.json"
+        ],
+        "inference": false,
+        "text": ".ai/evidence/WI-017-entry-gate-transport-copy.verification.json"
+      }
+    ],
+    "findings": [],
+    "forbiddenClaims": [
+      "merge_authorized_without_human_decision",
+      "release_published_without_release_evidence",
+      "provider_or_enterprise_approval_inferred_from_local_records",
+      "user_visible_benefit_invented_from_implementation_facts"
+    ],
+    "forcedStops": [],
+    "humanDecisions": [],
+    "interventions": [],
+    "limitations": [],
+    "nonRiskExplanations": [],
+    "outcomeSummary": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-017-entry-gate-transport-copy.verification.json"
+        ],
+        "inference": false,
+        "text": "Verification evidence passed; human-visible benefit remains explicitly unknown unless declared by the Work Item owner."
+      }
+    ],
+    "recurrencePrevention": [],
+    "residualRisks": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-017-entry-gate-transport-copy.verification.json"
+        ],
+        "inference": false,
+        "text": "Remaining unknown: user_visible_benefit_not_declared"
+      }
+    ],
+    "resolutions": [
+      {
+        "evidenceRefs": [
+          ".ai/evidence/WI-017-entry-gate-transport-copy.verification.json"
+        ],
+        "inference": false,
+        "text": "The current verification evidence is valid for this repository and Work Item."
+      }
+    ],
+    "risks": [],
+    "taskOverview": [
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.contract.json"
+        ],
+        "inference": false,
+        "text": "Explorer detail-panel copy (ja/en/zh-CN) for the entrySurface architecture element mentions that execution requests enter via a CLI or an MCP interface (stdio transport), grounded in .ai/agent-interface.json."
+      }
+    ],
+    "warnings": [
+      {
+        "evidenceRefs": [
+          ".ai/work-items/archive/WI-017-entry-gate-transport-copy.contract.json"
+        ],
+        "inference": false,
+        "text": "User-visible benefit is not declared by the Work Item owner."
+      }
+    ]
+  },
+  "status": "verified",
+  "workItemId": "WI-017-entry-gate-transport-copy"
+}

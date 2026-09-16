@@ -39,7 +39,7 @@ export const ja = {
     },
     entrySurface: {
       label: "エントリーゲート",
-      what: "実行リクエストが統制されたライフサイクルに入る場所。",
+      what: "実行リクエストが統制されたライフサイクルに入る場所。CLIまたはMCPインターフェース（stdioトランスポート）経由で受け付けられる。",
       inputs: ["エージェントからの実行リクエスト"],
       outputs: ["境界づけられた start / checkpoint / finish 呼び出し"],
       boundary: "迂回してリポジトリを直接・不可視に変更することはできません。",

@@ -37,7 +37,7 @@ export const zhCN = {
     },
     entrySurface: {
       label: "入口网关",
-      what: "执行请求进入受治理生命周期的位置。",
+      what: "执行请求进入受治理生命周期的位置，通过 CLI 或 MCP 接口（stdio 传输）接受。",
       inputs: ["智能体的执行请求"],
       outputs: ["受限的 start / checkpoint / finish 调用"],
       boundary: "不能被绕过以直接、不可见地修改仓库。",
